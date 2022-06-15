@@ -18,6 +18,8 @@
 		91E6CE4F2859E15700F52DD1 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E6CE4E2859E15700F52DD1 /* HomeView.swift */; };
 		91E6CE572859EC3300F52DD1 /* OrelegaOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 91E6CE562859EC3300F52DD1 /* OrelegaOne-Regular.ttf */; };
 		91E6CE592859EC4600F52DD1 /* HammersmithOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 91E6CE582859EC4600F52DD1 /* HammersmithOne-Regular.ttf */; };
+		91E6CE5B285A008C00F52DD1 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E6CE5A285A008C00F52DD1 /* UIColor+Extensions.swift */; };
+		91E6CE5D285A009800F52DD1 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E6CE5C285A009800F52DD1 /* UIView+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +35,8 @@
 		91E6CE4E2859E15700F52DD1 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		91E6CE562859EC3300F52DD1 /* OrelegaOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OrelegaOne-Regular.ttf"; sourceTree = "<group>"; };
 		91E6CE582859EC4600F52DD1 /* HammersmithOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HammersmithOne-Regular.ttf"; sourceTree = "<group>"; };
+		91E6CE5A285A008C00F52DD1 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
+		91E6CE5C285A009800F52DD1 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +129,8 @@
 		91E6CE4D2859E0FF00F52DD1 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				91E6CE5A285A008C00F52DD1 /* UIColor+Extensions.swift */,
+				91E6CE5C285A009800F52DD1 /* UIView+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -211,6 +217,8 @@
 				912429B72858A0000007F0B3 /* GameViewController.swift in Sources */,
 				912429B32858A0000007F0B3 /* AppDelegate.swift in Sources */,
 				912429B52858A0000007F0B3 /* SceneDelegate.swift in Sources */,
+				91E6CE5D285A009800F52DD1 /* UIView+Extensions.swift in Sources */,
+				91E6CE5B285A008C00F52DD1 /* UIColor+Extensions.swift in Sources */,
 				91E6CE4F2859E15700F52DD1 /* HomeView.swift in Sources */,
 				91E6CE452859DF1C00F52DD1 /* HomeViewController.swift in Sources */,
 			);
