@@ -9,21 +9,26 @@
 /* Begin PBXBuildFile section */
 		912429B32858A0000007F0B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912429B22858A0000007F0B3 /* AppDelegate.swift */; };
 		912429B52858A0000007F0B3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912429B42858A0000007F0B3 /* SceneDelegate.swift */; };
-		912429B72858A0000007F0B3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912429B62858A0000007F0B3 /* ViewController.swift */; };
+		912429B72858A0000007F0B3 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912429B62858A0000007F0B3 /* GameViewController.swift */; };
 		912429BA2858A0000007F0B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 912429B82858A0000007F0B3 /* Main.storyboard */; };
 		912429BC2858A0010007F0B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 912429BB2858A0010007F0B3 /* Assets.xcassets */; };
 		912429BF2858A0010007F0B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 912429BD2858A0010007F0B3 /* LaunchScreen.storyboard */; };
+		91E6CE452859DF1C00F52DD1 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E6CE442859DF1B00F52DD1 /* HomeViewController.swift */; };
+		91E6CE4B2859E08700F52DD1 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 91E6CE4A2859E08700F52DD1 /* SnapKit */; };
+		91E6CE4F2859E15700F52DD1 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E6CE4E2859E15700F52DD1 /* HomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		912429AF2858A0000007F0B3 /* TurismoRacing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TurismoRacing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		912429B22858A0000007F0B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		912429B42858A0000007F0B3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		912429B62858A0000007F0B3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		912429B62858A0000007F0B3 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		912429B92858A0000007F0B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		912429BB2858A0010007F0B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		912429BE2858A0010007F0B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		912429C02858A0010007F0B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		91E6CE442859DF1B00F52DD1 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		91E6CE4E2859E15700F52DD1 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +36,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91E6CE4B2859E08700F52DD1 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -41,6 +47,7 @@
 			isa = PBXGroup;
 			children = (
 				912429B12858A0000007F0B3 /* TurismoRacing */,
+				912429B82858A0000007F0B3 /* Main.storyboard */,
 				912429B02858A0000007F0B3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -56,15 +63,64 @@
 		912429B12858A0000007F0B3 /* TurismoRacing */ = {
 			isa = PBXGroup;
 			children = (
+				912429C02858A0010007F0B3 /* Info.plist */,
 				912429B22858A0000007F0B3 /* AppDelegate.swift */,
 				912429B42858A0000007F0B3 /* SceneDelegate.swift */,
-				912429B62858A0000007F0B3 /* ViewController.swift */,
-				912429B82858A0000007F0B3 /* Main.storyboard */,
-				912429BB2858A0010007F0B3 /* Assets.xcassets */,
-				912429BD2858A0010007F0B3 /* LaunchScreen.storyboard */,
-				912429C02858A0010007F0B3 /* Info.plist */,
+				91E6CE472859DFFF00F52DD1 /* Resources */,
+				91E6CE432859DF0700F52DD1 /* ViewControllers */,
+				91E6CE462859DF3A00F52DD1 /* Views */,
+				91E6CE482859E02500F52DD1 /* Utilities */,
 			);
 			path = TurismoRacing;
+			sourceTree = "<group>";
+		};
+		91E6CE432859DF0700F52DD1 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				912429B62858A0000007F0B3 /* GameViewController.swift */,
+				91E6CE442859DF1B00F52DD1 /* HomeViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		91E6CE462859DF3A00F52DD1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				91E6CE4E2859E15700F52DD1 /* HomeView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		91E6CE472859DFFF00F52DD1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				91E6CE4C2859E09A00F52DD1 /* Fonts */,
+				912429BD2858A0010007F0B3 /* LaunchScreen.storyboard */,
+				912429BB2858A0010007F0B3 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		91E6CE482859E02500F52DD1 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				91E6CE4D2859E0FF00F52DD1 /* Extensions */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		91E6CE4C2859E09A00F52DD1 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		91E6CE4D2859E0FF00F52DD1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +139,9 @@
 			dependencies = (
 			);
 			name = TurismoRacing;
+			packageProductDependencies = (
+				91E6CE4A2859E08700F52DD1 /* SnapKit */,
+			);
 			productName = TurismoRacing;
 			productReference = 912429AF2858A0000007F0B3 /* TurismoRacing.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +170,9 @@
 				Base,
 			);
 			mainGroup = 912429A62858A0000007F0B3;
+			packageReferences = (
+				91E6CE492859E08700F52DD1 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 912429B02858A0000007F0B3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -138,9 +200,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				912429B72858A0000007F0B3 /* ViewController.swift in Sources */,
+				912429B72858A0000007F0B3 /* GameViewController.swift in Sources */,
 				912429B32858A0000007F0B3 /* AppDelegate.swift in Sources */,
 				912429B52858A0000007F0B3 /* SceneDelegate.swift in Sources */,
+				91E6CE4F2859E15700F52DD1 /* HomeView.swift in Sources */,
+				91E6CE452859DF1C00F52DD1 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,6 +426,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		91E6CE492859E08700F52DD1 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 5.6.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		91E6CE4A2859E08700F52DD1 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 91E6CE492859E08700F52DD1 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 912429A72858A0000007F0B3 /* Project object */;
 }
