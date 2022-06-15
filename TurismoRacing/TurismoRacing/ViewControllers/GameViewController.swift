@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Foundation
+import SnapKit
 
 class GameViewController: UIViewController {
     
@@ -24,6 +26,52 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
         createTimer()
         addBackToView()
+        startLable()
+    }
+    
+    private func startLable() {
+        lable = UILabel()
+        lable.text = "3"
+        lable.font = UIFont.boldSystemFont(ofSize: 86)
+        lable.textColor = .white
+        lable.numberOfLines = 0
+        lable.textAlignment = .center
+        view.addSubview(lable)
+        lable.snp.makeConstraints { make in
+            make.centerX.equalTo(view.center)
+            make.centerY.equalTo(view.center)
+        }
+        animateStartLable()
+    }
+
+    private func animateStartLable() {
+        UIView.animate(withDuration: 1, delay: 0) {
+            self.lable.transform = CGAffineTransform(scaleX: 2, y: 2)
+            self.lable.layer.opacity = 0.2
+        } completion: { _ in
+            self.lable.transform = .identity
+            self.lable.text = "2"
+            self.lable.layer.opacity = 1
+            UIView.animate(withDuration: 1, delay: 0) {
+                self.lable.transform = CGAffineTransform(scaleX: 2, y: 2)
+                self.lable.layer.opacity = 0.2
+            } completion: { _ in
+                self.lable.transform = .identity
+                self.lable.text = "1"
+                self.lable.layer.opacity = 1
+                UIView.animate(withDuration: 1, delay: 0) {
+                    self.lable.transform = CGAffineTransform(scaleX: 2, y: 2)
+                    self.lable.layer.opacity = 0.2
+                } completion: { _ in
+                    self.lable.transform = .identity
+                    self.lable.layer.opacity = 1
+                    self.lable.text = "GOOO!"
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
+                        self.lable.isHidden = true
+                    }
+                }
+            }
+        }
     }
     
     private func createTimer() {
@@ -34,15 +82,19 @@ class GameViewController: UIViewController {
                                          repeats: true)
     }
     
+    // MARK: - Add Game View
+    
     private func addBackToView() {
         backgroundImageArray = [backImage(backName: "ic_desertMap1"), backImage(backName: "ic_desertMap2"), backImage(backName: "ic_desertMap3")]
         backgroundImageArray[0].frame.origin = .zero
         backgroundImageArray[1].frame.origin = CGPoint(x: 0, y: 0 - view.bounds.height)
         view.addSubview(backgroundImageArray[0])
         view.addSubview(backgroundImageArray[1])
-        animateBackground()
-        addObjectsToRoad()
-        swipeRecognizer()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.7) {
+            self.animateBackground()
+            self.addObjectsToRoad()
+            self.swipeRecognizer()
+        }
         addCarToView()
     }
     
@@ -52,6 +104,8 @@ class GameViewController: UIViewController {
         car.center = CGPoint(x: view.bounds.midX / 2, y: view.bounds.maxY - 100)
         view.addSubview(car)
     }
+    
+    // MARK: - Work With Animation
     
     private func animateBackground() {
         UIView.animate(withDuration: 5, delay: 0, options: .curveLinear) {
@@ -70,10 +124,12 @@ class GameViewController: UIViewController {
         animateBackground()
     }
     
+    // MARK: - Add Objects and Animate
+    
     @objc private func addObjectsToRoad() {
         objectImagesArray = [objectImage(name: "ic_barrel"), objectImage(name: "ic_barrier"), objectImage(name: "ic_cone"), objectImage(name: "ic_coin")]
         randomObject = objectImagesArray.randomElement()
-        randomObject?.center = CGPoint(x: view.bounds.midX / 2, y: 0 - 40)
+        randomObject.center = CGPoint(x: view.bounds.midX / 2, y: 0 - 40)
         randomObject2 = objectImagesArray.randomElement()
         randomObject2.center = CGPoint(x: view.bounds.midX / 2 + view.bounds.midX / 3, y: 0 - 40)
         randomObject3 = objectImagesArray.randomElement()
@@ -98,7 +154,6 @@ class GameViewController: UIViewController {
     }
     
     // MARK: - Control Car
-    // MARK: -
     
     private func swipeRecognizer() {
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(moveCar))
@@ -118,7 +173,6 @@ class GameViewController: UIViewController {
     }
     
     // MARK: - Init images
-    // MARK: -
     
     private func backImage(backName: String) -> UIImageView {
         let image = UIImage(named: backName)
