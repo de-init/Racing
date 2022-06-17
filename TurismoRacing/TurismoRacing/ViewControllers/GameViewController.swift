@@ -21,19 +21,59 @@ class GameViewController: UIViewController {
     private var randomObject3: UIImageView!
     private var randomObject4: UIImageView!
     private var lable: UILabel!
+    private var scoreLable: UILabel!
+    private var counter = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         createTimer()
         addBackToView()
         startLable()
+        createScoreLable()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.7) {
+            self.timerCount()
+        }
     }
     
+    private func timerCount() {
+        _ = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(countScore), userInfo: nil, repeats: true)
+    }
+    
+    @objc private func countScore() {
+        counter += 1
+        scoreLable.text = "Score: \(counter)"
+    }
+
+
+    
+    private func createScoreLable() {
+        let strokeTextAttributes = [
+            NSAttributedString.Key.strokeColor : UIColor.init(hex: 0xFFFFFF),
+            NSAttributedString.Key.foregroundColor : UIColor.init(hex: 0xD87272),
+            NSAttributedString.Key.strokeWidth : -3.0,
+            NSAttributedString.Key.font : UIFont(name: "HammersmithOne-Regular", size: 35)]
+        as [NSAttributedString.Key : Any]
+        scoreLable = UILabel()
+        scoreLable.font = UIFont.boldSystemFont(ofSize: 30)
+        scoreLable.adjustsFontSizeToFitWidth = true
+        scoreLable.numberOfLines = 0
+        scoreLable.attributedText = NSMutableAttributedString(string: "Score: \(counter)", attributes: strokeTextAttributes)
+        view.addSubview(scoreLable)
+        scoreLable.snp.makeConstraints { make in
+            make.centerX.equalTo(view.center)
+            make.top.equalTo(view).offset(40)
+        }
+        
+    }
+
+    
+    // MARK: - Start timer
+
     private func startLable() {
         lable = UILabel()
         lable.text = "3"
         lable.font = UIFont.boldSystemFont(ofSize: 86)
-        lable.textColor = .white
+        lable.textColor = UIColor.init(hex: 0xD9F339)
         lable.numberOfLines = 0
         lable.textAlignment = .center
         view.addSubview(lable)
@@ -75,7 +115,7 @@ class GameViewController: UIViewController {
     }
     
     private func createTimer() {
-        let timer = Timer.scheduledTimer(timeInterval: 7,
+        let _ = Timer.scheduledTimer(timeInterval: 7,
                                          target: self,
                                          selector: #selector(addObjectsToRoad),
                                          userInfo: nil,
@@ -150,7 +190,7 @@ class GameViewController: UIViewController {
             }
             element.removeFromSuperview()
         }
-        view.addSubview(element)
+        view.insertSubview(element, belowSubview: scoreLable)
     }
     
     // MARK: - Control Car
