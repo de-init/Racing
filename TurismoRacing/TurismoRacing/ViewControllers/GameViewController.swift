@@ -13,20 +13,13 @@ class GameViewController: UIViewController {
     
     private let backgroundImages = ["ic_desertMap1", "ic_desertMap2", "ic_desertMap3"]
     private var backgroundImageArray: [UIImageView] = []
-    private let objectImages = ["ic_barrel", "ic_barrier", "ic_cone", "ic_coin"]
-    private var objectImagesArray: [UIImageView] = []
     private var car: UIImageView!
-    private var randomObject: UIImageView!
-    private var randomObject2: UIImageView!
-    private var randomObject3: UIImageView!
-    private var randomObject4: UIImageView!
     private var lable: UILabel!
     private var scoreLable: UILabel!
     private var counter = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        createTimer()
         addBackToView()
         startLable()
         createScoreLable()
@@ -43,8 +36,8 @@ class GameViewController: UIViewController {
         counter += 1
         scoreLable.text = "Score: \(counter)"
     }
-
-
+    
+    
     
     private func createScoreLable() {
         let strokeTextAttributes = [
@@ -65,10 +58,10 @@ class GameViewController: UIViewController {
         }
         
     }
-
+    
     
     // MARK: - Start timer
-
+    
     private func startLable() {
         lable = UILabel()
         lable.text = "3"
@@ -83,7 +76,7 @@ class GameViewController: UIViewController {
         }
         animateStartLable()
     }
-
+    
     private func animateStartLable() {
         UIView.animate(withDuration: 1, delay: 0) {
             self.lable.transform = CGAffineTransform(scaleX: 2, y: 2)
@@ -114,14 +107,6 @@ class GameViewController: UIViewController {
         }
     }
     
-    private func createTimer() {
-        let _ = Timer.scheduledTimer(timeInterval: 7,
-                                         target: self,
-                                         selector: #selector(addObjectsToRoad),
-                                         userInfo: nil,
-                                         repeats: true)
-    }
-    
     // MARK: - Add Game View
     
     private func addBackToView() {
@@ -132,8 +117,8 @@ class GameViewController: UIViewController {
         view.addSubview(backgroundImageArray[1])
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.7) {
             self.animateBackground()
-            self.addObjectsToRoad()
             self.swipeRecognizer()
+            self.addObjectsToRoad()
         }
         addCarToView()
     }
@@ -166,29 +151,85 @@ class GameViewController: UIViewController {
     
     // MARK: - Add Objects and Animate
     
-    @objc private func addObjectsToRoad() {
-        objectImagesArray = [objectImage(name: "ic_barrel"), objectImage(name: "ic_barrier"), objectImage(name: "ic_cone"), objectImage(name: "ic_coin")]
-        randomObject = objectImagesArray.randomElement()
-        randomObject.center = CGPoint(x: view.bounds.midX / 2, y: 0 - 40)
-        randomObject2 = objectImagesArray.randomElement()
-        randomObject2.center = CGPoint(x: view.bounds.midX / 2 + view.bounds.midX / 3, y: 0 - 40)
-        randomObject3 = objectImagesArray.randomElement()
-        randomObject3.center = CGPoint(x: view.bounds.maxX / 3 + view.bounds.midX / 2, y: 0 - 40)
-        randomObject4 = objectImagesArray.randomElement()
-        randomObject4.center = CGPoint(x: view.bounds.maxX / 2 + view.bounds.midX / 2, y: 0 - 40)
-        animateObject(element: randomObject, point: CGPoint(x: view.bounds.midX / 2, y: view.bounds.maxY - 200))
-        animateObject(element: randomObject2, point: CGPoint(x: view.bounds.midX / 2 + view.bounds.midX / 3, y: view.bounds.maxY - 200))
-        animateObject(element: randomObject3, point: CGPoint(x: view.bounds.maxX / 3 + view.bounds.midX / 2, y: view.bounds.maxY - 200))
-        animateObject(element: randomObject4, point: CGPoint(x: view.bounds.maxX / 2 + view.bounds.midX / 2, y: view.bounds.maxY - 200))
+    private func addObjectsToRoad() {
+        workFirstobject()
+        workSecondObject()
+        workThirdObject()
+        workFourthObject()
     }
     
-    private func animateObject(element: UIImageView, point: CGPoint) {
-        UIView.animate(withDuration: 4.3, delay: 0, options: .curveLinear) {
+    private func workFirstobject() {
+        let randomDelay = Double.random(in: 0...6)
+        var objectImagesArray: [UIImageView] = []
+        objectImagesArray = [objectImage(name: "ic_barrel"), objectImage(name: "ic_barrier"), objectImage(name: "ic_cone"), objectImage(name: "ic_coin")]
+        let item = objectImagesArray.randomElement()
+        item!.center = CGPoint(x: view.bounds.midX / 2, y: 0 - 40)
+        animateFirstObject(element: item!, point: CGPoint(x: view.bounds.midX / 2, y: view.bounds.maxY - 200) , delay: randomDelay)
+    }
+    
+    private func workSecondObject() {
+        let randomDelay = Double.random(in: 0...6)
+        var objectImagesArray: [UIImageView] = []
+        objectImagesArray = [objectImage(name: "ic_barrel"), objectImage(name: "ic_barrier"), objectImage(name: "ic_cone"), objectImage(name: "ic_coin")]
+        let item = objectImagesArray.randomElement()
+        item!.center = CGPoint(x: view.bounds.midX / 2 + view.bounds.midX / 3, y: 0 - 40)
+        animateSecondObject(element: item!, point: CGPoint(x: view.bounds.midX / 2 + view.bounds.midX / 3, y: view.bounds.maxY - 200), delay: randomDelay)
+    }
+
+    private func workThirdObject() {
+        let randomDelay = Double.random(in: 0...6)
+        var objectImagesArray: [UIImageView] = []
+        objectImagesArray = [objectImage(name: "ic_barrel"), objectImage(name: "ic_barrier"), objectImage(name: "ic_cone"), objectImage(name: "ic_coin")]
+        let item = objectImagesArray.randomElement()
+        item!.center = CGPoint(x: view.bounds.maxX / 3 + view.bounds.midX / 2, y: 0 - 40)
+        animateThirdObject(element: item!, point: CGPoint(x: view.bounds.maxX / 3 + view.bounds.midX / 2, y: view.bounds.maxY - 200), delay: randomDelay)
+    }
+    
+    private func workFourthObject() {
+        let randomDelay = Double.random(in: 0...6)
+        var objectImagesArray: [UIImageView] = []
+        objectImagesArray = [objectImage(name: "ic_barrel"), objectImage(name: "ic_barrier"), objectImage(name: "ic_cone"), objectImage(name: "ic_coin")]
+        let item = objectImagesArray.randomElement()
+        item!.center = CGPoint(x: view.bounds.maxX / 2 + view.bounds.midX / 2, y: 0 - 40)
+        animateFourthObject(element: item!, point: CGPoint(x: view.bounds.maxX / 2 + view.bounds.midX / 2, y: view.bounds.maxY - 200), delay: randomDelay)
+    }
+    
+    private func animateFirstObject(element: UIImageView, point: CGPoint, delay: Double) {
+        UIView.animate(withDuration: 4.3, delay: delay, options: .curveLinear) {
             element.center = point
         } completion: { _ in
-            if element.center.x == self.car.center.x {
-            }
             element.removeFromSuperview()
+            self.workFirstobject()
+        }
+        view.insertSubview(element, belowSubview: scoreLable)
+    }
+    
+    private func animateSecondObject(element: UIImageView, point: CGPoint, delay: Double) {
+        UIView.animate(withDuration: 4.3, delay: delay, options: .curveLinear) {
+            element.center = point
+        } completion: { _ in
+            element.removeFromSuperview()
+            self.workSecondObject()
+        }
+        view.insertSubview(element, belowSubview: scoreLable)
+    }
+    
+    private func animateThirdObject(element: UIImageView, point: CGPoint, delay: Double) {
+        UIView.animate(withDuration: 4.3, delay: delay, options: .curveLinear) {
+            element.center = point
+        } completion: { _ in
+            element.removeFromSuperview()
+            self.workThirdObject()
+        }
+        view.insertSubview(element, belowSubview: scoreLable)
+    }
+    
+    private func animateFourthObject(element: UIImageView, point: CGPoint, delay: Double) {
+        UIView.animate(withDuration: 4.3, delay: delay, options: .curveLinear) {
+            element.center = point
+        } completion: { _ in
+            element.removeFromSuperview()
+            self.workFourthObject()
         }
         view.insertSubview(element, belowSubview: scoreLable)
     }
