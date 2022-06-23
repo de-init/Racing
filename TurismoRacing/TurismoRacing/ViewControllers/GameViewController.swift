@@ -161,7 +161,7 @@ class GameViewController: UIViewController {
     private func workFirstobject() {
         let randomDelay = Double.random(in: 0...6)
         var objectImagesArray: [UIImageView] = []
-        objectImagesArray = [objectImage(name: "ic_barrel"), objectImage(name: "ic_barrier"), objectImage(name: "ic_cone"), objectImage(name: "ic_coin")]
+        objectImagesArray = [objectImage(name: "ic_barrel"), objectImage(name: "ic_barrier"), objectImage(name: "ic_cone"), objectImage(name: "ic_coin"), objectImage(name: "ic_block"), objectImage(name: "ic_bomb"), objectImage(name: "ic_pig"), objectImage(name: "ic_turn"), objectImage(name: "ic_warn")]
         let item = objectImagesArray.randomElement()
         item!.center = CGPoint(x: view.bounds.midX / 2, y: 0 - 40)
         animateFirstObject(element: item!, point: CGPoint(x: view.bounds.midX / 2, y: view.bounds.maxY - 200) , delay: randomDelay)
@@ -170,7 +170,7 @@ class GameViewController: UIViewController {
     private func workSecondObject() {
         let randomDelay = Double.random(in: 0...6)
         var objectImagesArray: [UIImageView] = []
-        objectImagesArray = [objectImage(name: "ic_barrel"), objectImage(name: "ic_barrier"), objectImage(name: "ic_cone"), objectImage(name: "ic_coin")]
+        objectImagesArray = [objectImage(name: "ic_barrel"), objectImage(name: "ic_barrier"), objectImage(name: "ic_cone"), objectImage(name: "ic_coin"), objectImage(name: "ic_block"), objectImage(name: "ic_bomb"), objectImage(name: "ic_pig"), objectImage(name: "ic_turn"), objectImage(name: "ic_warn")]
         let item = objectImagesArray.randomElement()
         item!.center = CGPoint(x: view.bounds.midX / 2 + view.bounds.midX / 3, y: 0 - 40)
         animateSecondObject(element: item!, point: CGPoint(x: view.bounds.midX / 2 + view.bounds.midX / 3, y: view.bounds.maxY - 200), delay: randomDelay)
@@ -179,7 +179,7 @@ class GameViewController: UIViewController {
     private func workThirdObject() {
         let randomDelay = Double.random(in: 0...6)
         var objectImagesArray: [UIImageView] = []
-        objectImagesArray = [objectImage(name: "ic_barrel"), objectImage(name: "ic_barrier"), objectImage(name: "ic_cone"), objectImage(name: "ic_coin")]
+        objectImagesArray = [objectImage(name: "ic_barrel"), objectImage(name: "ic_barrier"), objectImage(name: "ic_cone"), objectImage(name: "ic_coin"), objectImage(name: "ic_block"), objectImage(name: "ic_bomb"), objectImage(name: "ic_pig"), objectImage(name: "ic_turn"), objectImage(name: "ic_warn")]
         let item = objectImagesArray.randomElement()
         item!.center = CGPoint(x: view.bounds.maxX / 3 + view.bounds.midX / 2, y: 0 - 40)
         animateThirdObject(element: item!, point: CGPoint(x: view.bounds.maxX / 3 + view.bounds.midX / 2, y: view.bounds.maxY - 200), delay: randomDelay)
@@ -188,7 +188,7 @@ class GameViewController: UIViewController {
     private func workFourthObject() {
         let randomDelay = Double.random(in: 0...6)
         var objectImagesArray: [UIImageView] = []
-        objectImagesArray = [objectImage(name: "ic_barrel"), objectImage(name: "ic_barrier"), objectImage(name: "ic_cone"), objectImage(name: "ic_coin")]
+        objectImagesArray = [objectImage(name: "ic_barrel"), objectImage(name: "ic_barrier"), objectImage(name: "ic_cone"), objectImage(name: "ic_coin"), objectImage(name: "ic_block"), objectImage(name: "ic_bomb"), objectImage(name: "ic_pig"), objectImage(name: "ic_turn"), objectImage(name: "ic_warn")]
         let item = objectImagesArray.randomElement()
         item!.center = CGPoint(x: view.bounds.maxX / 2 + view.bounds.midX / 2, y: 0 - 40)
         animateFourthObject(element: item!, point: CGPoint(x: view.bounds.maxX / 2 + view.bounds.midX / 2, y: view.bounds.maxY - 200), delay: randomDelay)
