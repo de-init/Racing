@@ -11,6 +11,7 @@ import SnapKit
 
 protocol MenuViewDelegate: AnyObject {
     func didTapPlayButton()
+    func didTapSettingsButton()
 }
 
 class HomeMenu: UIView {
@@ -42,7 +43,8 @@ class HomeMenu: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+    // MARK: - UI
+    // MARK: -
     private func setupUI() {
         imageViewMainScreen = UIImageView(frame: UIScreen.main.bounds)
         imageViewMainScreen.contentMode = .scaleAspectFill
@@ -62,6 +64,7 @@ class HomeMenu: UIView {
         onPlayButton.addSubview(labelPlayText)
         
         onSettingsButton = createButton(image: "ic_settingsButton", clickedImage: "ic_settingsButtonClicked")
+        onSettingsButton.addTarget(self, action: #selector(didTapSettingsButton), for: .touchUpInside)
         addSubview(onSettingsButton)
         
         onLeaderboardButton = createButton(image: "ic_leaderboardButton", clickedImage: "ic_leaderboardButtonClicked")
@@ -86,7 +89,13 @@ class HomeMenu: UIView {
     @objc private func didTapPlayButton() {
         delegate?.didTapPlayButton()
     }
-
+    
+    @objc private func didTapSettingsButton() {
+        delegate?.didTapSettingsButton()
+    }
+    
+    // MARK: - Layout
+    // MARK: -
     
     override func layoutSubviews() {
         imageViewMainScreen.snp.makeConstraints { make in

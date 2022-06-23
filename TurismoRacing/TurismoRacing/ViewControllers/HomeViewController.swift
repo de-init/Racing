@@ -26,8 +26,13 @@ class HomeViewController: UIViewController {
 }
 
 extension HomeViewController: MenuViewDelegate {
+    func didTapSettingsButton() {
+        let settings = SettingsViewController()
+        navigationController?.pushViewController(settings, animated: true)
+    }
+    
     func didTapPlayButton() {
-        let vc = GameViewController()
-        navigationController?.pushViewController(vc, animated: true)
+        let game = GameViewController()
+        navigationController?.pushViewController(game, animated: true)
     }
 }
