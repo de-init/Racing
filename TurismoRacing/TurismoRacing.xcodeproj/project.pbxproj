@@ -13,6 +13,8 @@
 		912429BA2858A0000007F0B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 912429B82858A0000007F0B3 /* Main.storyboard */; };
 		912429BC2858A0010007F0B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 912429BB2858A0010007F0B3 /* Assets.xcassets */; };
 		912429BF2858A0010007F0B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 912429BD2858A0010007F0B3 /* LaunchScreen.storyboard */; };
+		91DACB9E2864965500F68E16 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DACB9D2864965500F68E16 /* SettingsView.swift */; };
+		91DACBA02864998400F68E16 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DACB9F2864998400F68E16 /* SettingsViewController.swift */; };
 		91E6CE452859DF1C00F52DD1 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E6CE442859DF1B00F52DD1 /* HomeViewController.swift */; };
 		91E6CE4B2859E08700F52DD1 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 91E6CE4A2859E08700F52DD1 /* SnapKit */; };
 		91E6CE4F2859E15700F52DD1 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E6CE4E2859E15700F52DD1 /* HomeView.swift */; };
@@ -31,6 +33,8 @@
 		912429BB2858A0010007F0B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		912429BE2858A0010007F0B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		912429C02858A0010007F0B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		91DACB9D2864965500F68E16 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		91DACB9F2864998400F68E16 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		91E6CE442859DF1B00F52DD1 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		91E6CE4E2859E15700F52DD1 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		91E6CE562859EC3300F52DD1 /* OrelegaOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OrelegaOne-Regular.ttf"; sourceTree = "<group>"; };
@@ -87,6 +91,7 @@
 			children = (
 				912429B62858A0000007F0B3 /* GameViewController.swift */,
 				91E6CE442859DF1B00F52DD1 /* HomeViewController.swift */,
+				91DACB9F2864998400F68E16 /* SettingsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -95,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				91E6CE4E2859E15700F52DD1 /* HomeView.swift */,
+				91DACB9D2864965500F68E16 /* SettingsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -215,12 +221,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				912429B72858A0000007F0B3 /* GameViewController.swift in Sources */,
+				91DACB9E2864965500F68E16 /* SettingsView.swift in Sources */,
 				912429B32858A0000007F0B3 /* AppDelegate.swift in Sources */,
 				912429B52858A0000007F0B3 /* SceneDelegate.swift in Sources */,
 				91E6CE5D285A009800F52DD1 /* UIView+Extensions.swift in Sources */,
 				91E6CE5B285A008C00F52DD1 /* UIColor+Extensions.swift in Sources */,
 				91E6CE4F2859E15700F52DD1 /* HomeView.swift in Sources */,
 				91E6CE452859DF1C00F52DD1 /* HomeViewController.swift in Sources */,
+				91DACBA02864998400F68E16 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
