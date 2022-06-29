@@ -10,6 +10,7 @@ import UIKit
 class SettingsViewController: UIViewController {
     
     private var settingsView = SettingsView()
+    private var userDefaults = UserDefaults.standard
     
     override func loadView() {
         view = settingsView
@@ -26,5 +27,24 @@ class SettingsViewController: UIViewController {
 }
 
 extension SettingsViewController: SettingsViewDelegate {
+    func didEasyButtonTapped() {
+        userDefaults.set(true, forKey: "Easy")
+        userDefaults.set(false, forKey: "Medium")
+        userDefaults.set(false, forKey: "Hard")
+        userDefaults.synchronize()
+    }
     
+    func didMediumButtonTapped() {
+        userDefaults.set(false, forKey: "Easy")
+        userDefaults.set(true, forKey: "Medium")
+        userDefaults.set(false, forKey: "Hard")
+        userDefaults.synchronize()
+    }
+
+    func didHardButtonTapped() {
+        userDefaults.set(false, forKey: "Easy")
+        userDefaults.set(false, forKey: "Medium")
+        userDefaults.set(true, forKey: "Hard")
+        userDefaults.synchronize()
+    }
 }
