@@ -79,7 +79,7 @@ class HomeMenu: UIView {
         addSubview(onShopButton)
 
         bestScoreLable = UILabel()
-        bestScoreLable.text = "Best Score: "
+        bestScoreLable.text = "Best Score"
         bestScoreLable.textColor = .white
         bestScoreLable.font = UIFont(name: "Poppins-Bold", size: 28)
         bestScoreLable.numberOfLines = 0

@@ -29,13 +29,13 @@ class HomeViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-//        guard let scoreArray = defaults.object(forKey: "score") as? [Int] else {
-//            return
-//        }
-//        let maxScore = scoreArray.max()
-//        DispatchQueue.main.async {
-//            self.homeView.bestScoreLable.text = "Best score: \n \(maxScore!)"
-//        }
+        guard let scoreArray = defaults.object(forKey: "score") as? [Int] else {
+            return
+        }
+        let maxScore = scoreArray.max()
+        DispatchQueue.main.async {
+            self.homeView.bestScoreLable.text = "Best Score: \n \(maxScore!)"
+        }
     }
 }
 

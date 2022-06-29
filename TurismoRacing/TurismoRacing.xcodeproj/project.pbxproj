@@ -13,13 +13,13 @@
 		912429BA2858A0000007F0B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 912429B82858A0000007F0B3 /* Main.storyboard */; };
 		912429BC2858A0010007F0B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 912429BB2858A0010007F0B3 /* Assets.xcassets */; };
 		912429BF2858A0010007F0B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 912429BD2858A0010007F0B3 /* LaunchScreen.storyboard */; };
+		917C59F9286C99440078FAAD /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 917C59F8286C99440078FAAD /* SnapKit */; };
 		91AE1D022865F679000FAEF4 /* Poppins-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 91AE1CFF2865F678000FAEF4 /* Poppins-ExtraLight.ttf */; };
 		91AE1D032865F679000FAEF4 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 91AE1D002865F678000FAEF4 /* Poppins-Bold.ttf */; };
 		91AE1D042865F679000FAEF4 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 91AE1D012865F679000FAEF4 /* Poppins-SemiBold.ttf */; };
 		91DACB9E2864965500F68E16 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DACB9D2864965500F68E16 /* SettingsView.swift */; };
 		91DACBA02864998400F68E16 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DACB9F2864998400F68E16 /* SettingsViewController.swift */; };
 		91E6CE452859DF1C00F52DD1 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E6CE442859DF1B00F52DD1 /* HomeViewController.swift */; };
-		91E6CE4B2859E08700F52DD1 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 91E6CE4A2859E08700F52DD1 /* SnapKit */; };
 		91E6CE4F2859E15700F52DD1 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E6CE4E2859E15700F52DD1 /* HomeView.swift */; };
 		91E6CE572859EC3300F52DD1 /* OrelegaOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 91E6CE562859EC3300F52DD1 /* OrelegaOne-Regular.ttf */; };
 		91E6CE592859EC4600F52DD1 /* HammersmithOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 91E6CE582859EC4600F52DD1 /* HammersmithOne-Regular.ttf */; };
@@ -54,7 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				91E6CE4B2859E08700F52DD1 /* SnapKit in Frameworks */,
+				917C59F9286C99440078FAAD /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -167,7 +167,7 @@
 			);
 			name = TurismoRacing;
 			packageProductDependencies = (
-				91E6CE4A2859E08700F52DD1 /* SnapKit */,
+				917C59F8286C99440078FAAD /* SnapKit */,
 			);
 			productName = TurismoRacing;
 			productReference = 912429AF2858A0000007F0B3 /* TurismoRacing.app */;
@@ -198,7 +198,7 @@
 			);
 			mainGroup = 912429A62858A0000007F0B3;
 			packageReferences = (
-				91E6CE492859E08700F52DD1 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				917C59F7286C99440078FAAD /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = 912429B02858A0000007F0B3 /* Products */;
 			projectDirPath = "";
@@ -464,7 +464,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		91E6CE492859E08700F52DD1 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+		917C59F7286C99440078FAAD /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
 			requirement = {
@@ -475,9 +475,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		91E6CE4A2859E08700F52DD1 /* SnapKit */ = {
+		917C59F8286C99440078FAAD /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 91E6CE492859E08700F52DD1 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			package = 917C59F7286C99440078FAAD /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
