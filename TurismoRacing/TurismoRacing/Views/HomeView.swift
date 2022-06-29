@@ -25,6 +25,7 @@ class HomeMenu: UIView {
     private var onShopButton: UIButton!
     private var imageViewMainScreen: UIImageView!
     private var imageMainScreen: UIImage!
+    var bestScoreLable: UILabel!
     
     override init(frame: CGRect) {
         labelPlayText = UILabel()
@@ -35,6 +36,7 @@ class HomeMenu: UIView {
         onShopButton = UIButton()
         imageViewMainScreen = UIImageView()
         imageMainScreen = UIImage()
+        bestScoreLable = UILabel()
         
         super.init(frame: frame)
         setupUI()
@@ -75,6 +77,14 @@ class HomeMenu: UIView {
         
         onShopButton = createButton(image: "ic_shopButton", clickedImage: "ic_shopButtonClicked")
         addSubview(onShopButton)
+
+        bestScoreLable = UILabel()
+        bestScoreLable.text = "Best Score: "
+        bestScoreLable.textColor = .white
+        bestScoreLable.font = UIFont(name: "Poppins-Bold", size: 28)
+        bestScoreLable.numberOfLines = 0
+        bestScoreLable.textAlignment = .center
+        addSubview(bestScoreLable)
     }
     
     private func createButton(image: String, clickedImage: String) -> UIButton {
@@ -137,6 +147,10 @@ class HomeMenu: UIView {
             make.trailing.equalTo(-10)
             make.height.equalTo(80)
             make.width.equalTo(80)
+        }
+        bestScoreLable.snp.makeConstraints { make in
+            make.centerX.equalTo(self.center)
+            make.top.equalTo(100)
         }
     }
 }

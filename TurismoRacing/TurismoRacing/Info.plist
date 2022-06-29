@@ -4,6 +4,9 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
+		<string>Poppins-SemiBold.ttf</string>
+		<string>Poppins-ExtraLight.ttf</string>
+		<string>Poppins-Bold.ttf</string>
 		<string>HammersmithOne-Regular.ttf</string>
 		<string>OrelegaOne-Regular.ttf</string>
 	</array>
