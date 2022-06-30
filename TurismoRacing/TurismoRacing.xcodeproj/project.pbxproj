@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		911A1D8F286DAB16006CC3C2 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911A1D8D286DAB16006CC3C2 /* TableViewCell.swift */; };
+		911A1D90286DAB16006CC3C2 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 911A1D8E286DAB16006CC3C2 /* TableViewCell.xib */; };
 		912429B32858A0000007F0B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912429B22858A0000007F0B3 /* AppDelegate.swift */; };
 		912429B52858A0000007F0B3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912429B42858A0000007F0B3 /* SceneDelegate.swift */; };
 		912429B72858A0000007F0B3 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912429B62858A0000007F0B3 /* GameViewController.swift */; };
@@ -14,6 +16,8 @@
 		912429BC2858A0010007F0B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 912429BB2858A0010007F0B3 /* Assets.xcassets */; };
 		912429BF2858A0010007F0B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 912429BD2858A0010007F0B3 /* LaunchScreen.storyboard */; };
 		917C59F9286C99440078FAAD /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 917C59F8286C99440078FAAD /* SnapKit */; };
+		9188BA72286D0614000ECD09 /* LeaderBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9188BA71286D0614000ECD09 /* LeaderBoardViewController.swift */; };
+		9188BA74286D064A000ECD09 /* LeaderboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9188BA73286D064A000ECD09 /* LeaderboardView.swift */; };
 		91AE1D022865F679000FAEF4 /* Poppins-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 91AE1CFF2865F678000FAEF4 /* Poppins-ExtraLight.ttf */; };
 		91AE1D032865F679000FAEF4 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 91AE1D002865F678000FAEF4 /* Poppins-Bold.ttf */; };
 		91AE1D042865F679000FAEF4 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 91AE1D012865F679000FAEF4 /* Poppins-SemiBold.ttf */; };
@@ -28,6 +32,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		911A1D8D286DAB16006CC3C2 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		911A1D8E286DAB16006CC3C2 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		912429AF2858A0000007F0B3 /* TurismoRacing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TurismoRacing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		912429B22858A0000007F0B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		912429B42858A0000007F0B3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -36,6 +42,8 @@
 		912429BB2858A0010007F0B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		912429BE2858A0010007F0B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		912429C02858A0010007F0B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9188BA71286D0614000ECD09 /* LeaderBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoardViewController.swift; sourceTree = "<group>"; };
+		9188BA73286D064A000ECD09 /* LeaderboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardView.swift; sourceTree = "<group>"; };
 		91AE1CFF2865F678000FAEF4 /* Poppins-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraLight.ttf"; sourceTree = "<group>"; };
 		91AE1D002865F678000FAEF4 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
 		91AE1D012865F679000FAEF4 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
@@ -98,6 +106,7 @@
 				912429B62858A0000007F0B3 /* GameViewController.swift */,
 				91E6CE442859DF1B00F52DD1 /* HomeViewController.swift */,
 				91DACB9F2864998400F68E16 /* SettingsViewController.swift */,
+				9188BA71286D0614000ECD09 /* LeaderBoardViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -107,6 +116,9 @@
 			children = (
 				91E6CE4E2859E15700F52DD1 /* HomeView.swift */,
 				91DACB9D2864965500F68E16 /* SettingsView.swift */,
+				9188BA73286D064A000ECD09 /* LeaderboardView.swift */,
+				911A1D8D286DAB16006CC3C2 /* TableViewCell.swift */,
+				911A1D8E286DAB16006CC3C2 /* TableViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -218,6 +230,7 @@
 				912429BF2858A0010007F0B3 /* LaunchScreen.storyboard in Resources */,
 				91AE1D032865F679000FAEF4 /* Poppins-Bold.ttf in Resources */,
 				912429BC2858A0010007F0B3 /* Assets.xcassets in Resources */,
+				911A1D90286DAB16006CC3C2 /* TableViewCell.xib in Resources */,
 				91E6CE592859EC4600F52DD1 /* HammersmithOne-Regular.ttf in Resources */,
 				91AE1D042865F679000FAEF4 /* Poppins-SemiBold.ttf in Resources */,
 				91E6CE572859EC3300F52DD1 /* OrelegaOne-Regular.ttf in Resources */,
@@ -232,12 +245,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				911A1D8F286DAB16006CC3C2 /* TableViewCell.swift in Sources */,
 				912429B72858A0000007F0B3 /* GameViewController.swift in Sources */,
 				91DACB9E2864965500F68E16 /* SettingsView.swift in Sources */,
 				912429B32858A0000007F0B3 /* AppDelegate.swift in Sources */,
 				912429B52858A0000007F0B3 /* SceneDelegate.swift in Sources */,
+				9188BA72286D0614000ECD09 /* LeaderBoardViewController.swift in Sources */,
 				91E6CE5D285A009800F52DD1 /* UIView+Extensions.swift in Sources */,
 				91E6CE5B285A008C00F52DD1 /* UIColor+Extensions.swift in Sources */,
+				9188BA74286D064A000ECD09 /* LeaderboardView.swift in Sources */,
 				91E6CE4F2859E15700F52DD1 /* HomeView.swift in Sources */,
 				91E6CE452859DF1C00F52DD1 /* HomeViewController.swift in Sources */,
 				91DACBA02864998400F68E16 /* SettingsViewController.swift in Sources */,

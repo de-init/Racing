@@ -10,7 +10,7 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
-    private var homeView = HomeMenu()
+    private let homeView = HomeMenu()
     private let defaults = UserDefaults.standard
 
     override func loadView() {
@@ -24,7 +24,7 @@ class HomeViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        homeView.frame = view.frame
+        homeView.frame = view.bounds
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -40,6 +40,11 @@ class HomeViewController: UIViewController {
 }
 
 extension HomeViewController: MenuViewDelegate {
+    func didTapLeaderboardButton() {
+        let leaderboard = LeaderBoardViewController()
+        navigationController?.pushViewController(leaderboard, animated: true)
+    }
+    
     func didTapSettingsButton() {
         let settings = SettingsViewController()
         navigationController?.pushViewController(settings, animated: true)

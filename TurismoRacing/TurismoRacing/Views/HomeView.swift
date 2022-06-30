@@ -12,6 +12,7 @@ import SnapKit
 protocol MenuViewDelegate: AnyObject {
     func didTapPlayButton()
     func didTapSettingsButton()
+    func didTapLeaderboardButton()
 }
 
 class HomeMenu: UIView {
@@ -70,6 +71,7 @@ class HomeMenu: UIView {
         addSubview(onSettingsButton)
         
         onLeaderboardButton = createButton(image: "ic_leaderboardButton", clickedImage: "ic_leaderboardButtonClicked")
+        onLeaderboardButton.addTarget(self, action: #selector(didTapLeaderboardButton), for: .touchUpInside)
         addSubview(onLeaderboardButton)
         
         onGarageButton = createButton(image: "ic_garageButton", clickedImage: "ic_garageButtonClicked")
@@ -103,6 +105,11 @@ class HomeMenu: UIView {
     @objc private func didTapSettingsButton() {
         delegate?.didTapSettingsButton()
     }
+    
+    @objc private func didTapLeaderboardButton() {
+        delegate?.didTapLeaderboardButton()
+    }
+
     
     // MARK: - Layout
     // MARK: -
