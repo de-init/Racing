@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		910D26F628918A8C004E7475 /* CarModelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910D26F528918A8C004E7475 /* CarModelCollectionViewCell.swift */; };
+		910D26F828918AAB004E7475 /* CarModelCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910D26F728918AAB004E7475 /* CarModelCollectionView.swift */; };
+		910D26FA289194A7004E7475 /* UIButton+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910D26F9289194A7004E7475 /* UIButton+Extensions.swift */; };
 		911A1D8F286DAB16006CC3C2 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911A1D8D286DAB16006CC3C2 /* TableViewCell.swift */; };
 		911A1D90286DAB16006CC3C2 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 911A1D8E286DAB16006CC3C2 /* TableViewCell.xib */; };
 		912429B32858A0000007F0B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912429B22858A0000007F0B3 /* AppDelegate.swift */; };
@@ -32,6 +35,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		910D26F528918A8C004E7475 /* CarModelCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarModelCollectionViewCell.swift; sourceTree = "<group>"; };
+		910D26F728918AAB004E7475 /* CarModelCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarModelCollectionView.swift; sourceTree = "<group>"; };
+		910D26F9289194A7004E7475 /* UIButton+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extensions.swift"; sourceTree = "<group>"; };
 		911A1D8D286DAB16006CC3C2 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		911A1D8E286DAB16006CC3C2 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		912429AF2858A0000007F0B3 /* TurismoRacing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TurismoRacing.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,6 +75,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		910D26F328918A29004E7475 /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				911A1D8D286DAB16006CC3C2 /* TableViewCell.swift */,
+				911A1D8E286DAB16006CC3C2 /* TableViewCell.xib */,
+			);
+			path = TableViewCell;
+			sourceTree = "<group>";
+		};
+		910D26F428918A37004E7475 /* CarModelCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				910D26F728918AAB004E7475 /* CarModelCollectionView.swift */,
+				910D26F528918A8C004E7475 /* CarModelCollectionViewCell.swift */,
+			);
+			path = CarModelCollectionView;
+			sourceTree = "<group>";
+		};
 		912429A62858A0000007F0B3 = {
 			isa = PBXGroup;
 			children = (
@@ -114,11 +138,11 @@
 		91E6CE462859DF3A00F52DD1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				910D26F428918A37004E7475 /* CarModelCollectionView */,
 				91E6CE4E2859E15700F52DD1 /* HomeView.swift */,
 				91DACB9D2864965500F68E16 /* SettingsView.swift */,
 				9188BA73286D064A000ECD09 /* LeaderboardView.swift */,
-				911A1D8D286DAB16006CC3C2 /* TableViewCell.swift */,
-				911A1D8E286DAB16006CC3C2 /* TableViewCell.xib */,
+				910D26F328918A29004E7475 /* TableViewCell */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -158,6 +182,7 @@
 			children = (
 				91E6CE5A285A008C00F52DD1 /* UIColor+Extensions.swift */,
 				91E6CE5C285A009800F52DD1 /* UIView+Extensions.swift */,
+				910D26F9289194A7004E7475 /* UIButton+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -245,17 +270,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				910D26F628918A8C004E7475 /* CarModelCollectionViewCell.swift in Sources */,
 				911A1D8F286DAB16006CC3C2 /* TableViewCell.swift in Sources */,
 				912429B72858A0000007F0B3 /* GameViewController.swift in Sources */,
 				91DACB9E2864965500F68E16 /* SettingsView.swift in Sources */,
 				912429B32858A0000007F0B3 /* AppDelegate.swift in Sources */,
 				912429B52858A0000007F0B3 /* SceneDelegate.swift in Sources */,
 				9188BA72286D0614000ECD09 /* LeaderBoardViewController.swift in Sources */,
+				910D26F828918AAB004E7475 /* CarModelCollectionView.swift in Sources */,
 				91E6CE5D285A009800F52DD1 /* UIView+Extensions.swift in Sources */,
 				91E6CE5B285A008C00F52DD1 /* UIColor+Extensions.swift in Sources */,
 				9188BA74286D064A000ECD09 /* LeaderboardView.swift in Sources */,
 				91E6CE4F2859E15700F52DD1 /* HomeView.swift in Sources */,
 				91E6CE452859DF1C00F52DD1 /* HomeViewController.swift in Sources */,
+				910D26FA289194A7004E7475 /* UIButton+Extensions.swift in Sources */,
 				91DACBA02864998400F68E16 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

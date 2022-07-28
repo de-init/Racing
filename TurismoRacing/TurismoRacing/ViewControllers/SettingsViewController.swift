@@ -31,20 +31,20 @@ extension SettingsViewController: SettingsViewDelegate {
         userDefaults.set(true, forKey: "Easy")
         userDefaults.set(false, forKey: "Medium")
         userDefaults.set(false, forKey: "Hard")
-        userDefaults.synchronize()
+        settingsView.animateSelection()
     }
     
     func didMediumButtonTapped() {
         userDefaults.set(false, forKey: "Easy")
         userDefaults.set(true, forKey: "Medium")
         userDefaults.set(false, forKey: "Hard")
-        userDefaults.synchronize()
+        settingsView.animateSelection()
     }
 
     func didHardButtonTapped() {
         userDefaults.set(false, forKey: "Easy")
         userDefaults.set(false, forKey: "Medium")
         userDefaults.set(true, forKey: "Hard")
-        userDefaults.synchronize()
+        settingsView.animateSelection()
     }
 }
