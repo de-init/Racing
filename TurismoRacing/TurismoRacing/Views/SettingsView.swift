@@ -16,7 +16,6 @@ protocol SettingsViewDelegate: AnyObject {
 }
 
 class SettingsView: UIView {
-    
     weak var delegate: SettingsViewDelegate?
     private var imageViewScreen: UIImageView!
     private var imageScreen: UIImage!
@@ -25,6 +24,8 @@ class SettingsView: UIView {
     private var mediumModeButton: UIButton!
     private var hardModeButton: UIButton!
     private var stackViewButtons: UIStackView!
+    private var selectedButton: UIImageView!
+    private let carModelCollectionView = CarModelCollectionView()
     
     override init(frame: CGRect) {
         imageViewScreen = UIImageView()
@@ -34,7 +35,7 @@ class SettingsView: UIView {
         mediumModeButton = UIButton()
         hardModeButton = UIButton()
         stackViewButtons = UIStackView()
-        
+        selectedButton = UIImageView()
         
         super.init(frame: frame)
         setupUI()
@@ -51,9 +52,11 @@ class SettingsView: UIView {
         imageViewScreen.image = imageScreen
         addSubview(imageViewScreen)
         
+        
         difficultyLable = UILabel()
         difficultyLable.text = "Difficulty"
         difficultyLable.textColor = .white
+        difficultyLable.textAlignment = .center
         difficultyLable.font = UIFont(name: "OrelegaOne-Regular", size: 35)
         addSubview(difficultyLable)
     
@@ -72,14 +75,53 @@ class SettingsView: UIView {
         hardModeButton.addTarget(self, action: #selector(hardButtonTapped), for: .touchUpInside)
         addSubview(hardModeButton)
         
-        stackViewButtons = UIStackView(arrangedSubviews: [easyModeButton, mediumModeButton, hardModeButton])
+        stackViewButtons = UIStackView(arrangedSubviews: [difficultyLable, easyModeButton, mediumModeButton, hardModeButton])
         stackViewButtons.axis = .vertical
         stackViewButtons.distribution = .fillEqually
         stackViewButtons.alignment = .fill
-        stackViewButtons.spacing = 30
+        stackViewButtons.spacing = 20
         addSubview(stackViewButtons)
         
+        selectedButton = UIImageView()
+        selectedButton.image = UIImage(named: "ic_selectedButton")
+        addSubview(selectedButton)
+        addSubview(carModelCollectionView)
     }
+    
+    func animateSelection() {
+        if UserDefaults.standard.bool(forKey: "Easy") {
+            selectedButton.snp.removeConstraints()
+            UIView.animate(withDuration: 0.5, delay: 0) {
+                self.selectedButton.snp.makeConstraints { make in
+                    make.top.equalTo(self.easyModeButton).offset(5)
+                    make.leading.equalTo(self.easyModeButton).offset(5)
+                    make.bottom.equalTo(self.easyModeButton).offset(-5)
+                    make.trailing.equalTo(self.easyModeButton).offset(-5)
+                } 
+            }
+        } else if UserDefaults.standard.bool(forKey: "Medium") {
+            selectedButton.snp.removeConstraints()
+            UIView.animate(withDuration: 0.5, delay: 0) {
+                self.selectedButton.snp.remakeConstraints { make in
+                    make.top.equalTo(self.mediumModeButton).offset(5)
+                    make.leading.equalTo(self.mediumModeButton).offset(5)
+                    make.bottom.equalTo(self.mediumModeButton).offset(-5)
+                    make.trailing.equalTo(self.mediumModeButton).offset(-5)
+                }
+            }
+        } else if UserDefaults.standard.bool(forKey: "Hard") {
+            selectedButton.snp.removeConstraints()
+            UIView.animate(withDuration: 0.5, delay: 0) {
+                self.selectedButton.snp.makeConstraints { make in
+                    make.top.equalTo(self.hardModeButton).offset(5)
+                    make.leading.equalTo(self.hardModeButton).offset(5)
+                    make.bottom.equalTo(self.hardModeButton).offset(-5)
+                    make.trailing.equalTo(self.hardModeButton).offset(-5)
+                }
+            }
+        }
+    }
+
     
     private func createButton(color: UIColor, title: String) -> UIButton {
         let attributedString = NSAttributedString(string: title,
@@ -106,37 +148,24 @@ class SettingsView: UIView {
         delegate?.didHardButtonTapped()
     }
 
-    
     override func layoutSubviews() {
         imageViewScreen.snp.makeConstraints { make in
-            make.top.equalTo(0)
-            make.bottom.equalTo(0)
-            make.leading.equalTo(0)
-            make.trailing.equalTo(0)
-        }
-        difficultyLable.snp.makeConstraints { make in
-            make.centerX.equalTo(self.center)
-            make.centerY.equalTo(self.center)
+            make.top.equalTo(self)
+            make.bottom.equalTo(self)
+            make.leading.equalTo(self)
+            make.trailing.equalTo(self)
         }
         stackViewButtons.snp.makeConstraints { make in
-            make.top.equalTo(difficultyLable).offset(50)
-            make.bottom.equalTo(self).offset(-30)
+            make.top.equalTo(carModelCollectionView).offset(250)
+            make.bottom.equalTo(-30)
             make.leading.equalTo(90)
             make.trailing.equalTo(-90)
         }
-    }
-}
-
-extension UIButton {
-    func setBackgroundColor(red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat, forState: UIControl.State) {
-        self.clipsToBounds = true
-        UIGraphicsBeginImageContext(CGSize(width: 1, height: 1))
-        if let context = UIGraphicsGetCurrentContext() {
-            context.setFillColor(red: red, green: green, blue: blue, alpha: alpha)
-            context.fill(CGRect(x: 0, y: 0, width: 1, height: 1))
-            let colorImage = UIGraphicsGetImageFromCurrentImageContext()
-            UIGraphicsEndImageContext()
-            self.setBackgroundImage(colorImage, for: forState)
+        carModelCollectionView.snp.makeConstraints { make in
+            make.height.equalTo(170)
+            make.width.equalTo(bounds.width)
+            make.top.equalTo(100)
         }
+        animateSelection()
     }
 }

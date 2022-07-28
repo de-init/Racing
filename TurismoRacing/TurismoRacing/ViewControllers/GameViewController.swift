@@ -132,7 +132,9 @@ class GameViewController: UIViewController {
     }
     
     private func addCarToView() {
-        car = carImage(carName: "ic_car")
+        let carName = defaults.object(forKey: "CarModel")
+        let defaultCar = "ic_defaultCar"
+        car = carImage(carName: "\(carName ?? defaultCar)")
         car.isUserInteractionEnabled = true
         car.center = CGPoint(x: view.bounds.midX / 2, y: view.bounds.maxY - 100)
         view.addSubview(car)
