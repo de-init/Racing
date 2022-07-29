@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "BMW M5_x1.png",
+      "filename" : "x1.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "BMW M5_x2.png",
+      "filename" : "x2.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "BMW M5_x3.png",
+      "filename" : "x3.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

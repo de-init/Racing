@@ -16,9 +16,7 @@ protocol MenuViewDelegate: AnyObject {
 }
 
 class HomeMenu: UIView {
-    
     weak var delegate: MenuViewDelegate?
-    private var labelPlayText: UILabel!
     private var onPlayButton: UIButton!
     private var onSettingsButton: UIButton!
     private var onLeaderboardButton: UIButton!
@@ -29,7 +27,6 @@ class HomeMenu: UIView {
     var bestScoreLable: UILabel!
     
     override init(frame: CGRect) {
-        labelPlayText = UILabel()
         onPlayButton = UIButton()
         onSettingsButton = UIButton()
         onLeaderboardButton = UIButton()
@@ -46,40 +43,58 @@ class HomeMenu: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    // MARK: - UI
-    // MARK: -
+    
+    // MARK: - SetupUI
     private func setupUI() {
+        makeImageViewMainScreen()
+        makePlayButton()
+        makeSettingsButton()
+        makeLeaderboardButton()
+        makeGarageButton()
+        makeShopButton()
+        makeBestScoreLable()
+    }
+    private func makeImageViewMainScreen() {
         imageViewMainScreen = UIImageView(frame: UIScreen.main.bounds)
         imageViewMainScreen.contentMode = .scaleAspectFill
         imageMainScreen = UIImage(named: "Mainscreen")
         imageViewMainScreen.image = imageMainScreen
         addSubview(imageViewMainScreen)
-        
-        
+    }
+    
+    private func makePlayButton() {
         onPlayButton = createButton(image: "ic_playButton", clickedImage: "ic_playButtonClicked")
+        onPlayButton.titleLabel?.text = "Play"
+        onPlayButton.titleLabel?.font = UIFont(name: "OrelegaOne-Regular", size: 25)
+        onPlayButton.titleLabel?.textColor = .white
+        onPlayButton.titleLabel?.adjustsFontSizeToFitWidth = true
         onPlayButton.addTarget(self, action: #selector(didTapPlayButton), for: .touchUpInside)
         addSubview(onPlayButton)
-        
-        labelPlayText.text = "PLAY"
-        labelPlayText.textColor = .white
-        labelPlayText.font = UIFont(name: "OrelegaOne-Regular", size: 25)
-        labelPlayText.adjustsFontForContentSizeCategory = true
-        onPlayButton.addSubview(labelPlayText)
-        
+    }
+
+    private func makeSettingsButton() {
         onSettingsButton = createButton(image: "ic_settingsButton", clickedImage: "ic_settingsButtonClicked")
         onSettingsButton.addTarget(self, action: #selector(didTapSettingsButton), for: .touchUpInside)
         addSubview(onSettingsButton)
-        
+    }
+    
+    private func makeLeaderboardButton() {
         onLeaderboardButton = createButton(image: "ic_leaderboardButton", clickedImage: "ic_leaderboardButtonClicked")
         onLeaderboardButton.addTarget(self, action: #selector(didTapLeaderboardButton), for: .touchUpInside)
         addSubview(onLeaderboardButton)
-        
+    }
+    
+    private func makeGarageButton() {
         onGarageButton = createButton(image: "ic_garageButton", clickedImage: "ic_garageButtonClicked")
         addSubview(onGarageButton)
-        
+    }
+
+    private func makeShopButton() {
         onShopButton = createButton(image: "ic_shopButton", clickedImage: "ic_shopButtonClicked")
         addSubview(onShopButton)
+    }
 
+    private func makeBestScoreLable() {
         bestScoreLable = UILabel()
         bestScoreLable.text = "Best Score"
         bestScoreLable.textColor = .white
@@ -89,6 +104,7 @@ class HomeMenu: UIView {
         addSubview(bestScoreLable)
     }
     
+    // MARK: - Additional Methods
     private func createButton(image: String, clickedImage: String) -> UIButton {
         let button = UIButton()
         button.setBackgroundImage(UIImage(named: image), for: .normal)
@@ -97,7 +113,7 @@ class HomeMenu: UIView {
         button.subviews.first?.contentMode = .scaleAspectFit
         return button
     }
-    
+    // MARK: - Delegate Methods
     @objc private func didTapPlayButton() {
         delegate?.didTapPlayButton()
     }
@@ -109,55 +125,73 @@ class HomeMenu: UIView {
     @objc private func didTapLeaderboardButton() {
         delegate?.didTapLeaderboardButton()
     }
-
-    
     // MARK: - Layout
-    // MARK: -
-    
     override func layoutSubviews() {
+        setupConstraints()
+    }
+    
+    private func setupConstraints() {
+        makeConstraintsImageViewMainScreen()
+        makeConstraintsPlayButton()
+        makeConstraintsSettingsButton()
+        makeConstraintsLeaderboardButton()
+        makeConstraintsShopButton()
+        makeConstraintsGarageButton()
+        makeConstraintsBestScoreLable()
+    }
+    private func makeConstraintsImageViewMainScreen() {
         imageViewMainScreen.snp.makeConstraints { make in
             make.top.equalTo(0)
             make.bottom.equalTo(0)
             make.leading.equalTo(0)
             make.trailing.equalTo(0)
         }
+    }
+    private func makeConstraintsPlayButton() {
         onPlayButton.snp.makeConstraints { make in
             make.top.equalTo(540)
             make.bottom.equalTo(-30)
             make.leading.equalTo(40)
             make.trailing.equalTo(-40)
         }
-        labelPlayText.snp.makeConstraints { make in
-            make.centerX.equalTo(onPlayButton)
-            make.centerY.equalTo(onPlayButton)
-        }
+    }
+    private func makeConstraintsSettingsButton() {
         onSettingsButton.snp.makeConstraints { make in
             make.top.equalTo(80)
             make.leading.equalTo(10)
             make.height.equalTo(80)
             make.width.equalTo(80)
         }
+    }
+    private func makeConstraintsLeaderboardButton() {
         onLeaderboardButton.snp.makeConstraints { make in
             make.top.equalTo(80)
             make.trailing.equalTo(-10)
             make.height.equalTo(80)
             make.width.equalTo(80)
         }
+    }
+    private func makeConstraintsShopButton() {
         onShopButton.snp.makeConstraints { make in
             make.top.equalTo(onSettingsButton).offset(95)
             make.leading.equalTo(10)
             make.height.equalTo(80)
             make.width.equalTo(80)
         }
+    }
+    private func makeConstraintsGarageButton() {
         onGarageButton.snp.makeConstraints { make in
             make.top.equalTo(onLeaderboardButton).offset(95)
             make.trailing.equalTo(-10)
             make.height.equalTo(80)
             make.width.equalTo(80)
         }
+    }
+    private func makeConstraintsBestScoreLable() {
         bestScoreLable.snp.makeConstraints { make in
             make.centerX.equalTo(self.center)
             make.top.equalTo(100)
         }
     }
+
 }

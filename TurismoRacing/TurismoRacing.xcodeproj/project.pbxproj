@@ -18,9 +18,10 @@
 		912429BA2858A0000007F0B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 912429B82858A0000007F0B3 /* Main.storyboard */; };
 		912429BC2858A0010007F0B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 912429BB2858A0010007F0B3 /* Assets.xcassets */; };
 		912429BF2858A0010007F0B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 912429BD2858A0010007F0B3 /* LaunchScreen.storyboard */; };
-		917C59F9286C99440078FAAD /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 917C59F8286C99440078FAAD /* SnapKit */; };
+		912E66832894094600FDCFAE /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912E66822894094600FDCFAE /* Const.swift */; };
 		9188BA72286D0614000ECD09 /* LeaderBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9188BA71286D0614000ECD09 /* LeaderBoardViewController.swift */; };
 		9188BA74286D064A000ECD09 /* LeaderboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9188BA73286D064A000ECD09 /* LeaderboardView.swift */; };
+		919E9C6E2893EEAC0002D725 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 919E9C6D2893EEAC0002D725 /* SnapKit */; };
 		91AE1D022865F679000FAEF4 /* Poppins-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 91AE1CFF2865F678000FAEF4 /* Poppins-ExtraLight.ttf */; };
 		91AE1D032865F679000FAEF4 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 91AE1D002865F678000FAEF4 /* Poppins-Bold.ttf */; };
 		91AE1D042865F679000FAEF4 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 91AE1D012865F679000FAEF4 /* Poppins-SemiBold.ttf */; };
@@ -48,6 +49,7 @@
 		912429BB2858A0010007F0B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		912429BE2858A0010007F0B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		912429C02858A0010007F0B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		912E66822894094600FDCFAE /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
 		9188BA71286D0614000ECD09 /* LeaderBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoardViewController.swift; sourceTree = "<group>"; };
 		9188BA73286D064A000ECD09 /* LeaderboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardView.swift; sourceTree = "<group>"; };
 		91AE1CFF2865F678000FAEF4 /* Poppins-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraLight.ttf"; sourceTree = "<group>"; };
@@ -68,7 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				917C59F9286C99440078FAAD /* SnapKit in Frameworks */,
+				919E9C6E2893EEAC0002D725 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,11 +119,20 @@
 				912429B22858A0000007F0B3 /* AppDelegate.swift */,
 				912429B42858A0000007F0B3 /* SceneDelegate.swift */,
 				91E6CE472859DFFF00F52DD1 /* Resources */,
+				912E66812894092100FDCFAE /* Managers */,
 				91E6CE432859DF0700F52DD1 /* ViewControllers */,
 				91E6CE462859DF3A00F52DD1 /* Views */,
 				91E6CE482859E02500F52DD1 /* Utilities */,
 			);
 			path = TurismoRacing;
+			sourceTree = "<group>";
+		};
+		912E66812894092100FDCFAE /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				912E66822894094600FDCFAE /* Const.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 		91E6CE432859DF0700F52DD1 /* ViewControllers */ = {
@@ -138,10 +149,10 @@
 		91E6CE462859DF3A00F52DD1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				910D26F428918A37004E7475 /* CarModelCollectionView */,
 				91E6CE4E2859E15700F52DD1 /* HomeView.swift */,
 				91DACB9D2864965500F68E16 /* SettingsView.swift */,
 				9188BA73286D064A000ECD09 /* LeaderboardView.swift */,
+				910D26F428918A37004E7475 /* CarModelCollectionView */,
 				910D26F328918A29004E7475 /* TableViewCell */,
 			);
 			path = Views;
@@ -204,7 +215,7 @@
 			);
 			name = TurismoRacing;
 			packageProductDependencies = (
-				917C59F8286C99440078FAAD /* SnapKit */,
+				919E9C6D2893EEAC0002D725 /* SnapKit */,
 			);
 			productName = TurismoRacing;
 			productReference = 912429AF2858A0000007F0B3 /* TurismoRacing.app */;
@@ -235,7 +246,7 @@
 			);
 			mainGroup = 912429A62858A0000007F0B3;
 			packageReferences = (
-				917C59F7286C99440078FAAD /* XCRemoteSwiftPackageReference "SnapKit" */,
+				919E9C6C2893EEAC0002D725 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = 912429B02858A0000007F0B3 /* Products */;
 			projectDirPath = "";
@@ -283,6 +294,7 @@
 				9188BA74286D064A000ECD09 /* LeaderboardView.swift in Sources */,
 				91E6CE4F2859E15700F52DD1 /* HomeView.swift in Sources */,
 				91E6CE452859DF1C00F52DD1 /* HomeViewController.swift in Sources */,
+				912E66832894094600FDCFAE /* Const.swift in Sources */,
 				910D26FA289194A7004E7475 /* UIButton+Extensions.swift in Sources */,
 				91DACBA02864998400F68E16 /* SettingsViewController.swift in Sources */,
 			);
@@ -508,7 +520,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		917C59F7286C99440078FAAD /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+		919E9C6C2893EEAC0002D725 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
 			requirement = {
@@ -519,9 +531,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		917C59F8286C99440078FAAD /* SnapKit */ = {
+		919E9C6D2893EEAC0002D725 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 917C59F7286C99440078FAAD /* XCRemoteSwiftPackageReference "SnapKit" */;
+			package = 919E9C6C2893EEAC0002D725 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */

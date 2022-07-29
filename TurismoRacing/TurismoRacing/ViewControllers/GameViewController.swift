@@ -10,13 +10,11 @@ import Foundation
 import SnapKit
 
 class GameViewController: UIViewController {
-    
     private let backgroundImages = ["ic_desertMap1", "ic_desertMap2", "ic_desertMap3"]
     private var backgroundImageArray: [UIImageView] = []
     private var car: UIImageView!
     private var lable: UILabel!
     private var scoreLable: UILabel!
-    private let defaults = UserDefaults.standard
     private var gameOver = false
     private var scoreCountTimer: Timer!
     private var points = 0 {
@@ -35,10 +33,15 @@ class GameViewController: UIViewController {
         }
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        setupConstraints()
+    }
+    
+    // MARK: - Timer
     private func timerCount() {
         scoreCountTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(countPoints), userInfo: nil, repeats: true)
     }
-    
     @objc private func countPoints() {
         if gameOver == false {
             points += 1
@@ -46,7 +49,6 @@ class GameViewController: UIViewController {
             scoreCountTimer.invalidate()
         }
     }
-
     private func createScoreLable() {
         let strokeTextAttributes = [
             NSAttributedString.Key.strokeColor : UIColor.init(hex: 0xFFFFFF),
@@ -55,21 +57,24 @@ class GameViewController: UIViewController {
             NSAttributedString.Key.font : UIFont(name: "HammersmithOne-Regular", size: 35)]
         as [NSAttributedString.Key : Any]
         scoreLable = UILabel()
-        scoreLable.font = UIFont.boldSystemFont(ofSize: 30)
         scoreLable.adjustsFontSizeToFitWidth = true
         scoreLable.numberOfLines = 0
         scoreLable.attributedText = NSMutableAttributedString(string: "Score: ", attributes: strokeTextAttributes)
         view.addSubview(scoreLable)
-        scoreLable.snp.makeConstraints { make in
-            make.centerX.equalTo(view.center)
-            make.top.equalTo(view).offset(40)
-        }
-        
+        createScoreLableBackground()
     }
-    
-    
+    private func createScoreLableBackground() {
+        let backColor = UIView()
+        backColor.backgroundColor = UIColor.init(hex: 0x000000).withAlphaComponent(0.37)
+        view.addSubview(backColor)
+        backColor.snp.makeConstraints { make in
+            make.top.equalTo(scoreLable).offset(-5)
+            make.leading.equalTo(scoreLable).offset(-5)
+            make.bottom.equalTo(scoreLable).offset(5)
+            make.trailing.equalTo(scoreLable).offset(5)
+        }
+    }
     // MARK: - Start timer
-    
     private func startLable() {
         lable = UILabel()
         lable.text = "3"
@@ -78,13 +83,8 @@ class GameViewController: UIViewController {
         lable.numberOfLines = 0
         lable.textAlignment = .center
         view.addSubview(lable)
-        lable.snp.makeConstraints { make in
-            make.centerX.equalTo(view.center)
-            make.centerY.equalTo(view.center)
-        }
         animateStartLable()
     }
-    
     private func animateStartLable() {
         UIView.animate(withDuration: 1, delay: 0) {
             self.lable.transform = CGAffineTransform(scaleX: 2, y: 2)
@@ -114,9 +114,7 @@ class GameViewController: UIViewController {
             }
         }
     }
-    
     // MARK: - Add Game View
-    
     private func addBackToView() {
         backgroundImageArray = [backImage(backName: "ic_desertMap1"), backImage(backName: "ic_desertMap2"), backImage(backName: "ic_desertMap3")]
         backgroundImageArray[0].frame.origin = .zero
@@ -130,18 +128,15 @@ class GameViewController: UIViewController {
         }
         addCarToView()
     }
-    
     private func addCarToView() {
-        let carName = defaults.object(forKey: "CarModel")
+        let carName = Manager.userDefaults.object(forKey: "CarModel")
         let defaultCar = "ic_defaultCar"
         car = carImage(carName: "\(carName ?? defaultCar)")
         car.isUserInteractionEnabled = true
         car.center = CGPoint(x: view.bounds.midX / 2, y: view.bounds.maxY - 100)
         view.addSubview(car)
     }
-    
     // MARK: - Work With Animation
-    
     private func animateBackground() {
         let animator = UIViewPropertyAnimator(duration: 5, curve: .linear) {
             self.backgroundImageArray[0].frame.origin = CGPoint(x: 0, y: self.view.bounds.maxY)
@@ -156,7 +151,6 @@ class GameViewController: UIViewController {
             animator.stopAnimation(true)
         }
     }
-    
     private func workAnimate() {
         backgroundImageArray[0].removeFromSuperview()
         backgroundImageArray.append(backgroundImageArray.removeFirst())
@@ -164,9 +158,7 @@ class GameViewController: UIViewController {
         backgroundImageArray[1].frame.origin = CGPoint(x: 0, y: 0 - view.bounds.height)
         animateBackground()
     }
-    
     // MARK: - Add Objects and Animate
-    
     private func addObjectsToRoad() {
         workFirstObject()
         workSecondObject()
@@ -284,15 +276,14 @@ class GameViewController: UIViewController {
 
     private func gameFinish() {
         gameOver = true
-        var scores: [Int] = defaults.object(forKey: "score") as? [Int] ?? []
+        var scores: [Int] = Manager.userDefaults.object(forKey: "score") as? [Int] ?? []
         if points > 0 {
             scores.append(points)
-            defaults.set(scores, forKey: "score")
+            Manager.userDefaults.set(scores, forKey: "score")
         }
     }
     
     // MARK: - Control Car
-    
     private func swipeRecognizer() {
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(moveCar))
         let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(moveCar))
@@ -301,7 +292,6 @@ class GameViewController: UIViewController {
         view.addGestureRecognizer(swipeRight)
         view.addGestureRecognizer(swipeLeft)
     }
-    
     @objc private func moveCar(sender: UISwipeGestureRecognizer) {
         if sender.direction == .left {
             car.center.x -= view.bounds.midX / 3
@@ -309,26 +299,42 @@ class GameViewController: UIViewController {
             car.center.x += view.bounds.midX / 3
         }
     }
-    
     // MARK: - Init images
-    
     private func backImage(backName: String) -> UIImageView {
         let image = UIImage(named: backName)
         let imageView = UIImageView(image: image)
         imageView.frame = view.bounds
         return imageView
     }
-    
     private func carImage(carName: String) -> UIImageView {
         let image = UIImage(named: carName)
         let imageView = UIImageView(image: image)
         imageView.contentMode = .scaleAspectFit
         return imageView
     }
-    
     private func objectImage(name: String) -> UIImageView {
         let image = UIImage(named: name)
         let imageView = UIImageView(image: image)
         return imageView
     }
+    
+    // MARK: - Setup Constraints
+    private func setupConstraints() {
+        setupLableConstraints()
+        setupScoreLableConstraints()
+    }
+    private func setupLableConstraints() {
+        lable.snp.makeConstraints { make in
+            make.centerX.equalTo(view.center)
+            make.centerY.equalTo(view.center)
+        }
+    }
+    private func setupScoreLableConstraints() {
+        scoreLable.snp.makeConstraints { make in
+            make.centerX.equalTo(view.center)
+            make.top.equalTo(view).offset(40)
+        }
+    }
 }
+
+

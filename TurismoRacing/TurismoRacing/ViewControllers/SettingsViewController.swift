@@ -8,9 +8,7 @@
 import UIKit
 
 class SettingsViewController: UIViewController {
-    
     private var settingsView = SettingsView()
-    private var userDefaults = UserDefaults.standard
     
     override func loadView() {
         view = settingsView
@@ -20,31 +18,31 @@ class SettingsViewController: UIViewController {
         super.viewDidLoad()
         settingsView.delegate = self
     }
-    
+    // MARK: - Layout
     override func viewDidLayoutSubviews() {
         settingsView.frame = view.frame
     }
 }
-
+// MARK: - Extensions
 extension SettingsViewController: SettingsViewDelegate {
     func didEasyButtonTapped() {
-        userDefaults.set(true, forKey: "Easy")
-        userDefaults.set(false, forKey: "Medium")
-        userDefaults.set(false, forKey: "Hard")
+        Manager.userDefaults.set(true, forKey: "Easy")
+        Manager.userDefaults.set(false, forKey: "Medium")
+        Manager.userDefaults.set(false, forKey: "Hard")
         settingsView.animateSelection()
     }
     
     func didMediumButtonTapped() {
-        userDefaults.set(false, forKey: "Easy")
-        userDefaults.set(true, forKey: "Medium")
-        userDefaults.set(false, forKey: "Hard")
+        Manager.userDefaults.set(false, forKey: "Easy")
+        Manager.userDefaults.set(true, forKey: "Medium")
+        Manager.userDefaults.set(false, forKey: "Hard")
         settingsView.animateSelection()
     }
 
     func didHardButtonTapped() {
-        userDefaults.set(false, forKey: "Easy")
-        userDefaults.set(false, forKey: "Medium")
-        userDefaults.set(true, forKey: "Hard")
+        Manager.userDefaults.set(false, forKey: "Easy")
+        Manager.userDefaults.set(false, forKey: "Medium")
+        Manager.userDefaults.set(true, forKey: "Hard")
         settingsView.animateSelection()
     }
 }

@@ -44,50 +44,75 @@ class SettingsView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+    // MARK: - SetupUI
     private func setupUI() {
+        makeImageViewScreen()
+        makeDifficultyLable()
+        makeEasyModeButton()
+        makeMediumModeButton()
+        makeHardModeButton()
+        makeStackViewButtons()
+        makeSelectionButton()
+        addCarModelCollectionView()
+    }
+    
+    private func makeImageViewScreen() {
         imageViewScreen = UIImageView(frame: UIScreen.main.bounds)
         imageViewScreen.contentMode = .scaleAspectFill
         imageScreen = UIImage(named: "Settings")
         imageViewScreen.image = imageScreen
         addSubview(imageViewScreen)
-        
-        
+    }
+
+    private func makeDifficultyLable() {
         difficultyLable = UILabel()
         difficultyLable.text = "Difficulty"
         difficultyLable.textColor = .white
         difficultyLable.textAlignment = .center
         difficultyLable.font = UIFont(name: "OrelegaOne-Regular", size: 35)
         addSubview(difficultyLable)
-    
+    }
+
+    private func makeEasyModeButton() {
         easyModeButton = createButton(color: UIColor.init(hex: 0x56AC49), title: "Easy")
         easyModeButton.setBackgroundColor(red: 86, green: 172, blue: 73, alpha: 0.2, forState: .highlighted)
         easyModeButton.addTarget(self, action: #selector(easyButtonTapped), for: .touchUpInside)
         addSubview(easyModeButton)
-        
+    }
+
+    private func makeMediumModeButton() {
         mediumModeButton = createButton(color: UIColor.init(hex: 0xFB981F) , title: "Medium")
         mediumModeButton.setBackgroundColor(red: 251, green: 152, blue: 31, alpha: 0.2, forState: .highlighted)
         mediumModeButton.addTarget(self, action: #selector(mediumButtonTapped), for: .touchUpInside)
         addSubview(mediumModeButton)
-        
+    }
+    
+    private func makeHardModeButton() {
         hardModeButton = createButton(color: UIColor.init(hex: 0xDC3E3F), title: "Hard")
         hardModeButton.setBackgroundColor(red: 220, green: 62, blue: 62, alpha: 0.2, forState: .highlighted)
         hardModeButton.addTarget(self, action: #selector(hardButtonTapped), for: .touchUpInside)
         addSubview(hardModeButton)
-        
+    }
+    
+    private func makeStackViewButtons() {
         stackViewButtons = UIStackView(arrangedSubviews: [difficultyLable, easyModeButton, mediumModeButton, hardModeButton])
         stackViewButtons.axis = .vertical
         stackViewButtons.distribution = .fillEqually
         stackViewButtons.alignment = .fill
         stackViewButtons.spacing = 20
         addSubview(stackViewButtons)
-        
+    }
+
+    private func makeSelectionButton() {
         selectedButton = UIImageView()
         selectedButton.image = UIImage(named: "ic_selectedButton")
         addSubview(selectedButton)
+    }
+
+    private func addCarModelCollectionView() {
         addSubview(carModelCollectionView)
     }
-    
+    // MARK: - Additional Methods
     func animateSelection() {
         if UserDefaults.standard.bool(forKey: "Easy") {
             selectedButton.snp.removeConstraints()
@@ -122,7 +147,6 @@ class SettingsView: UIView {
         }
     }
 
-    
     private func createButton(color: UIColor, title: String) -> UIButton {
         let attributedString = NSAttributedString(string: title,
                                                   attributes: [
@@ -135,7 +159,7 @@ class SettingsView: UIView {
         button.setAttributedTitle(attributedString, for: .normal)
         return button
     }
-    
+    // MARK: - Delegate Methods
     @objc private func easyButtonTapped() {
         delegate?.didEasyButtonTapped()
     }
@@ -147,25 +171,41 @@ class SettingsView: UIView {
     @objc private func hardButtonTapped() {
         delegate?.didHardButtonTapped()
     }
-
+    // MARK: - Constraints
     override func layoutSubviews() {
+        setupConstraints()
+        animateSelection()
+    }
+    
+    private func setupConstraints() {
+        makeConstraintsImageViewScreen()
+        makeConstraintsStackViewButtons()
+        makeConstraintsCarModelCollectionView()
+    }
+    
+    private func makeConstraintsImageViewScreen() {
         imageViewScreen.snp.makeConstraints { make in
             make.top.equalTo(self)
             make.bottom.equalTo(self)
             make.leading.equalTo(self)
             make.trailing.equalTo(self)
         }
+    }
+    
+    private func makeConstraintsStackViewButtons() {
         stackViewButtons.snp.makeConstraints { make in
             make.top.equalTo(carModelCollectionView).offset(250)
             make.bottom.equalTo(-30)
             make.leading.equalTo(90)
             make.trailing.equalTo(-90)
         }
+    }
+    
+    private func makeConstraintsCarModelCollectionView() {
         carModelCollectionView.snp.makeConstraints { make in
             make.height.equalTo(170)
             make.width.equalTo(bounds.width)
             make.top.equalTo(100)
         }
-        animateSelection()
     }
 }
