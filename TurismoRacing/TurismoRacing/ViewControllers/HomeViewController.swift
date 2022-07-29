@@ -9,9 +9,7 @@ import Foundation
 import UIKit
 
 class HomeViewController: UIViewController {
-    
     private let homeView = HomeMenu()
-    private let defaults = UserDefaults.standard
 
     override func loadView() {
         view = homeView
@@ -21,15 +19,25 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         homeView.delegate = self
     }
-    
+    // MARK: - Layout
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        setupLayout()
+    }
+    private func setupLayout() {
+        makeLayoutHomeView()
+    }
+    private func makeLayoutHomeView() {
         homeView.frame = view.bounds
     }
-    
+    // MARK: - Private Methods
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        guard let scoreArray = defaults.object(forKey: "score") as? [Int] else {
+        setBestScore()
+    }
+    
+    private func setBestScore() {
+        guard let scoreArray = Manager.userDefaults.object(forKey: "score") as? [Int] else {
             return
         }
         let maxScore = scoreArray.max()
@@ -37,8 +45,9 @@ class HomeViewController: UIViewController {
             self.homeView.bestScoreLable.text = "Best Score: \n \(maxScore!)"
         }
     }
-}
 
+}
+// MARK: - Extensions
 extension HomeViewController: MenuViewDelegate {
     func didTapLeaderboardButton() {
         let leaderboard = LeaderBoardViewController()

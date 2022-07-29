@@ -8,16 +8,14 @@
 import UIKit
 
 class LeaderBoardViewController: UIViewController {
-    
     private let leaderboardView = LeaderboardView()
-    private let userDefaults = UserDefaults.standard
     private var tableView: UITableView!
     private var scoreArray = [Int]()
     private var sortedArray = [Int]()
     private var height: CGFloat!
     
     override func loadView() {
-        view = leaderboardView
+        self.view = leaderboardView
     }
 
     override func viewDidLoad() {
@@ -25,6 +23,7 @@ class LeaderBoardViewController: UIViewController {
         setTableView()
         loadScores()
     }
+    // MARK: - Setup Methods
     private func setTableView() {
         tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -35,19 +34,25 @@ class LeaderBoardViewController: UIViewController {
         tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
         view.addSubview(tableView)
     }
-
-    
+    // MARK: - Private Methods
     private func loadScores() {
-        guard let array = userDefaults.object(forKey: "score") as? [Int] else {
+        guard let array = Manager.userDefaults.object(forKey: "score") as? [Int] else {
             return
         }
         scoreArray = array
-        sortedArray = scoreArray.compactMap{Int($0) ?? 0}.sorted(by: >)
+        sortedArray = scoreArray.compactMap{Int($0)}.sorted(by: >)
     }
-
+    // MARK: - Constraints
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        leaderboardView.frame = view.bounds
+        setupConstraints()
+    }
+    private func setupConstraints() {
+        makeLayoutLeaderboardView()
+        makeConstraintsTableView()
+    }
+
+    private func makeConstraintsTableView() {
         tableView.snp.makeConstraints { make in
             make.top.equalTo(150)
             make.bottom.equalTo(-40)
@@ -55,8 +60,12 @@ class LeaderBoardViewController: UIViewController {
             make.trailing.equalTo(-40)
         }
     }
+    
+    private func makeLayoutLeaderboardView() {
+        leaderboardView.frame = view.bounds
+    }
 }
-
+// MARK: - Extensions
 extension LeaderBoardViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return scoreArray.count
