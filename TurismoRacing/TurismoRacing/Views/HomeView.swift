@@ -64,8 +64,8 @@ class HomeMenu: UIView {
     
     private func makePlayButton() {
         onPlayButton = createButton(image: "ic_playButton", clickedImage: "ic_playButtonClicked")
-        onPlayButton.titleLabel?.text = "Play"
-        onPlayButton.titleLabel?.font = UIFont(name: "OrelegaOne-Regular", size: 25)
+        onPlayButton.setTitle("PLAY", for: .normal)
+        onPlayButton.titleLabel?.font = UIFont(name: "OrelegaOne-Regular", size: 27)
         onPlayButton.titleLabel?.textColor = .white
         onPlayButton.titleLabel?.adjustsFontSizeToFitWidth = true
         onPlayButton.addTarget(self, action: #selector(didTapPlayButton), for: .touchUpInside)
