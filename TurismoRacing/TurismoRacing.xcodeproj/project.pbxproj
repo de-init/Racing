@@ -21,10 +21,10 @@
 		912E66832894094600FDCFAE /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912E66822894094600FDCFAE /* Const.swift */; };
 		9188BA72286D0614000ECD09 /* LeaderBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9188BA71286D0614000ECD09 /* LeaderBoardViewController.swift */; };
 		9188BA74286D064A000ECD09 /* LeaderboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9188BA73286D064A000ECD09 /* LeaderboardView.swift */; };
-		919E9C6E2893EEAC0002D725 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 919E9C6D2893EEAC0002D725 /* SnapKit */; };
 		91AE1D022865F679000FAEF4 /* Poppins-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 91AE1CFF2865F678000FAEF4 /* Poppins-ExtraLight.ttf */; };
 		91AE1D032865F679000FAEF4 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 91AE1D002865F678000FAEF4 /* Poppins-Bold.ttf */; };
 		91AE1D042865F679000FAEF4 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 91AE1D012865F679000FAEF4 /* Poppins-SemiBold.ttf */; };
+		91AE8F25289A6BC200C1FAAA /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 91AE8F24289A6BC200C1FAAA /* SnapKit */; };
 		91DACB9E2864965500F68E16 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DACB9D2864965500F68E16 /* SettingsView.swift */; };
 		91DACBA02864998400F68E16 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DACB9F2864998400F68E16 /* SettingsViewController.swift */; };
 		91E6CE452859DF1C00F52DD1 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E6CE442859DF1B00F52DD1 /* HomeViewController.swift */; };
@@ -70,7 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				919E9C6E2893EEAC0002D725 /* SnapKit in Frameworks */,
+				91AE8F25289A6BC200C1FAAA /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -215,7 +215,7 @@
 			);
 			name = TurismoRacing;
 			packageProductDependencies = (
-				919E9C6D2893EEAC0002D725 /* SnapKit */,
+				91AE8F24289A6BC200C1FAAA /* SnapKit */,
 			);
 			productName = TurismoRacing;
 			productReference = 912429AF2858A0000007F0B3 /* TurismoRacing.app */;
@@ -246,7 +246,7 @@
 			);
 			mainGroup = 912429A62858A0000007F0B3;
 			packageReferences = (
-				919E9C6C2893EEAC0002D725 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				91AE8F23289A6BC200C1FAAA /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = 912429B02858A0000007F0B3 /* Products */;
 			projectDirPath = "";
@@ -520,7 +520,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		919E9C6C2893EEAC0002D725 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+		91AE8F23289A6BC200C1FAAA /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
 			requirement = {
@@ -531,9 +531,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		919E9C6D2893EEAC0002D725 /* SnapKit */ = {
+		91AE8F24289A6BC200C1FAAA /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 919E9C6C2893EEAC0002D725 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			package = 91AE8F23289A6BC200C1FAAA /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */

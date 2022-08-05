@@ -50,29 +50,20 @@ class GameViewController: UIViewController {
         }
     }
     private func createScoreLable() {
+        let color = CGColor(red: 0, green: 0, blue: 0, alpha: 0.37)
         let strokeTextAttributes = [
-            NSAttributedString.Key.strokeColor : UIColor.init(hex: 0xFFFFFF),
-            NSAttributedString.Key.foregroundColor : UIColor.init(hex: 0xD87272),
+            NSAttributedString.Key.strokeColor : UIColor.init(hex: 0xE8E5DA),
+            NSAttributedString.Key.foregroundColor : UIColor.init(hex: 0x648DE5),
             NSAttributedString.Key.strokeWidth : -3.0,
             NSAttributedString.Key.font : UIFont(name: "HammersmithOne-Regular", size: 35)]
         as [NSAttributedString.Key : Any]
         scoreLable = UILabel()
         scoreLable.adjustsFontSizeToFitWidth = true
         scoreLable.numberOfLines = 0
+        scoreLable.layer.backgroundColor = color
+        scoreLable.layer.cornerRadius = 15
         scoreLable.attributedText = NSMutableAttributedString(string: "Score: ", attributes: strokeTextAttributes)
         view.addSubview(scoreLable)
-        createScoreLableBackground()
-    }
-    private func createScoreLableBackground() {
-        let backColor = UIView()
-        backColor.backgroundColor = UIColor.init(hex: 0x000000).withAlphaComponent(0.37)
-        view.addSubview(backColor)
-        backColor.snp.makeConstraints { make in
-            make.top.equalTo(scoreLable).offset(-5)
-            make.leading.equalTo(scoreLable).offset(-5)
-            make.bottom.equalTo(scoreLable).offset(5)
-            make.trailing.equalTo(scoreLable).offset(5)
-        }
     }
     // MARK: - Start timer
     private func startLable() {
@@ -123,7 +114,7 @@ class GameViewController: UIViewController {
         view.addSubview(backgroundImageArray[1])
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.7) {
             self.animateBackground()
-            self.swipeRecognizer()
+            self.addSwipeRecognizer()
             self.addObjectsToRoad()
         }
         addCarToView()
@@ -172,41 +163,38 @@ class GameViewController: UIViewController {
         objectImagesArray = [objectImage(name: "ic_barrel"), objectImage(name: "ic_barrier"), objectImage(name: "ic_cone"), objectImage(name: "ic_coin"), objectImage(name: "ic_block"), objectImage(name: "ic_bomb"), objectImage(name: "ic_pig"), objectImage(name: "ic_turn"), objectImage(name: "ic_warn")]
         let item = objectImagesArray.randomElement()
         item!.center = CGPoint(x: view.bounds.midX / 2, y: 0 - 40)
-        animateFirstObject(element: item!, point: CGPoint(x: view.bounds.midX / 2, y: view.bounds.maxY - 200) , delay: randomDelay)
+        animateFirstObject(element: item!, point: CGPoint(x: view.bounds.midX / 2, y: view.bounds.maxY - 170) , delay: randomDelay)
     }
-    
     private func workSecondObject() {
         let randomDelay = Double.random(in: 0...6)
         var objectImagesArray: [UIImageView] = []
         objectImagesArray = [objectImage(name: "ic_barrel"), objectImage(name: "ic_barrier"), objectImage(name: "ic_cone"), objectImage(name: "ic_coin"), objectImage(name: "ic_block"), objectImage(name: "ic_bomb"), objectImage(name: "ic_pig"), objectImage(name: "ic_turn"), objectImage(name: "ic_warn")]
         let item = objectImagesArray.randomElement()
         item!.center = CGPoint(x: view.bounds.midX / 2 + view.bounds.midX / 3, y: 0 - 40)
-        animateSecondObject(element: item!, point: CGPoint(x: view.bounds.midX / 2 + view.bounds.midX / 3, y: view.bounds.maxY - 200), delay: randomDelay)
+        animateSecondObject(element: item!, point: CGPoint(x: view.bounds.midX / 2 + view.bounds.midX / 3, y: view.bounds.maxY - 170), delay: randomDelay)
     }
-
     private func workThirdObject() {
         let randomDelay = Double.random(in: 0...6)
         var objectImagesArray: [UIImageView] = []
         objectImagesArray = [objectImage(name: "ic_barrel"), objectImage(name: "ic_barrier"), objectImage(name: "ic_cone"), objectImage(name: "ic_coin"), objectImage(name: "ic_block"), objectImage(name: "ic_bomb"), objectImage(name: "ic_pig"), objectImage(name: "ic_turn"), objectImage(name: "ic_warn")]
         let item = objectImagesArray.randomElement()
         item!.center = CGPoint(x: view.bounds.maxX / 3 + view.bounds.midX / 2, y: 0 - 40)
-        animateThirdObject(element: item!, point: CGPoint(x: view.bounds.maxX / 3 + view.bounds.midX / 2, y: view.bounds.maxY - 200), delay: randomDelay)
+        animateThirdObject(element: item!, point: CGPoint(x: view.bounds.maxX / 3 + view.bounds.midX / 2, y: view.bounds.maxY - 170), delay: randomDelay)
     }
-    
     private func workFourthObject() {
         let randomDelay = Double.random(in: 0...6)
         var objectImagesArray: [UIImageView] = []
         objectImagesArray = [objectImage(name: "ic_barrel"), objectImage(name: "ic_barrier"), objectImage(name: "ic_cone"), objectImage(name: "ic_coin"), objectImage(name: "ic_block"), objectImage(name: "ic_bomb"), objectImage(name: "ic_pig"), objectImage(name: "ic_turn"), objectImage(name: "ic_warn")]
         let item = objectImagesArray.randomElement()
         item!.center = CGPoint(x: view.bounds.maxX / 2 + view.bounds.midX / 2, y: 0 - 40)
-        animateFourthObject(element: item!, point: CGPoint(x: view.bounds.maxX / 2 + view.bounds.midX / 2, y: view.bounds.maxY - 200), delay: randomDelay)
+        animateFourthObject(element: item!, point: CGPoint(x: view.bounds.maxX / 2 + view.bounds.midX / 2, y: view.bounds.maxY - 170), delay: randomDelay)
     }
-    
     private func animateFirstObject(element: UIImageView, point: CGPoint, delay: Double) {
-        UIView.animate(withDuration: 4.3, delay: delay, options: .curveLinear) {
+        UIView.animate(withDuration: 4.5, delay: delay, options: .curveLinear) {
             element.center = point
         } completion: { _ in
             if self.car.frame.intersects(self.car.convert(element.frame, to: self.car)) {
+                self.car.layer.presentation()
                 self.view.layer.removeAllAnimations()
                 self.gameFinish()
             } else if self.gameOver {
@@ -219,12 +207,12 @@ class GameViewController: UIViewController {
         }
         view.addSubview(element)
     }
-    
     private func animateSecondObject(element: UIImageView, point: CGPoint, delay: Double) {
-        UIView.animate(withDuration: 4.3, delay: delay, options: .curveLinear) {
+        UIView.animate(withDuration: 4.5, delay: delay, options: .curveLinear) {
             element.center = point
         } completion: { _ in
             if self.car.frame.intersects(self.car.convert(element.frame, to: self.car)) {
+                self.car.layer.presentation()
                 self.view.layer.removeAllAnimations()
                 self.gameFinish()
             } else if self.gameOver {
@@ -237,12 +225,12 @@ class GameViewController: UIViewController {
         }
         view.insertSubview(element, belowSubview: scoreLable)
     }
-    
     private func animateThirdObject(element: UIImageView, point: CGPoint, delay: Double) {
-        UIView.animate(withDuration: 4.3, delay: delay, options: .curveLinear) {
+        UIView.animate(withDuration: 4.5, delay: delay, options: .curveLinear) {
             element.center = point
         } completion: { _ in
             if self.car.frame.intersects(self.car.convert(element.frame, to: self.car)) {
+                self.car.layer.presentation()
                 self.view.layer.removeAllAnimations()
                 self.gameFinish()
             } else if self.gameOver {
@@ -255,12 +243,12 @@ class GameViewController: UIViewController {
         }
         view.insertSubview(element, belowSubview: scoreLable)
     }
-    
     private func animateFourthObject(element: UIImageView, point: CGPoint, delay: Double) {
-        UIView.animate(withDuration: 4.3, delay: delay, options: .curveLinear) {
+        UIView.animate(withDuration: 4.5, delay: delay, options: .curveLinear) {
             element.center = point
         } completion: { _ in
             if self.car.frame.intersects(self.car.convert(element.frame, to: self.car)) {
+                self.car.layer.presentation()
                 self.view.layer.removeAllAnimations()
                 self.gameFinish()
             } else if self.gameOver {
@@ -273,7 +261,6 @@ class GameViewController: UIViewController {
         }
         view.addSubview(element)
     }
-
     private func gameFinish() {
         gameOver = true
         var scores: [Int] = Manager.userDefaults.object(forKey: "score") as? [Int] ?? []
@@ -284,12 +271,18 @@ class GameViewController: UIViewController {
     }
     
     // MARK: - Control Car
-    private func swipeRecognizer() {
+    private func addSwipeRecognizer() {
+        setupRightRecognizer()
+        setupLeftRecognizer()
+    }
+    private func setupRightRecognizer() {
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(moveCar))
-        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(moveCar))
-        swipeLeft.direction = .left
         swipeRight.direction = .right
         view.addGestureRecognizer(swipeRight)
+    }
+    private func setupLeftRecognizer() {
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(moveCar))
+        swipeLeft.direction = .left
         view.addGestureRecognizer(swipeLeft)
     }
     @objc private func moveCar(sender: UISwipeGestureRecognizer) {
