@@ -65,7 +65,7 @@ class HomeMenu: UIView {
     private func makePlayButton() {
         onPlayButton = createButton(image: "ic_playButton", clickedImage: "ic_playButtonClicked")
         onPlayButton.setTitle("PLAY", for: .normal)
-        onPlayButton.titleLabel?.font = UIFont(name: "OrelegaOne-Regular", size: 27)
+        onPlayButton.titleLabel?.font = UIFont(name: Fonts.OrelegaOne.regular.fontName, size: 27)
         onPlayButton.titleLabel?.textColor = .white
         onPlayButton.titleLabel?.adjustsFontSizeToFitWidth = true
         onPlayButton.addTarget(self, action: #selector(didTapPlayButton), for: .touchUpInside)
@@ -98,7 +98,7 @@ class HomeMenu: UIView {
         bestScoreLable = UILabel()
         bestScoreLable.text = "Best Score"
         bestScoreLable.textColor = .white
-        bestScoreLable.font = UIFont(name: "Poppins-Bold", size: 28)
+        bestScoreLable.font = UIFont(name: Fonts.Poppins.bold.fontName, size: 28)
         bestScoreLable.numberOfLines = 0
         bestScoreLable.textAlignment = .center
         addSubview(bestScoreLable)

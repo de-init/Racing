@@ -12,13 +12,14 @@ class HomeViewController: UIViewController {
     private let homeView = HomeMenu()
 
     override func loadView() {
-        view = homeView
+        self.view = homeView
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         homeView.delegate = self
     }
+    
     // MARK: - Layout
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -30,6 +31,7 @@ class HomeViewController: UIViewController {
     private func makeLayoutHomeView() {
         homeView.frame = view.bounds
     }
+    
     // MARK: - Private Methods
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -37,7 +39,7 @@ class HomeViewController: UIViewController {
     }
     
     private func setBestScore() {
-        guard let scoreArray = Manager.userDefaults.object(forKey: "score") as? [Int] else {
+        guard let scoreArray = Globals.userDefaults.object(forKey: "score") as? [Int] else {
             return
         }
         let maxScore = scoreArray.max()
@@ -45,8 +47,8 @@ class HomeViewController: UIViewController {
             self.homeView.bestScoreLable.text = "Best Score: \n \(maxScore!)"
         }
     }
-
 }
+
 // MARK: - Extensions
 extension HomeViewController: MenuViewDelegate {
     func didTapLeaderboardButton() {

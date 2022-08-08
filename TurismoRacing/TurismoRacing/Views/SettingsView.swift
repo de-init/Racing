@@ -69,7 +69,7 @@ class SettingsView: UIView {
         difficultyLable.text = "Difficulty"
         difficultyLable.textColor = .white
         difficultyLable.textAlignment = .center
-        difficultyLable.font = UIFont(name: "OrelegaOne-Regular", size: 35)
+        difficultyLable.font = UIFont(name: Fonts.OrelegaOne.regular.fontName, size: 35)
         addSubview(difficultyLable)
     }
 
@@ -113,7 +113,7 @@ class SettingsView: UIView {
         addSubview(carModelCollectionView)
     }
     // MARK: - Additional Methods
-    func animateSelection() {
+    private func animateSelection() {
         if UserDefaults.standard.bool(forKey: "Easy") {
             selectedButton.snp.removeConstraints()
             UIView.animate(withDuration: 0.5, delay: 0) {
@@ -150,7 +150,7 @@ class SettingsView: UIView {
     private func createButton(color: UIColor, title: String) -> UIButton {
         let attributedString = NSAttributedString(string: title,
                                                   attributes: [
-                                                  NSAttributedString.Key.font : UIFont(name: "OrelegaOne-Regular", size: 30),
+                                                  NSAttributedString.Key.font : UIFont(name: Fonts.OrelegaOne.regular.fontName, size: 30),
                                                   NSAttributedString.Key.foregroundColor : UIColor.init(hex: 0xFFFFFF)])
         let button = UIButton()
         button.backgroundColor = color
@@ -162,14 +162,17 @@ class SettingsView: UIView {
     // MARK: - Delegate Methods
     @objc private func easyButtonTapped() {
         delegate?.didEasyButtonTapped()
+        animateSelection()
     }
 
     @objc private func mediumButtonTapped() {
         delegate?.didMediumButtonTapped()
+        animateSelection()
     }
 
     @objc private func hardButtonTapped() {
         delegate?.didHardButtonTapped()
+        animateSelection()
     }
     // MARK: - Constraints
     override func layoutSubviews() {

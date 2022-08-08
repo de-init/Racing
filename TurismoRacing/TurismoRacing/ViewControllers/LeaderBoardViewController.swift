@@ -23,6 +23,7 @@ class LeaderBoardViewController: UIViewController {
         setTableView()
         loadScores()
     }
+    
     // MARK: - Setup Methods
     private func setTableView() {
         tableView = UITableView()
@@ -31,17 +32,20 @@ class LeaderBoardViewController: UIViewController {
         tableView.dataSource = self
         tableView.backgroundColor = .clear
         tableView.allowsSelection = false
+        tableView.showsVerticalScrollIndicator = false
         tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
         view.addSubview(tableView)
     }
+    
     // MARK: - Private Methods
     private func loadScores() {
-        guard let array = Manager.userDefaults.object(forKey: "score") as? [Int] else {
+        guard let array = Globals.userDefaults.object(forKey: "score") as? [Int] else {
             return
         }
         scoreArray = array
         sortedArray = scoreArray.compactMap{Int($0)}.sorted(by: >)
     }
+    
     // MARK: - Constraints
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -65,6 +69,7 @@ class LeaderBoardViewController: UIViewController {
         leaderboardView.frame = view.bounds
     }
 }
+
 // MARK: - Extensions
 extension LeaderBoardViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -103,10 +108,10 @@ extension LeaderBoardViewController: UITableViewDelegate, UITableViewDataSource 
         cell.countLable.textColor = .white
         cell.countLable.numberOfLines = 0
         cell.countLable.adjustsFontSizeToFitWidth = true
-        cell.countLable.font = UIFont(name: "Poppins-SemiBold", size: 45)
+        cell.countLable.font = UIFont(name: Fonts.Poppins.semiBold.fontName, size: 45)
         cell.scoreLable.text = "\(sortedArray[indexPath.section])"
         cell.scoreLable.textColor = .white
-        cell.scoreLable.font = UIFont(name: "Poppins-SemiBold", size: 35)
+        cell.scoreLable.font = UIFont(name: Fonts.Poppins.semiBold.fontName, size: 35)
         cell.scoreLable.numberOfLines = 0
         cell.scoreLable.adjustsFontSizeToFitWidth = true
         return cell
