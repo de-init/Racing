@@ -11,7 +11,7 @@ class SettingsViewController: UIViewController {
     private var settingsView = SettingsView()
     
     override func loadView() {
-        view = settingsView
+        self.view = settingsView
     }
 
     override func viewDidLoad() {
@@ -26,23 +26,20 @@ class SettingsViewController: UIViewController {
 // MARK: - Extensions
 extension SettingsViewController: SettingsViewDelegate {
     func didEasyButtonTapped() {
-        Manager.userDefaults.set(true, forKey: "Easy")
-        Manager.userDefaults.set(false, forKey: "Medium")
-        Manager.userDefaults.set(false, forKey: "Hard")
-        settingsView.animateSelection()
+        Globals.userDefaults.set(true, forKey: "Easy")
+        Globals.userDefaults.set(false, forKey: "Medium")
+        Globals.userDefaults.set(false, forKey: "Hard")
     }
     
     func didMediumButtonTapped() {
-        Manager.userDefaults.set(false, forKey: "Easy")
-        Manager.userDefaults.set(true, forKey: "Medium")
-        Manager.userDefaults.set(false, forKey: "Hard")
-        settingsView.animateSelection()
+        Globals.userDefaults.set(false, forKey: "Easy")
+        Globals.userDefaults.set(true, forKey: "Medium")
+        Globals.userDefaults.set(false, forKey: "Hard")
     }
 
     func didHardButtonTapped() {
-        Manager.userDefaults.set(false, forKey: "Easy")
-        Manager.userDefaults.set(false, forKey: "Medium")
-        Manager.userDefaults.set(true, forKey: "Hard")
-        settingsView.animateSelection()
+        Globals.userDefaults.set(false, forKey: "Easy")
+        Globals.userDefaults.set(false, forKey: "Medium")
+        Globals.userDefaults.set(true, forKey: "Hard")
     }
 }

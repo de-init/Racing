@@ -1,14 +1,13 @@
 //
-//  Const.swift
+//  Globals.swift
 //  TurismoRacing
 //
-//  Created by S2 on 29.07.22.
+//  Created by S2 on 5.08.22.
 //
 
 import Foundation
-import UIKit
 
-class Manager {
+struct Globals {
     static let userDefaults = UserDefaults()
     static let fileManager = FileManager()
 }

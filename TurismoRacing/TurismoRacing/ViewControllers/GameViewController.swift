@@ -55,7 +55,7 @@ class GameViewController: UIViewController {
             NSAttributedString.Key.strokeColor : UIColor.init(hex: 0xE8E5DA),
             NSAttributedString.Key.foregroundColor : UIColor.init(hex: 0x648DE5),
             NSAttributedString.Key.strokeWidth : -3.0,
-            NSAttributedString.Key.font : UIFont(name: "HammersmithOne-Regular", size: 35)]
+            NSAttributedString.Key.font : UIFont(name: Fonts.HammersmithOne.regular.fontName, size: 35)]
         as [NSAttributedString.Key : Any]
         scoreLable = UILabel()
         scoreLable.adjustsFontSizeToFitWidth = true
@@ -105,6 +105,7 @@ class GameViewController: UIViewController {
             }
         }
     }
+    
     // MARK: - Add Game View
     private func addBackToView() {
         backgroundImageArray = [backImage(backName: "ic_desertMap1"), backImage(backName: "ic_desertMap2"), backImage(backName: "ic_desertMap3")]
@@ -120,7 +121,7 @@ class GameViewController: UIViewController {
         addCarToView()
     }
     private func addCarToView() {
-        let carName = Manager.userDefaults.object(forKey: "CarModel")
+        let carName = Globals.userDefaults.object(forKey: "CarModel")
         let defaultCar = "ic_defaultCar"
         car = carImage(carName: "\(carName ?? defaultCar)")
         car.isUserInteractionEnabled = true
@@ -263,10 +264,10 @@ class GameViewController: UIViewController {
     }
     private func gameFinish() {
         gameOver = true
-        var scores: [Int] = Manager.userDefaults.object(forKey: "score") as? [Int] ?? []
+        var scores: [Int] = Globals.userDefaults.object(forKey: "score") as? [Int] ?? []
         if points > 0 {
             scores.append(points)
-            Manager.userDefaults.set(scores, forKey: "score")
+            Globals.userDefaults.set(scores, forKey: "score")
         }
     }
     
