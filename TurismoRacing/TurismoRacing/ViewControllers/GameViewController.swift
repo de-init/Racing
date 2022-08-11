@@ -17,11 +17,7 @@ class GameViewController: UIViewController {
     private var scoreLable: UILabel!
     private var gameOver = false
     private var scoreCountTimer: Timer!
-    private var points = 0 {
-        didSet {
-            scoreLable.text = "Score: \(points)"
-        }
-    }
+    private var points = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +41,7 @@ class GameViewController: UIViewController {
     @objc private func countPoints() {
         if gameOver == false {
             points += 1
+            scoreLable.text = "\(Strings.score.localized): \(points)"
         } else {
             scoreCountTimer.invalidate()
         }
@@ -62,7 +59,7 @@ class GameViewController: UIViewController {
         scoreLable.numberOfLines = 0
         scoreLable.layer.backgroundColor = color
         scoreLable.layer.cornerRadius = 15
-        scoreLable.attributedText = NSMutableAttributedString(string: "Score: ", attributes: strokeTextAttributes)
+        scoreLable.attributedText = NSMutableAttributedString(string: "\(Strings.score.localized)", attributes: strokeTextAttributes)
         view.addSubview(scoreLable)
     }
     // MARK: - Start timer

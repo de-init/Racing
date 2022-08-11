@@ -6,3 +6,18 @@
 //
 
 import Foundation
+
+enum Strings: String {
+    case play = "play_button_title"
+    case score = "score_game_title"
+    case bestScore = "best_score_title"
+    case leaderboard = "leaderboard_title"
+    case difficulty = "difficulty_title"
+    case easy = "easy_mode_title"
+    case medium = "medium_mode_title"
+    case hard = "hard_mode_title"
+    
+    var localized: String {
+        return NSLocalizedString(self.rawValue, comment: "")
+    }
+}

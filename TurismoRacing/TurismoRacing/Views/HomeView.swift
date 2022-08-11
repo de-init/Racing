@@ -64,7 +64,7 @@ class HomeMenu: UIView {
     
     private func makePlayButton() {
         onPlayButton = createButton(image: "ic_playButton", clickedImage: "ic_playButtonClicked")
-        onPlayButton.setTitle("PLAY", for: .normal)
+        onPlayButton.setTitle(Strings.play.localized, for: .normal)
         onPlayButton.titleLabel?.font = UIFont(name: Fonts.OrelegaOne.regular.fontName, size: 27)
         onPlayButton.titleLabel?.textColor = .white
         onPlayButton.titleLabel?.adjustsFontSizeToFitWidth = true
@@ -96,11 +96,12 @@ class HomeMenu: UIView {
 
     private func makeBestScoreLable() {
         bestScoreLable = UILabel()
-        bestScoreLable.text = "Best Score"
+        bestScoreLable.text = Strings.bestScore.localized
         bestScoreLable.textColor = .white
         bestScoreLable.font = UIFont(name: Fonts.Poppins.bold.fontName, size: 28)
         bestScoreLable.numberOfLines = 0
         bestScoreLable.textAlignment = .center
+        bestScoreLable.adjustsFontSizeToFitWidth = true
         addSubview(bestScoreLable)
     }
     
@@ -191,6 +192,8 @@ class HomeMenu: UIView {
         bestScoreLable.snp.makeConstraints { make in
             make.centerX.equalTo(self.center)
             make.top.equalTo(100)
+            make.leading.equalTo(onSettingsButton).offset(90)
+            make.trailing.equalTo(onLeaderboardButton).offset(-90)
         }
     }
 
