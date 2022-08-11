@@ -44,7 +44,7 @@ class HomeViewController: UIViewController {
         }
         let maxScore = scoreArray.max()
         DispatchQueue.main.async {
-            self.homeView.bestScoreLable.text = "Best Score: \n \(maxScore!)"
+            self.homeView.bestScoreLable.text = "\(Strings.bestScore.localized) \n \(maxScore!)"
         }
     }
 }

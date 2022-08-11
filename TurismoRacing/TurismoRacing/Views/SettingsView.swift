@@ -66,29 +66,30 @@ class SettingsView: UIView {
 
     private func makeDifficultyLable() {
         difficultyLable = UILabel()
-        difficultyLable.text = "Difficulty"
+        difficultyLable.text = Strings.difficulty.localized
         difficultyLable.textColor = .white
         difficultyLable.textAlignment = .center
         difficultyLable.font = UIFont(name: Fonts.OrelegaOne.regular.fontName, size: 35)
+        difficultyLable.adjustsFontSizeToFitWidth = true
         addSubview(difficultyLable)
     }
 
     private func makeEasyModeButton() {
-        easyModeButton = createButton(color: UIColor.init(hex: 0x56AC49), title: "Easy")
+        easyModeButton = createButton(color: UIColor.init(hex: 0x56AC49), title: Strings.easy.localized)
         easyModeButton.setBackgroundColor(red: 86, green: 172, blue: 73, alpha: 0.2, forState: .highlighted)
         easyModeButton.addTarget(self, action: #selector(easyButtonTapped), for: .touchUpInside)
         addSubview(easyModeButton)
     }
 
     private func makeMediumModeButton() {
-        mediumModeButton = createButton(color: UIColor.init(hex: 0xFB981F) , title: "Medium")
+        mediumModeButton = createButton(color: UIColor.init(hex: 0xFB981F) , title: Strings.medium.localized)
         mediumModeButton.setBackgroundColor(red: 251, green: 152, blue: 31, alpha: 0.2, forState: .highlighted)
         mediumModeButton.addTarget(self, action: #selector(mediumButtonTapped), for: .touchUpInside)
         addSubview(mediumModeButton)
     }
     
     private func makeHardModeButton() {
-        hardModeButton = createButton(color: UIColor.init(hex: 0xDC3E3F), title: "Hard")
+        hardModeButton = createButton(color: UIColor.init(hex: 0xDC3E3F), title: Strings.hard.localized)
         hardModeButton.setBackgroundColor(red: 220, green: 62, blue: 62, alpha: 0.2, forState: .highlighted)
         hardModeButton.addTarget(self, action: #selector(hardButtonTapped), for: .touchUpInside)
         addSubview(hardModeButton)
@@ -99,7 +100,7 @@ class SettingsView: UIView {
         stackViewButtons.axis = .vertical
         stackViewButtons.distribution = .fillEqually
         stackViewButtons.alignment = .fill
-        stackViewButtons.spacing = 20
+        stackViewButtons.spacing = 25
         addSubview(stackViewButtons)
     }
 
@@ -122,7 +123,7 @@ class SettingsView: UIView {
                     make.leading.equalTo(self.easyModeButton).offset(5)
                     make.bottom.equalTo(self.easyModeButton).offset(-5)
                     make.trailing.equalTo(self.easyModeButton).offset(-5)
-                } 
+                }
             }
         } else if UserDefaults.standard.bool(forKey: "Medium") {
             selectedButton.snp.removeConstraints()
@@ -197,7 +198,7 @@ class SettingsView: UIView {
     
     private func makeConstraintsStackViewButtons() {
         stackViewButtons.snp.makeConstraints { make in
-            make.top.equalTo(carModelCollectionView).offset(250)
+            make.top.equalTo(carModelCollectionView).offset(200)
             make.bottom.equalTo(-30)
             make.leading.equalTo(90)
             make.trailing.equalTo(-90)

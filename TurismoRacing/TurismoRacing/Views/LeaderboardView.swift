@@ -41,8 +41,9 @@ class LeaderboardView: UIView {
 
     private func setupLable() {
         lable = UILabel()
-        lable.text = "Leaderboard"
+        lable.text = Strings.leaderboard.localized
         lable.font = UIFont(name: Fonts.OrelegaOne.regular.fontName, size: 45)
+        lable.adjustsFontSizeToFitWidth = true
         lable.textAlignment = .center
         lable.textColor = .white
         addSubview(lable)
