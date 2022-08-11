@@ -57,6 +57,10 @@
 		9153F876289D7C9300AB7152 /* Localizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizable.swift; sourceTree = "<group>"; };
 		9157773A28A1998C00FDF68F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9157773C28A19A2E00FDF68F /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9166995D28A5333500457387 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9166995E28A5333F00457387 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9166995F28A5335000457387 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9166996028A5336400457387 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9188BA71286D0614000ECD09 /* LeaderBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoardViewController.swift; sourceTree = "<group>"; };
 		9188BA73286D064A000ECD09 /* LeaderboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardView.swift; sourceTree = "<group>"; };
 		91AE1CFF2865F678000FAEF4 /* Poppins-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraLight.ttf"; sourceTree = "<group>"; };
@@ -254,6 +258,10 @@
 				en,
 				Base,
 				ru,
+				es,
+				de,
+				it,
+				fr,
 			);
 			mainGroup = 912429A62858A0000007F0B3;
 			packageReferences = (
@@ -338,6 +346,10 @@
 			children = (
 				9157773A28A1998C00FDF68F /* en */,
 				9157773C28A19A2E00FDF68F /* ru */,
+				9166995D28A5333500457387 /* es */,
+				9166995E28A5333F00457387 /* de */,
+				9166995F28A5335000457387 /* it */,
+				9166996028A5336400457387 /* fr */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
