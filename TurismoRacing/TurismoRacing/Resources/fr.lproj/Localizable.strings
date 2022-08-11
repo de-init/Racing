@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  TurismoRacing
+
+  Created by S2 on 8.08.22.
+  
+*/
+"play_button_title" = "JOUER";
+"score_game_title" = "Score";
+"best_score_title" = "Meilleur Score";
+"leaderboard_title" = "Tableau des Leaders";
+"difficulty_title" = "Difficulté";
+"easy_mode_title" = "Facile";
+"medium_mode_title" = "Moyen";
+"hard_mode_title" = "Hard";
