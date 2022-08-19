@@ -16,6 +16,7 @@ enum Strings: String {
     case easy = "easy_mode_title"
     case medium = "medium_mode_title"
     case hard = "hard_mode_title"
+    case info = "info_title"
     
     var localized: String {
         return NSLocalizedString(self.rawValue, comment: "")
