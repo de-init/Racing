@@ -24,10 +24,14 @@
 		9157773928A1998C00FDF68F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9157773B28A1998C00FDF68F /* Localizable.strings */; };
 		9188BA72286D0614000ECD09 /* LeaderBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9188BA71286D0614000ECD09 /* LeaderBoardViewController.swift */; };
 		9188BA74286D064A000ECD09 /* LeaderboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9188BA73286D064A000ECD09 /* LeaderboardView.swift */; };
+		918AFD3228A6AAC000FE3B95 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918AFD3128A6AAC000FE3B95 /* InfoView.swift */; };
+		918AFD3428A6ABE900FE3B95 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918AFD3328A6ABE900FE3B95 /* UIImage+Extensions.swift */; };
+		918CD7AC28A9218D004C5D9A /* InfoButtonSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918CD7AB28A9218D004C5D9A /* InfoButtonSheetViewController.swift */; };
 		91AE1D022865F679000FAEF4 /* Poppins-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 91AE1CFF2865F678000FAEF4 /* Poppins-ExtraLight.ttf */; };
 		91AE1D032865F679000FAEF4 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 91AE1D002865F678000FAEF4 /* Poppins-Bold.ttf */; };
 		91AE1D042865F679000FAEF4 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 91AE1D012865F679000FAEF4 /* Poppins-SemiBold.ttf */; };
 		91AE8F25289A6BC200C1FAAA /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 91AE8F24289A6BC200C1FAAA /* SnapKit */; };
+		91CCF9F228AE4A0B007902A2 /* Montserrat-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 91CCF9F128AE4A0B007902A2 /* Montserrat-VariableFont_wght.ttf */; };
 		91DACB9E2864965500F68E16 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DACB9D2864965500F68E16 /* SettingsView.swift */; };
 		91DACBA02864998400F68E16 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DACB9F2864998400F68E16 /* SettingsViewController.swift */; };
 		91E6CE452859DF1C00F52DD1 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E6CE442859DF1B00F52DD1 /* HomeViewController.swift */; };
@@ -35,7 +39,6 @@
 		91E6CE572859EC3300F52DD1 /* OrelegaOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 91E6CE562859EC3300F52DD1 /* OrelegaOne-Regular.ttf */; };
 		91E6CE592859EC4600F52DD1 /* HammersmithOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 91E6CE582859EC4600F52DD1 /* HammersmithOne-Regular.ttf */; };
 		91E6CE5B285A008C00F52DD1 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E6CE5A285A008C00F52DD1 /* UIColor+Extensions.swift */; };
-		91E6CE5D285A009800F52DD1 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E6CE5C285A009800F52DD1 /* UIView+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,9 +66,13 @@
 		9166996028A5336400457387 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9188BA71286D0614000ECD09 /* LeaderBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoardViewController.swift; sourceTree = "<group>"; };
 		9188BA73286D064A000ECD09 /* LeaderboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardView.swift; sourceTree = "<group>"; };
+		918AFD3128A6AAC000FE3B95 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
+		918AFD3328A6ABE900FE3B95 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
+		918CD7AB28A9218D004C5D9A /* InfoButtonSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoButtonSheetViewController.swift; sourceTree = "<group>"; };
 		91AE1CFF2865F678000FAEF4 /* Poppins-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraLight.ttf"; sourceTree = "<group>"; };
 		91AE1D002865F678000FAEF4 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
 		91AE1D012865F679000FAEF4 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
+		91CCF9F128AE4A0B007902A2 /* Montserrat-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-VariableFont_wght.ttf"; sourceTree = "<group>"; };
 		91DACB9D2864965500F68E16 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		91DACB9F2864998400F68E16 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		91E6CE442859DF1B00F52DD1 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -73,7 +80,6 @@
 		91E6CE562859EC3300F52DD1 /* OrelegaOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OrelegaOne-Regular.ttf"; sourceTree = "<group>"; };
 		91E6CE582859EC4600F52DD1 /* HammersmithOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HammersmithOne-Regular.ttf"; sourceTree = "<group>"; };
 		91E6CE5A285A008C00F52DD1 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
-		91E6CE5C285A009800F52DD1 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +159,7 @@
 				91E6CE442859DF1B00F52DD1 /* HomeViewController.swift */,
 				91DACB9F2864998400F68E16 /* SettingsViewController.swift */,
 				9188BA71286D0614000ECD09 /* LeaderBoardViewController.swift */,
+				918CD7AB28A9218D004C5D9A /* InfoButtonSheetViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -163,6 +170,7 @@
 				91E6CE4E2859E15700F52DD1 /* HomeView.swift */,
 				91DACB9D2864965500F68E16 /* SettingsView.swift */,
 				9188BA73286D064A000ECD09 /* LeaderboardView.swift */,
+				918AFD3128A6AAC000FE3B95 /* InfoView.swift */,
 				910D26F428918A37004E7475 /* CarModelCollectionView */,
 				910D26F328918A29004E7475 /* TableViewCell */,
 			);
@@ -198,6 +206,7 @@
 				91AE1D012865F679000FAEF4 /* Poppins-SemiBold.ttf */,
 				91E6CE582859EC4600F52DD1 /* HammersmithOne-Regular.ttf */,
 				91E6CE562859EC3300F52DD1 /* OrelegaOne-Regular.ttf */,
+				91CCF9F128AE4A0B007902A2 /* Montserrat-VariableFont_wght.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -206,8 +215,8 @@
 			isa = PBXGroup;
 			children = (
 				91E6CE5A285A008C00F52DD1 /* UIColor+Extensions.swift */,
-				91E6CE5C285A009800F52DD1 /* UIView+Extensions.swift */,
 				910D26F9289194A7004E7475 /* UIButton+Extensions.swift */,
+				918AFD3328A6ABE900FE3B95 /* UIImage+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -286,6 +295,7 @@
 				91AE1D032865F679000FAEF4 /* Poppins-Bold.ttf in Resources */,
 				912429BC2858A0010007F0B3 /* Assets.xcassets in Resources */,
 				911A1D90286DAB16006CC3C2 /* TableViewCell.xib in Resources */,
+				91CCF9F228AE4A0B007902A2 /* Montserrat-VariableFont_wght.ttf in Resources */,
 				9157773928A1998C00FDF68F /* Localizable.strings in Resources */,
 				91E6CE592859EC4600F52DD1 /* HammersmithOne-Regular.ttf in Resources */,
 				91AE1D042865F679000FAEF4 /* Poppins-SemiBold.ttf in Resources */,
@@ -307,11 +317,13 @@
 				91DACB9E2864965500F68E16 /* SettingsView.swift in Sources */,
 				9153F872289D794A00AB7152 /* Globals.swift in Sources */,
 				912429B32858A0000007F0B3 /* AppDelegate.swift in Sources */,
+				918AFD3228A6AAC000FE3B95 /* InfoView.swift in Sources */,
+				918AFD3428A6ABE900FE3B95 /* UIImage+Extensions.swift in Sources */,
 				912429B52858A0000007F0B3 /* SceneDelegate.swift in Sources */,
 				9153F875289D7C8500AB7152 /* Fonts.swift in Sources */,
+				918CD7AC28A9218D004C5D9A /* InfoButtonSheetViewController.swift in Sources */,
 				9188BA72286D0614000ECD09 /* LeaderBoardViewController.swift in Sources */,
 				910D26F828918AAB004E7475 /* CarModelCollectionView.swift in Sources */,
-				91E6CE5D285A009800F52DD1 /* UIView+Extensions.swift in Sources */,
 				91E6CE5B285A008C00F52DD1 /* UIColor+Extensions.swift in Sources */,
 				9188BA74286D064A000ECD09 /* LeaderboardView.swift in Sources */,
 				91E6CE4F2859E15700F52DD1 /* HomeView.swift in Sources */,

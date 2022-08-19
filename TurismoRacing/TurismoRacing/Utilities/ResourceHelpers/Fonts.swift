@@ -35,4 +35,11 @@ struct Fonts {
             return "OrelegaOne\(rawValue)"
         }
     }
+    enum Montserrat: String, FontName {
+        case regular = "-Regular"
+        case medium = "-Medium"
+        var fontName: String {
+            return "MontserratRoman\(rawValue)"
+        }
+    }
 }

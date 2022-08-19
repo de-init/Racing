@@ -37,7 +37,6 @@ class HomeViewController: UIViewController {
         super.viewDidAppear(animated)
         setBestScore()
     }
-    
     private func setBestScore() {
         guard let scoreArray = Globals.userDefaults.object(forKey: "score") as? [Int] else {
             return
@@ -46,6 +45,18 @@ class HomeViewController: UIViewController {
         DispatchQueue.main.async {
             self.homeView.bestScoreLable.text = "\(Strings.bestScore.localized) \n \(maxScore!)"
         }
+    }
+    private func showInfoViewControllerSheet() {
+        let viewControllerToPresent = InfoButtonSheetViewController()
+        if let sheet = viewControllerToPresent.sheetPresentationController {
+            sheet.detents = [.medium(), .large()]
+            sheet.largestUndimmedDetentIdentifier = .medium
+            sheet.prefersScrollingExpandsWhenScrolledToEdge = false
+            sheet.prefersEdgeAttachedInCompactHeight = true
+            sheet.widthFollowsPreferredContentSizeWhenEdgeAttached = true
+            sheet.prefersGrabberVisible = true
+        }
+        present(viewControllerToPresent, animated: true, completion: nil)
     }
 }
 
@@ -64,5 +75,8 @@ extension HomeViewController: MenuViewDelegate {
     func didTapPlayButton() {
         let game = GameViewController()
         navigationController?.pushViewController(game, animated: true)
+    }
+    func didTapInfoButton() {
+        showInfoViewControllerSheet()
     }
 }
