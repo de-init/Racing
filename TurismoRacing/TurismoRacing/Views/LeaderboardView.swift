@@ -11,7 +11,7 @@ import UIKit
 class LeaderboardView: UIView {
     private var imageView: UIImageView!
     private var image: UIImage!
-    private var lable: UILabel!
+    private let lable: UILabel
     
     override init(frame: CGRect) {
         imageView = UIImageView()
@@ -40,7 +40,6 @@ class LeaderboardView: UIView {
     }
 
     private func setupLable() {
-        lable = UILabel()
         lable.text = Strings.leaderboard.localized
         lable.font = UIFont(name: Fonts.OrelegaOne.regular.fontName, size: 45)
         lable.adjustsFontSizeToFitWidth = true

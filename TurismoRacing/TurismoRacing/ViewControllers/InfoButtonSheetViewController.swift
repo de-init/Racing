@@ -9,7 +9,7 @@ import UIKit
 
 class InfoButtonSheetViewController: UIViewController {
     
-    let infoView = InfoView()
+    private let infoView = InfoView()
     
     override func loadView() {
         self.view = infoView

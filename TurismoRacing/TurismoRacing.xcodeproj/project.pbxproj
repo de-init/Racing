@@ -22,6 +22,7 @@
 		9153F875289D7C8500AB7152 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9153F874289D7C8500AB7152 /* Fonts.swift */; };
 		9153F877289D7C9300AB7152 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9153F876289D7C9300AB7152 /* Localizable.swift */; };
 		9157773928A1998C00FDF68F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9157773B28A1998C00FDF68F /* Localizable.strings */; };
+		916CF25E28CA840E00749318 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916CF25D28CA840E00749318 /* Images.swift */; };
 		9188BA72286D0614000ECD09 /* LeaderBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9188BA71286D0614000ECD09 /* LeaderBoardViewController.swift */; };
 		9188BA74286D064A000ECD09 /* LeaderboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9188BA73286D064A000ECD09 /* LeaderboardView.swift */; };
 		918AFD3228A6AAC000FE3B95 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918AFD3128A6AAC000FE3B95 /* InfoView.swift */; };
@@ -31,6 +32,7 @@
 		91AE1D032865F679000FAEF4 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 91AE1D002865F678000FAEF4 /* Poppins-Bold.ttf */; };
 		91AE1D042865F679000FAEF4 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 91AE1D012865F679000FAEF4 /* Poppins-SemiBold.ttf */; };
 		91AE8F25289A6BC200C1FAAA /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 91AE8F24289A6BC200C1FAAA /* SnapKit */; };
+		91B92D6F28B3EFD1001FA0B0 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B92D6E28B3EFD1001FA0B0 /* Enums.swift */; };
 		91CCF9F228AE4A0B007902A2 /* Montserrat-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 91CCF9F128AE4A0B007902A2 /* Montserrat-VariableFont_wght.ttf */; };
 		91DACB9E2864965500F68E16 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DACB9D2864965500F68E16 /* SettingsView.swift */; };
 		91DACBA02864998400F68E16 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DACB9F2864998400F68E16 /* SettingsViewController.swift */; };
@@ -64,6 +66,7 @@
 		9166995E28A5333F00457387 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9166995F28A5335000457387 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9166996028A5336400457387 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		916CF25D28CA840E00749318 /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		9188BA71286D0614000ECD09 /* LeaderBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoardViewController.swift; sourceTree = "<group>"; };
 		9188BA73286D064A000ECD09 /* LeaderboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardView.swift; sourceTree = "<group>"; };
 		918AFD3128A6AAC000FE3B95 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
@@ -72,6 +75,7 @@
 		91AE1CFF2865F678000FAEF4 /* Poppins-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraLight.ttf"; sourceTree = "<group>"; };
 		91AE1D002865F678000FAEF4 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
 		91AE1D012865F679000FAEF4 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
+		91B92D6E28B3EFD1001FA0B0 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		91CCF9F128AE4A0B007902A2 /* Montserrat-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-VariableFont_wght.ttf"; sourceTree = "<group>"; };
 		91DACB9D2864965500F68E16 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		91DACB9F2864998400F68E16 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -136,6 +140,7 @@
 				912429B22858A0000007F0B3 /* AppDelegate.swift */,
 				912429B42858A0000007F0B3 /* SceneDelegate.swift */,
 				91E6CE472859DFFF00F52DD1 /* Resources */,
+				916CF25A28CA46AA00749318 /* Model */,
 				91E6CE432859DF0700F52DD1 /* ViewControllers */,
 				91E6CE462859DF3A00F52DD1 /* Views */,
 				91E6CE482859E02500F52DD1 /* Utilities */,
@@ -148,8 +153,18 @@
 			children = (
 				9153F874289D7C8500AB7152 /* Fonts.swift */,
 				9153F876289D7C9300AB7152 /* Localizable.swift */,
+				91B92D6E28B3EFD1001FA0B0 /* Enums.swift */,
+				916CF25D28CA840E00749318 /* Images.swift */,
+				9153F871289D794A00AB7152 /* Globals.swift */,
 			);
 			path = ResourceHelpers;
+			sourceTree = "<group>";
+		};
+		916CF25A28CA46AA00749318 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		91E6CE432859DF0700F52DD1 /* ViewControllers */ = {
@@ -193,7 +208,6 @@
 			children = (
 				9153F873289D7C3800AB7152 /* ResourceHelpers */,
 				91E6CE4D2859E0FF00F52DD1 /* Extensions */,
-				9153F871289D794A00AB7152 /* Globals.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -314,7 +328,9 @@
 				910D26F628918A8C004E7475 /* CarModelCollectionViewCell.swift in Sources */,
 				911A1D8F286DAB16006CC3C2 /* TableViewCell.swift in Sources */,
 				912429B72858A0000007F0B3 /* GameViewController.swift in Sources */,
+				916CF25E28CA840E00749318 /* Images.swift in Sources */,
 				91DACB9E2864965500F68E16 /* SettingsView.swift in Sources */,
+				91B92D6F28B3EFD1001FA0B0 /* Enums.swift in Sources */,
 				9153F872289D794A00AB7152 /* Globals.swift in Sources */,
 				912429B32858A0000007F0B3 /* AppDelegate.swift in Sources */,
 				918AFD3228A6AAC000FE3B95 /* InfoView.swift in Sources */,
