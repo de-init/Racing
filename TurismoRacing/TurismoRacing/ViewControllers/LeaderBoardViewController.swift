@@ -9,7 +9,7 @@ import UIKit
 
 class LeaderBoardViewController: UIViewController {
     private let leaderboardView = LeaderboardView()
-    private var tableView: UITableView!
+    private let tableView = UITableView()
     private var scoreArray = [Int]()
     private var sortedArray = [Int]()
     private var height: CGFloat!
@@ -26,7 +26,6 @@ class LeaderBoardViewController: UIViewController {
     
     // MARK: - Setup Methods
     private func setTableView() {
-        tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.delegate = self
         tableView.dataSource = self

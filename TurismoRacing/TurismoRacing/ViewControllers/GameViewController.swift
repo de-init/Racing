@@ -10,8 +10,7 @@ import Foundation
 import SnapKit
 
 class GameViewController: UIViewController {
-    private let backgroundImages = ["ic_desertMap1", "ic_desertMap2", "ic_desertMap3"]
-    private var backgroundImageArray: [UIImageView] = []
+    private var backgroundImageArray: [UIImageView]!
     private var car: UIImageView!
     private var lable: UILabel!
     private var scoreLable: UILabel!
@@ -157,33 +156,29 @@ class GameViewController: UIViewController {
     
     private func workFirstObject() {
         let randomDelay = Double.random(in: 0...6)
-        var objectImagesArray: [UIImageView] = []
-        objectImagesArray = [objectImage(name: "ic_barrel"), objectImage(name: "ic_barrier"), objectImage(name: "ic_cone"), objectImage(name: "ic_coin"), objectImage(name: "ic_block"), objectImage(name: "ic_bomb"), objectImage(name: "ic_pig"), objectImage(name: "ic_turn"), objectImage(name: "ic_warn")]
-        let item = objectImagesArray.randomElement()
+        let objectImagesArrayCopy = Images().objectArray
+        let item = objectImagesArrayCopy.randomElement()
         item!.center = CGPoint(x: view.bounds.midX / 2, y: 0 - 40)
         animateFirstObject(element: item!, point: CGPoint(x: view.bounds.midX / 2, y: view.bounds.maxY - 170) , delay: randomDelay)
     }
     private func workSecondObject() {
         let randomDelay = Double.random(in: 0...6)
-        var objectImagesArray: [UIImageView] = []
-        objectImagesArray = [objectImage(name: "ic_barrel"), objectImage(name: "ic_barrier"), objectImage(name: "ic_cone"), objectImage(name: "ic_coin"), objectImage(name: "ic_block"), objectImage(name: "ic_bomb"), objectImage(name: "ic_pig"), objectImage(name: "ic_turn"), objectImage(name: "ic_warn")]
-        let item = objectImagesArray.randomElement()
+        let objectImagesArrayCopy = Images().objectArray
+        let item = objectImagesArrayCopy.randomElement()
         item!.center = CGPoint(x: view.bounds.midX / 2 + view.bounds.midX / 3, y: 0 - 40)
         animateSecondObject(element: item!, point: CGPoint(x: view.bounds.midX / 2 + view.bounds.midX / 3, y: view.bounds.maxY - 170), delay: randomDelay)
     }
     private func workThirdObject() {
         let randomDelay = Double.random(in: 0...6)
-        var objectImagesArray: [UIImageView] = []
-        objectImagesArray = [objectImage(name: "ic_barrel"), objectImage(name: "ic_barrier"), objectImage(name: "ic_cone"), objectImage(name: "ic_coin"), objectImage(name: "ic_block"), objectImage(name: "ic_bomb"), objectImage(name: "ic_pig"), objectImage(name: "ic_turn"), objectImage(name: "ic_warn")]
-        let item = objectImagesArray.randomElement()
+        let objectImagesArrayCopy = Images().objectArray
+        let item = objectImagesArrayCopy.randomElement()
         item!.center = CGPoint(x: view.bounds.maxX / 3 + view.bounds.midX / 2, y: 0 - 40)
         animateThirdObject(element: item!, point: CGPoint(x: view.bounds.maxX / 3 + view.bounds.midX / 2, y: view.bounds.maxY - 170), delay: randomDelay)
     }
     private func workFourthObject() {
         let randomDelay = Double.random(in: 0...6)
-        var objectImagesArray: [UIImageView] = []
-        objectImagesArray = [objectImage(name: "ic_barrel"), objectImage(name: "ic_barrier"), objectImage(name: "ic_cone"), objectImage(name: "ic_coin"), objectImage(name: "ic_block"), objectImage(name: "ic_bomb"), objectImage(name: "ic_pig"), objectImage(name: "ic_turn"), objectImage(name: "ic_warn")]
-        let item = objectImagesArray.randomElement()
+        let objectImagesArrayCopy = Images().objectArray
+        let item = objectImagesArrayCopy.randomElement()
         item!.center = CGPoint(x: view.bounds.maxX / 2 + view.bounds.midX / 2, y: 0 - 40)
         animateFourthObject(element: item!, point: CGPoint(x: view.bounds.maxX / 2 + view.bounds.midX / 2, y: view.bounds.maxY - 170), delay: randomDelay)
     }
@@ -303,12 +298,6 @@ class GameViewController: UIViewController {
         imageView.contentMode = .scaleAspectFit
         return imageView
     }
-    private func objectImage(name: String) -> UIImageView {
-        let image = UIImage(named: name)
-        let imageView = UIImageView(image: image)
-        return imageView
-    }
-    
     // MARK: - Setup Constraints
     private func setupConstraints() {
         setupLableConstraints()

@@ -19,12 +19,12 @@ class SettingsView: UIView {
     weak var delegate: SettingsViewDelegate?
     private var imageViewScreen: UIImageView!
     private var imageScreen: UIImage!
-    private var difficultyLable: UILabel!
+    private let difficultyLable: UILabel
     private var easyModeButton: UIButton!
     private var mediumModeButton: UIButton!
     private var hardModeButton: UIButton!
     private var stackViewButtons: UIStackView!
-    private var selectedButton: UIImageView!
+    private let selectedButton: UIImageView
     private let carModelCollectionView = CarModelCollectionView()
     
     override init(frame: CGRect) {
@@ -65,7 +65,6 @@ class SettingsView: UIView {
     }
 
     private func makeDifficultyLable() {
-        difficultyLable = UILabel()
         difficultyLable.text = Strings.difficulty.localized
         difficultyLable.textColor = .white
         difficultyLable.textAlignment = .center
@@ -105,7 +104,6 @@ class SettingsView: UIView {
     }
 
     private func makeSelectionButton() {
-        selectedButton = UIImageView()
         selectedButton.image = UIImage(named: "ic_selectedButton")
         addSubview(selectedButton)
     }

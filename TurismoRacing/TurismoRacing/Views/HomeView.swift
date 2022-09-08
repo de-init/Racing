@@ -26,6 +26,8 @@ class HomeMenu: UIView {
     private var onInfoButton: UIButton!
     private var imageViewMainScreen: UIImageView!
     private var imageMainScreen: UIImage!
+    private var stackViewRight: UIStackView!
+    private var stackViewLeft: UIStackView!
     var bestScoreLable: UILabel!
     
     override init(frame: CGRect) {
@@ -38,6 +40,8 @@ class HomeMenu: UIView {
         imageViewMainScreen = UIImageView()
         imageMainScreen = UIImage()
         bestScoreLable = UILabel()
+        stackViewRight = UIStackView()
+        stackViewLeft = UIStackView()
         
         super.init(frame: frame)
         setupUI()
@@ -57,6 +61,8 @@ class HomeMenu: UIView {
         makeShopButton()
         makeInfoButton()
         makeBestScoreLable()
+        makeStackViewRight()
+        makeStackViewLeft()
     }
     private func makeImageViewMainScreen() {
         imageViewMainScreen = UIImageView(frame: UIScreen.main.bounds)
@@ -107,7 +113,22 @@ class HomeMenu: UIView {
         bestScoreLable.adjustsFontSizeToFitWidth = true
         addSubview(bestScoreLable)
     }
-    
+    private func makeStackViewRight() {
+        stackViewRight = UIStackView(arrangedSubviews: [onSettingsButton, onLeaderboardButton])
+        stackViewRight.axis = .vertical
+        stackViewRight.distribution = .fillEqually
+        stackViewRight.alignment = .fill
+        stackViewRight.spacing = 15
+        addSubview(stackViewRight)
+    }
+    private func makeStackViewLeft() {
+        stackViewLeft = UIStackView(arrangedSubviews: [onShopButton, onGarageButton])
+        stackViewLeft.axis = .vertical
+        stackViewLeft.distribution = .fillEqually
+        stackViewLeft.alignment = .fill
+        stackViewLeft.spacing = 15
+        addSubview(stackViewLeft)
+    }
     // MARK: - Additional Methods
     private func createButton(image: String) -> UIButton {
         let button = UIButton()
@@ -138,12 +159,10 @@ class HomeMenu: UIView {
     private func setupConstraints() {
         makeConstraintsImageViewMainScreen()
         makeConstraintsPlayButton()
-        makeConstraintsSettingsButton()
-        makeConstraintsLeaderboardButton()
-        makeConstraintsShopButton()
-        makeConstraintsGarageButton()
         makeConstraintsInfoButton()
         makeConstraintsBestScoreLable()
+        makeConstraintsStackViewRight()
+        makeConstraintsStackViewLeft()
     }
     private func makeConstraintsImageViewMainScreen() {
         imageViewMainScreen.snp.makeConstraints { make in
@@ -155,42 +174,9 @@ class HomeMenu: UIView {
     }
     private func makeConstraintsPlayButton() {
         onPlayButton.snp.makeConstraints { make in
-            make.top.equalTo(540)
-            make.bottom.equalTo(-30)
+            make.bottom.equalTo(onInfoButton).offset(-100)
             make.leading.equalTo(40)
             make.trailing.equalTo(-40)
-        }
-    }
-    private func makeConstraintsSettingsButton() {
-        onSettingsButton.snp.makeConstraints { make in
-            make.top.equalTo(80)
-            make.leading.equalTo(10)
-            make.height.equalTo(80)
-            make.width.equalTo(80)
-        }
-    }
-    private func makeConstraintsLeaderboardButton() {
-        onLeaderboardButton.snp.makeConstraints { make in
-            make.top.equalTo(80)
-            make.trailing.equalTo(-10)
-            make.height.equalTo(80)
-            make.width.equalTo(80)
-        }
-    }
-    private func makeConstraintsShopButton() {
-        onShopButton.snp.makeConstraints { make in
-            make.top.equalTo(onSettingsButton).offset(95)
-            make.leading.equalTo(10)
-            make.height.equalTo(80)
-            make.width.equalTo(80)
-        }
-    }
-    private func makeConstraintsGarageButton() {
-        onGarageButton.snp.makeConstraints { make in
-            make.top.equalTo(onLeaderboardButton).offset(95)
-            make.trailing.equalTo(-10)
-            make.height.equalTo(80)
-            make.width.equalTo(80)
         }
     }
     private func makeConstraintsInfoButton() {
@@ -205,8 +191,24 @@ class HomeMenu: UIView {
         bestScoreLable.snp.makeConstraints { make in
             make.centerX.equalTo(self.center)
             make.top.equalTo(100)
-            make.leading.equalTo(onSettingsButton).offset(90)
-            make.trailing.equalTo(onLeaderboardButton).offset(-90)
+            make.leading.equalTo(105)
+            make.trailing.equalTo(-105)
+        }
+    }
+    private func makeConstraintsStackViewRight() {
+        stackViewRight.snp.makeConstraints { make in
+            make.height.equalTo(165)
+            make.width.equalTo(75)
+            make.top.equalTo(self.safeAreaLayoutGuide.snp.top).offset(-15)
+            make.leading.equalTo(10)
+        }
+    }
+    private func makeConstraintsStackViewLeft() {
+        stackViewLeft.snp.makeConstraints { make in
+            make.height.equalTo(165)
+            make.width.equalTo(75)
+            make.top.equalTo(self.safeAreaLayoutGuide.snp.top).offset(-15)
+            make.trailing.equalTo(-10)
         }
     }
 }

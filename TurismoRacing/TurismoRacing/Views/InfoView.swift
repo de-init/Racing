@@ -7,14 +7,8 @@
 
 import UIKit
 
-enum Links: String {
-    case telegram = "https://t.me/de_init"
-    case github = "https://github.com/arthoes"
-    case linked = "https://www.linkedin.com/in/de-init/"
-}
-
 class InfoView: UIView {
-    private var textView: UITextView!
+    private let textView: UITextView
     private var stackButton: UIStackView!
     private var telegramButton: UIButton!
     private var githubButton: UIButton!
@@ -47,7 +41,6 @@ class InfoView: UIView {
         makeStackButtons()
     }
     private func makeTextView() {
-        textView = UITextView()
         textView.text = Strings.info.localized
         textView.font = UIFont(name: Fonts.Montserrat.regular.fontName, size: 23)
         textView.textAlignment = .center
@@ -89,7 +82,7 @@ class InfoView: UIView {
         button.subviews.first?.contentMode = .scaleAspectFill
         return button
     }
-    private func openLink(link: String) {
+    func openLink(link: String) {
         let url = URL(string: link)!
         let application = UIApplication.shared
         application.open(url)

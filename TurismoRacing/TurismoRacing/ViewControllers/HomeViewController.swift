@@ -54,7 +54,6 @@ class HomeViewController: UIViewController {
             sheet.prefersScrollingExpandsWhenScrolledToEdge = false
             sheet.prefersEdgeAttachedInCompactHeight = true
             sheet.widthFollowsPreferredContentSizeWhenEdgeAttached = true
-            sheet.prefersGrabberVisible = true
         }
         present(viewControllerToPresent, animated: true, completion: nil)
     }
@@ -77,6 +76,6 @@ extension HomeViewController: MenuViewDelegate {
         navigationController?.pushViewController(game, animated: true)
     }
     func didTapInfoButton() {
-        showInfoViewControllerSheet()
+        self.showInfoViewControllerSheet()
     }
 }
