@@ -9,5 +9,4 @@ import Foundation
 
 struct Globals {
     static let userDefaults = UserDefaults()
-    static let fileManager = FileManager()
 }

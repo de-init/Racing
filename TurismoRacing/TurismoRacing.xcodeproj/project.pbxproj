@@ -10,8 +10,9 @@
 		910D26F628918A8C004E7475 /* CarModelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910D26F528918A8C004E7475 /* CarModelCollectionViewCell.swift */; };
 		910D26F828918AAB004E7475 /* CarModelCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910D26F728918AAB004E7475 /* CarModelCollectionView.swift */; };
 		910D26FA289194A7004E7475 /* UIButton+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910D26F9289194A7004E7475 /* UIButton+Extensions.swift */; };
-		911A1D8F286DAB16006CC3C2 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911A1D8D286DAB16006CC3C2 /* TableViewCell.swift */; };
-		911A1D90286DAB16006CC3C2 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 911A1D8E286DAB16006CC3C2 /* TableViewCell.xib */; };
+		910ECC7428CB52A1009F204B /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910ECC7328CB52A1009F204B /* Result.swift */; };
+		910ECC7628CB5933009F204B /* ResultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910ECC7528CB5933009F204B /* ResultManager.swift */; };
+		910ECC7828CBBF75009F204B /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910ECC7728CBBF75009F204B /* TableViewCell.swift */; };
 		912429B32858A0000007F0B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912429B22858A0000007F0B3 /* AppDelegate.swift */; };
 		912429B52858A0000007F0B3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912429B42858A0000007F0B3 /* SceneDelegate.swift */; };
 		912429B72858A0000007F0B3 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912429B62858A0000007F0B3 /* GameViewController.swift */; };
@@ -47,8 +48,9 @@
 		910D26F528918A8C004E7475 /* CarModelCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarModelCollectionViewCell.swift; sourceTree = "<group>"; };
 		910D26F728918AAB004E7475 /* CarModelCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarModelCollectionView.swift; sourceTree = "<group>"; };
 		910D26F9289194A7004E7475 /* UIButton+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extensions.swift"; sourceTree = "<group>"; };
-		911A1D8D286DAB16006CC3C2 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
-		911A1D8E286DAB16006CC3C2 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
+		910ECC7328CB52A1009F204B /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		910ECC7528CB5933009F204B /* ResultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultManager.swift; sourceTree = "<group>"; };
+		910ECC7728CBBF75009F204B /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		912429AF2858A0000007F0B3 /* TurismoRacing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TurismoRacing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		912429B22858A0000007F0B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		912429B42858A0000007F0B3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -101,8 +103,7 @@
 		910D26F328918A29004E7475 /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				911A1D8D286DAB16006CC3C2 /* TableViewCell.swift */,
-				911A1D8E286DAB16006CC3C2 /* TableViewCell.xib */,
+				910ECC7728CBBF75009F204B /* TableViewCell.swift */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -114,6 +115,14 @@
 				910D26F528918A8C004E7475 /* CarModelCollectionViewCell.swift */,
 			);
 			path = CarModelCollectionView;
+			sourceTree = "<group>";
+		};
+		910ECC7028CB51C7009F204B /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				910ECC7528CB5933009F204B /* ResultManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 		912429A62858A0000007F0B3 = {
@@ -140,6 +149,7 @@
 				912429B22858A0000007F0B3 /* AppDelegate.swift */,
 				912429B42858A0000007F0B3 /* SceneDelegate.swift */,
 				91E6CE472859DFFF00F52DD1 /* Resources */,
+				910ECC7028CB51C7009F204B /* Managers */,
 				916CF25A28CA46AA00749318 /* Model */,
 				91E6CE432859DF0700F52DD1 /* ViewControllers */,
 				91E6CE462859DF3A00F52DD1 /* Views */,
@@ -163,6 +173,7 @@
 		916CF25A28CA46AA00749318 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				910ECC7328CB52A1009F204B /* Result.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -308,7 +319,6 @@
 				912429BF2858A0010007F0B3 /* LaunchScreen.storyboard in Resources */,
 				91AE1D032865F679000FAEF4 /* Poppins-Bold.ttf in Resources */,
 				912429BC2858A0010007F0B3 /* Assets.xcassets in Resources */,
-				911A1D90286DAB16006CC3C2 /* TableViewCell.xib in Resources */,
 				91CCF9F228AE4A0B007902A2 /* Montserrat-VariableFont_wght.ttf in Resources */,
 				9157773928A1998C00FDF68F /* Localizable.strings in Resources */,
 				91E6CE592859EC4600F52DD1 /* HammersmithOne-Regular.ttf in Resources */,
@@ -326,13 +336,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				910D26F628918A8C004E7475 /* CarModelCollectionViewCell.swift in Sources */,
-				911A1D8F286DAB16006CC3C2 /* TableViewCell.swift in Sources */,
 				912429B72858A0000007F0B3 /* GameViewController.swift in Sources */,
 				916CF25E28CA840E00749318 /* Images.swift in Sources */,
 				91DACB9E2864965500F68E16 /* SettingsView.swift in Sources */,
 				91B92D6F28B3EFD1001FA0B0 /* Enums.swift in Sources */,
+				910ECC7428CB52A1009F204B /* Result.swift in Sources */,
 				9153F872289D794A00AB7152 /* Globals.swift in Sources */,
+				910ECC7628CB5933009F204B /* ResultManager.swift in Sources */,
 				912429B32858A0000007F0B3 /* AppDelegate.swift in Sources */,
+				910ECC7828CBBF75009F204B /* TableViewCell.swift in Sources */,
 				918AFD3228A6AAC000FE3B95 /* InfoView.swift in Sources */,
 				918AFD3428A6ABE900FE3B95 /* UIImage+Extensions.swift in Sources */,
 				912429B52858A0000007F0B3 /* SceneDelegate.swift in Sources */,
