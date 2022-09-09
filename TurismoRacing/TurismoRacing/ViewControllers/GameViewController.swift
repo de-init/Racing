@@ -256,11 +256,8 @@ class GameViewController: UIViewController {
     }
     private func gameFinish() {
         gameOver = true
-        var scores: [Int] = Globals.userDefaults.object(forKey: "score") as? [Int] ?? []
-        if points > 0 {
-            scores.append(points)
-            Globals.userDefaults.set(scores, forKey: "score")
-        }
+        let currentScore = Result(score: points)
+        ResultsManager.saveResult(result: currentScore)
     }
     
     // MARK: - Control Car

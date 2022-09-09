@@ -10,8 +10,7 @@ import UIKit
 class LeaderBoardViewController: UIViewController {
     private let leaderboardView = LeaderboardView()
     private let tableView = UITableView()
-    private var scoreArray = [Int]()
-    private var sortedArray = [Int]()
+    private var results = [Result]()
     private var height: CGFloat!
     
     override func loadView() {
@@ -21,7 +20,10 @@ class LeaderBoardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setTableView()
-        loadScores()
+        
+        if let savedResult = ResultsManager.savedResults() {
+            results = savedResult.sorted(by: { $0.score > $1.score })
+        }
     }
     
     // MARK: - Setup Methods
@@ -32,19 +34,9 @@ class LeaderBoardViewController: UIViewController {
         tableView.backgroundColor = .clear
         tableView.allowsSelection = false
         tableView.showsVerticalScrollIndicator = false
-        tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
+        tableView.register(TableViewCell.self, forCellReuseIdentifier: "cell")
         view.addSubview(tableView)
     }
-    
-    // MARK: - Private Methods
-    private func loadScores() {
-        guard let array = Globals.userDefaults.object(forKey: "score") as? [Int] else {
-            return
-        }
-        scoreArray = array
-        sortedArray = scoreArray.compactMap{Int($0)}.sorted(by: >)
-    }
-    
     // MARK: - Constraints
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -72,7 +64,7 @@ class LeaderBoardViewController: UIViewController {
 // MARK: - Extensions
 extension LeaderBoardViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return scoreArray.count
+        return results.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -102,17 +94,10 @@ extension LeaderBoardViewController: UITableViewDelegate, UITableViewDataSource 
         } else {
             cell.backgroundColor = UIColor.init(hex: 0xFFB53D)
         }
+        let resultModel = results[indexPath.section]
         cell.layer.cornerRadius = height / 2
         cell.countLable.text = "\(indexPath.section + 1)."
-        cell.countLable.textColor = .white
-        cell.countLable.numberOfLines = 0
-        cell.countLable.adjustsFontSizeToFitWidth = true
-        cell.countLable.font = UIFont(name: Fonts.Poppins.semiBold.fontName, size: 45)
-        cell.scoreLable.text = "\(sortedArray[indexPath.section])"
-        cell.scoreLable.textColor = .white
-        cell.scoreLable.font = UIFont(name: Fonts.Poppins.semiBold.fontName, size: 35)
-        cell.scoreLable.numberOfLines = 0
-        cell.scoreLable.adjustsFontSizeToFitWidth = true
+        cell.scoreLable.text = String(resultModel.score)
         return cell
     }
     

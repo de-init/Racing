@@ -17,7 +17,6 @@ protocol MenuViewDelegate: AnyObject {
 }
 
 class HomeMenu: UIView {
-    weak var delegate: MenuViewDelegate?
     private var onPlayButton: UIButton!
     private var onSettingsButton: UIButton!
     private var onLeaderboardButton: UIButton!
@@ -28,7 +27,8 @@ class HomeMenu: UIView {
     private var imageMainScreen: UIImage!
     private var stackViewRight: UIStackView!
     private var stackViewLeft: UIStackView!
-    var bestScoreLable: UILabel!
+    private var bestScoreLable: UILabel!
+    weak var delegate: MenuViewDelegate?
     
     override init(frame: CGRect) {
         onPlayButton = UIButton()
@@ -104,7 +104,6 @@ class HomeMenu: UIView {
         addSubview(onInfoButton)
     }
     private func makeBestScoreLable() {
-        bestScoreLable = UILabel()
         bestScoreLable.text = Strings.bestScore.localized
         bestScoreLable.textColor = .white
         bestScoreLable.font = UIFont(name: Fonts.Poppins.bold.fontName, size: 28)
@@ -137,6 +136,9 @@ class HomeMenu: UIView {
         button.layoutIfNeeded()
         button.subviews.first?.contentMode = .scaleAspectFit
         return button
+    }
+    func updateScore(score: Int) {
+        bestScoreLable.text = "\(Strings.bestScore.localized) \n \(score)"
     }
     // MARK: - Delegate Methods
     @objc private func didTapPlayButton() {

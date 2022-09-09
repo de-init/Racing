@@ -88,13 +88,13 @@ class InfoView: UIView {
         application.open(url)
     }
     @objc private func telegram() {
-        openLink(link: Links.telegram.rawValue)
+        openLink(link: Resources.Links.telegram.rawValue)
     }
     @objc private func linked() {
-        openLink(link: Links.linked.rawValue)
+        openLink(link: Resources.Links.linked.rawValue)
     }
     @objc private func github() {
-        openLink(link: Links.github.rawValue)
+        openLink(link: Resources.Links.github.rawValue)
     }
     // MARK: - Layout
     override func layoutSubviews() {

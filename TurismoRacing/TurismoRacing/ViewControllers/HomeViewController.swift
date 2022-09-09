@@ -10,6 +10,7 @@ import UIKit
 
 class HomeViewController: UIViewController {
     private let homeView = HomeMenu()
+    private var maxScore: Int!
 
     override func loadView() {
         self.view = homeView
@@ -38,12 +39,10 @@ class HomeViewController: UIViewController {
         setBestScore()
     }
     private func setBestScore() {
-        guard let scoreArray = Globals.userDefaults.object(forKey: "score") as? [Int] else {
-            return
-        }
-        let maxScore = scoreArray.max()
+        guard let scoreArray = Globals.userDefaults.object(forKey: "score") as? [Int] else { return }
+        maxScore = scoreArray.max()
         DispatchQueue.main.async {
-            self.homeView.bestScoreLable.text = "\(Strings.bestScore.localized) \n \(maxScore!)"
+            self.homeView.updateScore(score: self.maxScore)
         }
     }
     private func showInfoViewControllerSheet() {
