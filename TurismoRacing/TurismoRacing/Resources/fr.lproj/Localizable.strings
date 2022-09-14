@@ -13,3 +13,7 @@
 "easy_mode_title" = "Facile";
 "medium_mode_title" = "Moyen";
 "hard_mode_title" = "Hard";
+"pause_menu_text" = "Résultat actuel";
+"play_text" = "Continuer";
+"exit_text" = "Aller à";
+

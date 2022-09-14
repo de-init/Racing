@@ -34,6 +34,7 @@
 		91AE1D042865F679000FAEF4 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 91AE1D012865F679000FAEF4 /* Poppins-SemiBold.ttf */; };
 		91AE8F25289A6BC200C1FAAA /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 91AE8F24289A6BC200C1FAAA /* SnapKit */; };
 		91B92D6F28B3EFD1001FA0B0 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B92D6E28B3EFD1001FA0B0 /* Enums.swift */; };
+		91BD027228D20B7C008D7F70 /* PauseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BD027128D20B7C008D7F70 /* PauseView.swift */; };
 		91CCF9F228AE4A0B007902A2 /* Montserrat-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 91CCF9F128AE4A0B007902A2 /* Montserrat-VariableFont_wght.ttf */; };
 		91DACB9E2864965500F68E16 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DACB9D2864965500F68E16 /* SettingsView.swift */; };
 		91DACBA02864998400F68E16 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DACB9F2864998400F68E16 /* SettingsViewController.swift */; };
@@ -78,6 +79,7 @@
 		91AE1D002865F678000FAEF4 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
 		91AE1D012865F679000FAEF4 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
 		91B92D6E28B3EFD1001FA0B0 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		91BD027128D20B7C008D7F70 /* PauseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseView.swift; sourceTree = "<group>"; };
 		91CCF9F128AE4A0B007902A2 /* Montserrat-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-VariableFont_wght.ttf"; sourceTree = "<group>"; };
 		91DACB9D2864965500F68E16 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		91DACB9F2864998400F68E16 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 				91DACB9D2864965500F68E16 /* SettingsView.swift */,
 				9188BA73286D064A000ECD09 /* LeaderboardView.swift */,
 				918AFD3128A6AAC000FE3B95 /* InfoView.swift */,
+				91BD027128D20B7C008D7F70 /* PauseView.swift */,
 				910D26F428918A37004E7475 /* CarModelCollectionView */,
 				910D26F328918A29004E7475 /* TableViewCell */,
 			);
@@ -347,6 +350,7 @@
 				910ECC7828CBBF75009F204B /* TableViewCell.swift in Sources */,
 				918AFD3228A6AAC000FE3B95 /* InfoView.swift in Sources */,
 				918AFD3428A6ABE900FE3B95 /* UIImage+Extensions.swift in Sources */,
+				91BD027228D20B7C008D7F70 /* PauseView.swift in Sources */,
 				912429B52858A0000007F0B3 /* SceneDelegate.swift in Sources */,
 				9153F875289D7C8500AB7152 /* Fonts.swift in Sources */,
 				918CD7AC28A9218D004C5D9A /* InfoButtonSheetViewController.swift in Sources */,
