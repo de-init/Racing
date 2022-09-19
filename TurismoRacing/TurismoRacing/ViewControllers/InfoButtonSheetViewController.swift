@@ -14,8 +14,4 @@ class InfoButtonSheetViewController: UIViewController {
     override func loadView() {
         self.view = infoView
     }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
 }
