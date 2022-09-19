@@ -7,11 +7,12 @@
 
 import UIKit
 
-class LeaderBoardViewController: UIViewController {
+class LeaderboardViewController: UIViewController {
     private let leaderboardView = LeaderboardView()
     private let tableView = UITableView()
     private var results = [Result]()
     private var height: CGFloat!
+    var coordinator: Coordinator?
     
     override func loadView() {
         self.view = leaderboardView
@@ -62,7 +63,7 @@ class LeaderBoardViewController: UIViewController {
 }
 
 // MARK: - Extensions
-extension LeaderBoardViewController: UITableViewDelegate, UITableViewDataSource {
+extension LeaderboardViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return results.count
     }

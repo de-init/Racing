@@ -11,6 +11,7 @@ import UIKit
 class HomeViewController: UIViewController {
     private let homeView = HomeMenu()
     private var maxScore: Int!
+    var coordinator: Coordinator?
 
     override func loadView() {
         self.view = homeView
@@ -61,18 +62,18 @@ class HomeViewController: UIViewController {
 // MARK: - Extensions
 extension HomeViewController: MenuViewDelegate {
     func didTapLeaderboardButton() {
-        let leaderboard = LeaderBoardViewController()
-        navigationController?.pushViewController(leaderboard, animated: true)
+        coordinator?.displayLeaderboardScreen()
+        dismiss(animated: false)
     }
     
     func didTapSettingsButton() {
-        let settings = SettingsViewController()
-        navigationController?.pushViewController(settings, animated: true)
+        coordinator?.displaySettingScreen()
+        dismiss(animated: false)
     }
     
     func didTapPlayButton() {
-        let game = GameViewController()
-        navigationController?.pushViewController(game, animated: true)
+        coordinator?.displayGameScreen()
+        dismiss(animated: false)
     }
     func didTapInfoButton() {
         self.showInfoViewControllerSheet()

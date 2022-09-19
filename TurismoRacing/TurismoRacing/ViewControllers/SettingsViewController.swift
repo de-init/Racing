@@ -9,6 +9,7 @@ import UIKit
 
 class SettingsViewController: UIViewController {
     private var settingsView = SettingsView()
+    var coordinator: Coordinator?
     
     override func loadView() {
         self.view = settingsView

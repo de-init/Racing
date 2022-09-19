@@ -17,6 +17,7 @@ class GameViewController: UIViewController {
     private var gameOver = false
     private var scoreCountTimer: Timer!
     private var points = 0
+    var coordinator: Coordinator?
     
     override func viewDidLoad() {
         super.viewDidLoad()
