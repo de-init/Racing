@@ -14,3 +14,7 @@
 "medium_mode_title" = "Mittel";
 "hard_mode_title" = "Hart";
 "settings_title" = "Einstellungen";
+"pause_menu_text" = "Aktuelles Ergebnis";
+"play_text" = "Weiter";
+"exit_text" = "Gehe zu";
+

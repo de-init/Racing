@@ -15,3 +15,6 @@
 "hard_mode_title" = "Hard";
 "info_title" = "Hi, my name is Vlad, I am an iOS developer. This is my graduation project. I will be grateful if you offer me a job. I can be contacted through social networks.";
 "settings_title" = "Settings";
+"pause_menu_text" = "Current result:";
+"play_text" = "Continue";
+"exit_text" = "Exit";
