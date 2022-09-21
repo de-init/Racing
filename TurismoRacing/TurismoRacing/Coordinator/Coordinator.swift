@@ -30,15 +30,7 @@ class Coordinator {
         viewController.coordinator = self
         rootViewController.navigationController?.pushViewController(viewController, animated: true)
     }
+    func stepBack() {
+        rootViewController.navigationController?.popViewController(animated: true)
+    }
 }
-//
-//    func dispaly() {
-//        let viewController = HomeViewController()
-//        viewController.coordinator = self
-//        rootViewController.navigationController?.pushViewController(viewController, animated: true)
-//    }
-//
-//    func displayGameScreen() {
-//
-//    }
-//

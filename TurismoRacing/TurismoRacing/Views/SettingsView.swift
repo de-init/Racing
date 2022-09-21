@@ -104,7 +104,7 @@ class SettingsView: UIView {
     }
 
     private func makeSelectionButton() {
-        selectedButton.image = UIImage(named: "ic_selectedButton")
+        selectedButton.image = UIImage(named: "selectedButtonImage")
         addSubview(selectedButton)
     }
 
@@ -207,7 +207,7 @@ class SettingsView: UIView {
         carModelCollectionView.snp.makeConstraints { make in
             make.height.equalTo(170)
             make.width.equalTo(bounds.width)
-            make.top.equalTo(100)
+            make.top.equalTo(160)
         }
     }
 }

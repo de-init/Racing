@@ -11,12 +11,10 @@ import UIKit
 class LeaderboardView: UIView {
     private var imageView: UIImageView!
     private var image: UIImage!
-    private let lable: UILabel
     
     override init(frame: CGRect) {
         imageView = UIImageView()
         image = UIImage()
-        lable = UILabel()
         
         super.init(frame: frame)
         setupUI()
@@ -28,7 +26,6 @@ class LeaderboardView: UIView {
     // MARK: - SetupUI
     private func setupUI() {
         setupImageView()
-        setupLable()
     }
     
     private func setupImageView() {
@@ -38,25 +35,12 @@ class LeaderboardView: UIView {
         imageView.image = image
         addSubview(imageView)
     }
-
-    private func setupLable() {
-        lable.text = Strings.leaderboard.localized
-        lable.font = UIFont(name: Fonts.OrelegaOne.regular.fontName, size: 45)
-        lable.adjustsFontSizeToFitWidth = true
-        lable.textAlignment = .center
-        lable.textColor = .white
-        addSubview(lable)
-    }
     // MARK: - Constraints
     override func layoutSubviews() {
-        setupConstraints()
-    }
-    
-    private func setupConstraints() {
+        super.layoutSubviews()
         makeConstraintsImageView()
-        makeConstraintsLable()
     }
-    
+
     private func makeConstraintsImageView() {
         imageView.snp.makeConstraints { make in
             make.top.equalTo(self)
@@ -65,13 +49,4 @@ class LeaderboardView: UIView {
             make.trailing.equalTo(self)
         }
     }
-    
-    private func makeConstraintsLable() {
-        lable.snp.makeConstraints { make in
-            make.top.equalTo(self).offset(100)
-            make.leading.equalTo(20)
-            make.trailing.equalTo(-20)
-        }
-    }
-
 }

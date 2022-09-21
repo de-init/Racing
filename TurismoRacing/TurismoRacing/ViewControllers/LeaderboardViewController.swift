@@ -10,6 +10,7 @@ import UIKit
 class LeaderboardViewController: UIViewController {
     private let leaderboardView = LeaderboardView()
     private let tableView = UITableView()
+    private var navBar = UIView()
     private var results = [Result]()
     private var height: CGFloat!
     var coordinator: Coordinator?
@@ -21,13 +22,30 @@ class LeaderboardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setTableView()
-        
-        if let savedResult = ResultsManager.savedResults() {
-            results = savedResult.sorted(by: { $0.score > $1.score })
-        }
+        loadScore()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+        setupNavigationBar()
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
     // MARK: - Setup Methods
+    private func setupNavigationBar() {
+        let leftItem = CustomNavigationBarItem(imageName: "backButtonImage", itemAction: { [weak self] in
+            self?.coordinator?.stepBack() })
+        let rightItem = CustomNavigationBarItem(imageName: "", itemAction: { return })
+        navBar = CustomNavigationBar(leftItem: leftItem, rightItem: rightItem, titleText: Strings.leaderboard.localized)
+        navBar.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(navBar)
+    }
+
     private func setTableView() {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.delegate = self
@@ -38,6 +56,13 @@ class LeaderboardViewController: UIViewController {
         tableView.register(TableViewCell.self, forCellReuseIdentifier: "cell")
         view.addSubview(tableView)
     }
+    
+    private func loadScore() {
+        if let savedResult = ResultsManager.savedResults() {
+            results = savedResult.sorted(by: { $0.score > $1.score })
+        }
+    }
+
     // MARK: - Constraints
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -46,17 +71,26 @@ class LeaderboardViewController: UIViewController {
     private func setupConstraints() {
         makeLayoutLeaderboardView()
         makeConstraintsTableView()
+        makeConstraintsNavBar()
     }
 
     private func makeConstraintsTableView() {
         tableView.snp.makeConstraints { make in
-            make.top.equalTo(150)
+            make.top.equalTo(navBar).offset(60)
             make.bottom.equalTo(-40)
             make.leading.equalTo(40)
             make.trailing.equalTo(-40)
         }
     }
     
+    private func makeConstraintsNavBar() {
+        navBar.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(20)
+            make.height.equalTo(44)
+            make.width.equalTo(view.bounds.width)
+        }
+    }
+
     private func makeLayoutLeaderboardView() {
         leaderboardView.frame = view.bounds
     }
