@@ -28,7 +28,6 @@ class PauseView: UIView {
         setupUI()
     }
     
-    
     private func setupUI() {
         setupPauseView()
         setupTextLable()
@@ -54,7 +53,6 @@ class PauseView: UIView {
         textLable.textColor = .white
         addSubview(textLable)
     }
-
 
     private func setupPlayButton() {
         playButton.backgroundColor = UIColor(hex: 0x4C86A8)
@@ -86,9 +84,7 @@ class PauseView: UIView {
         stackButtons.spacing = 15
         addSubview(stackButtons)
     }
-
-
-
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         setupConstraints()
@@ -125,8 +121,6 @@ class PauseView: UIView {
             make.trailing.equalTo(pauseView).inset(40)
         }
     }
-
-
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
