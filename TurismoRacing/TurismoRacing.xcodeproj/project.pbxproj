@@ -30,6 +30,8 @@
 		918AFD3428A6ABE900FE3B95 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918AFD3328A6ABE900FE3B95 /* UIImage+Extensions.swift */; };
 		918CD7AC28A9218D004C5D9A /* InfoButtonSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918CD7AB28A9218D004C5D9A /* InfoButtonSheetViewController.swift */; };
 		91917D3A28D8BA7400688E14 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91917D3928D8BA7400688E14 /* Coordinator.swift */; };
+		91917D3C28D8C06C00688E14 /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91917D3B28D8C06C00688E14 /* CustomNavigationBar.swift */; };
+		91917D3E28D8C08C00688E14 /* CustomNavigationBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91917D3D28D8C08C00688E14 /* CustomNavigationBarItem.swift */; };
 		91AE1D022865F679000FAEF4 /* Poppins-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 91AE1CFF2865F678000FAEF4 /* Poppins-ExtraLight.ttf */; };
 		91AE1D032865F679000FAEF4 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 91AE1D002865F678000FAEF4 /* Poppins-Bold.ttf */; };
 		91AE1D042865F679000FAEF4 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 91AE1D012865F679000FAEF4 /* Poppins-SemiBold.ttf */; };
@@ -76,6 +78,8 @@
 		918AFD3328A6ABE900FE3B95 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		918CD7AB28A9218D004C5D9A /* InfoButtonSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoButtonSheetViewController.swift; sourceTree = "<group>"; };
 		91917D3928D8BA7400688E14 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		91917D3B28D8C06C00688E14 /* CustomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
+		91917D3D28D8C08C00688E14 /* CustomNavigationBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBarItem.swift; sourceTree = "<group>"; };
 		91AE1CFF2865F678000FAEF4 /* Poppins-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraLight.ttf"; sourceTree = "<group>"; };
 		91AE1D002865F678000FAEF4 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
 		91AE1D012865F679000FAEF4 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
@@ -175,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				910ECC7328CB52A1009F204B /* Result.swift */,
+				91917D3D28D8C08C00688E14 /* CustomNavigationBarItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -236,6 +241,7 @@
 		91E6CE482859E02500F52DD1 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				91917D3B28D8C06C00688E14 /* CustomNavigationBar.swift */,
 				9153F873289D7C3800AB7152 /* ResourceHelpers */,
 				91E6CE4D2859E0FF00F52DD1 /* Extensions */,
 			);
@@ -371,7 +377,9 @@
 				918CD7AC28A9218D004C5D9A /* InfoButtonSheetViewController.swift in Sources */,
 				9188BA72286D0614000ECD09 /* LeaderboardViewController.swift in Sources */,
 				910D26F828918AAB004E7475 /* CarModelCollectionView.swift in Sources */,
+				91917D3E28D8C08C00688E14 /* CustomNavigationBarItem.swift in Sources */,
 				91E6CE5B285A008C00F52DD1 /* UIColor+Extensions.swift in Sources */,
+				91917D3C28D8C06C00688E14 /* CustomNavigationBar.swift in Sources */,
 				9188BA74286D064A000ECD09 /* LeaderboardView.swift in Sources */,
 				91E6CE4F2859E15700F52DD1 /* HomeView.swift in Sources */,
 				91E6CE452859DF1C00F52DD1 /* HomeViewController.swift in Sources */,

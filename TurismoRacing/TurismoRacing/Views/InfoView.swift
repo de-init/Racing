@@ -60,17 +60,17 @@ class InfoView: UIView {
         addSubview(stackButton)
     }
     private func makeTelegramButton() {
-        telegramButton = createButton(image: "ic_telegramButton")
+        telegramButton = createButton(image: "telegramButtonImage")
         telegramButton.addTarget(self, action: #selector(telegram), for: .touchUpInside)
         addSubview(telegramButton)
     }
     private func makeLinkedButton() {
-        linkedButton = createButton(image: "ic_linkedinButton")
+        linkedButton = createButton(image: "linkedinButtonImage")
         linkedButton.addTarget(self, action: #selector(linked), for: .touchUpInside)
         addSubview(linkedButton)
     }
     private func makeGitButton() {
-        githubButton = createButton(image: "ic_githubButton")
+        githubButton = createButton(image: "githubButtonImage")
         githubButton.addTarget(self, action: #selector(github), for: .touchUpInside)
         addSubview(githubButton)
     }

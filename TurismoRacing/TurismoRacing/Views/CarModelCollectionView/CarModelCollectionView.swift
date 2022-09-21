@@ -20,7 +20,7 @@ class CarModelCollectionView: UICollectionView, UICollectionViewDelegateFlowLayo
         translatesAutoresizingMaskIntoConstraints = false
         showsHorizontalScrollIndicator = false
         flowLayout.minimumLineSpacing = 25
-        contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        contentInset = UIEdgeInsets(top: 20, left: 10, bottom: 20, right: 10)
         register(CarModelCollectionViewCell.self, forCellWithReuseIdentifier: CarModelCollectionViewCell.reuseID)
     }
     
@@ -41,7 +41,7 @@ class CarModelCollectionView: UICollectionView, UICollectionViewDelegateFlowLayo
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 80, height: 150)
+        return CGSize(width: 70, height: 135)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

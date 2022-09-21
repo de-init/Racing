@@ -72,7 +72,7 @@ class HomeMenu: UIView {
         addSubview(imageViewMainScreen)
     }
     private func makePlayButton() {
-        onPlayButton = createButton(image: "ic_playButton")
+        onPlayButton = createButton(image: "playButtonImage")
         onPlayButton.setTitle(Strings.play.localized, for: .normal)
         onPlayButton.titleLabel?.font = UIFont(name: Fonts.OrelegaOne.regular.fontName, size: 27)
         onPlayButton.titleLabel?.textColor = .white
@@ -81,25 +81,25 @@ class HomeMenu: UIView {
         addSubview(onPlayButton)
     }
     private func makeSettingsButton() {
-        onSettingsButton = createButton(image: "ic_settingsButton")
+        onSettingsButton = createButton(image: "settingsButtonImage")
         onSettingsButton.addTarget(self, action: #selector(didTapSettingsButton), for: .touchUpInside)
         addSubview(onSettingsButton)
     }
     private func makeLeaderboardButton() {
-        onLeaderboardButton = createButton(image: "ic_leaderboardButton")
+        onLeaderboardButton = createButton(image: "leaderboardButtonImage")
         onLeaderboardButton.addTarget(self, action: #selector(didTapLeaderboardButton), for: .touchUpInside)
         addSubview(onLeaderboardButton)
     }
     private func makeGarageButton() {
-        onGarageButton = createButton(image: "ic_garageButton")
+        onGarageButton = createButton(image: "garageButtonImage")
         addSubview(onGarageButton)
     }
     private func makeShopButton() {
-        onShopButton = createButton(image: "ic_shopButton")
+        onShopButton = createButton(image: "shopButtonImage")
         addSubview(onShopButton)
     }
     private func makeInfoButton() {
-        onInfoButton = createButton(image: "ic_infoButton")
+        onInfoButton = createButton(image: "infoButtonImage")
         onInfoButton.addTarget(self, action: #selector(didTapInfoButton), for: .touchUpInside)
         addSubview(onInfoButton)
     }
@@ -107,7 +107,6 @@ class HomeMenu: UIView {
         bestScoreLable.text = Strings.bestScore.localized
         bestScoreLable.textColor = .white
         bestScoreLable.font = UIFont(name: Fonts.Poppins.bold.fontName, size: 28)
-        bestScoreLable.numberOfLines = 0
         bestScoreLable.textAlignment = .center
         bestScoreLable.adjustsFontSizeToFitWidth = true
         addSubview(bestScoreLable)
@@ -183,8 +182,8 @@ class HomeMenu: UIView {
     }
     private func makeConstraintsInfoButton() {
         onInfoButton.snp.makeConstraints { make in
-            make.height.equalTo(65)
-            make.width.equalTo(65)
+            make.height.equalTo(70)
+            make.width.equalTo(70)
             make.leading.equalTo(10)
             make.bottom.equalTo(self.safeAreaLayoutGuide.snp.bottom)
         }
@@ -202,7 +201,7 @@ class HomeMenu: UIView {
             make.height.equalTo(165)
             make.width.equalTo(75)
             make.top.equalTo(self.safeAreaLayoutGuide.snp.top).offset(-15)
-            make.leading.equalTo(10)
+            make.leading.equalTo(15)
         }
     }
     private func makeConstraintsStackViewLeft() {
@@ -210,7 +209,7 @@ class HomeMenu: UIView {
             make.height.equalTo(165)
             make.width.equalTo(75)
             make.top.equalTo(self.safeAreaLayoutGuide.snp.top).offset(-15)
-            make.trailing.equalTo(-10)
+            make.trailing.equalTo(-15)
         }
     }
 }
