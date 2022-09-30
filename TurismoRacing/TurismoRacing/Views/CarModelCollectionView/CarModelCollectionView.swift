@@ -8,7 +8,7 @@
 import UIKit
 
 class CarModelCollectionView: UICollectionView, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
-    var carModels: [String] = ["ic_defaultCar", "ic_carAudi", "ic_carBMW", "ic_carFerrari", "ic_carHonda", "ic_carPorsche", "ic_carBuggati", "ic_carDodge"]
+    private var carModels = Cars.carsArray
     
     init() {
         let flowLayout = UICollectionViewFlowLayout()

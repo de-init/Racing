@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 struct Images {
-    let objectArray = [UIImageView(image: UIImage(named: "ic_barrel")),
+    static let objectArray = [UIImageView(image: UIImage(named: "ic_barrel")),
                        UIImageView(image: UIImage(named: "ic_barrier")),
                        UIImageView(image: UIImage(named: "ic_cone")),
                        UIImageView(image: UIImage(named: "ic_coin")),

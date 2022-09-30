@@ -8,6 +8,7 @@
 import Foundation
 
 class ResultsManager {
+    static let shared = ResultsManager()
     private static let maxCountOfResults = 50
     
     static func saveResult(result: Result) {
