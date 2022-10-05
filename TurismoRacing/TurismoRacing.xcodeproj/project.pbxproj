@@ -32,6 +32,10 @@
 		918AFD3228A6AAC000FE3B95 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918AFD3128A6AAC000FE3B95 /* InfoView.swift */; };
 		918AFD3428A6ABE900FE3B95 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918AFD3328A6ABE900FE3B95 /* UIImage+Extensions.swift */; };
 		918CD7AC28A9218D004C5D9A /* InfoButtonSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918CD7AB28A9218D004C5D9A /* InfoButtonSheetViewController.swift */; };
+		9191420F28E72714009CD503 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9191420E28E72714009CD503 /* Settings.swift */; };
+		9191421128E72729009CD503 /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9191421028E72729009CD503 /* Car.swift */; };
+		9191421528E72809009CD503 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9191421428E72809009CD503 /* UserDefaultsManager.swift */; };
+		9191421728E72D62009CD503 /* Difficulty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9191421628E72D62009CD503 /* Difficulty.swift */; };
 		91917D3A28D8BA7400688E14 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91917D3928D8BA7400688E14 /* Coordinator.swift */; };
 		91917D3C28D8C06C00688E14 /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91917D3B28D8C06C00688E14 /* CustomNavigationBar.swift */; };
 		91917D3E28D8C08C00688E14 /* CustomNavigationBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91917D3D28D8C08C00688E14 /* CustomNavigationBarItem.swift */; };
@@ -85,6 +89,10 @@
 		918AFD3128A6AAC000FE3B95 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		918AFD3328A6ABE900FE3B95 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		918CD7AB28A9218D004C5D9A /* InfoButtonSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoButtonSheetViewController.swift; sourceTree = "<group>"; };
+		9191420E28E72714009CD503 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		9191421028E72729009CD503 /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
+		9191421428E72809009CD503 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
+		9191421628E72D62009CD503 /* Difficulty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Difficulty.swift; sourceTree = "<group>"; };
 		91917D3928D8BA7400688E14 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		91917D3B28D8C06C00688E14 /* CustomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
 		91917D3D28D8C08C00688E14 /* CustomNavigationBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBarItem.swift; sourceTree = "<group>"; };
@@ -140,6 +148,7 @@
 			children = (
 				910ECC7528CB5933009F204B /* ResultManager.swift */,
 				91DCCA8628E3266F00D10D94 /* GameManager.swift */,
+				9191421428E72809009CD503 /* UserDefaultsManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -185,6 +194,7 @@
 				9153F871289D794A00AB7152 /* Globals.swift */,
 				9164C3AD28E2FA5700C4FA97 /* Cars.swift */,
 				91DCCA8828E3275500D10D94 /* Maps.swift */,
+				9191421628E72D62009CD503 /* Difficulty.swift */,
 			);
 			path = ResourceHelpers;
 			sourceTree = "<group>";
@@ -203,6 +213,8 @@
 			children = (
 				910ECC7328CB52A1009F204B /* Result.swift */,
 				91917D3D28D8C08C00688E14 /* CustomNavigationBarItem.swift */,
+				9191420E28E72714009CD503 /* Settings.swift */,
+				9191421028E72729009CD503 /* Car.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -244,8 +256,8 @@
 				91E6CE4E2859E15700F52DD1 /* HomeView.swift */,
 				91DACB9D2864965500F68E16 /* SettingsView.swift */,
 				9188BA73286D064A000ECD09 /* LeaderboardView.swift */,
-				918AFD3128A6AAC000FE3B95 /* InfoView.swift */,
 				91BD027128D20B7C008D7F70 /* PauseView.swift */,
+				918AFD3128A6AAC000FE3B95 /* InfoView.swift */,
 				910D26F428918A37004E7475 /* CarModelCollectionView */,
 				910D26F328918A29004E7475 /* TableViewCell */,
 			);
@@ -389,6 +401,7 @@
 				912429B72858A0000007F0B3 /* GameViewController.swift in Sources */,
 				916CF25E28CA840E00749318 /* Images.swift in Sources */,
 				91DACB9E2864965500F68E16 /* SettingsView.swift in Sources */,
+				9191420F28E72714009CD503 /* Settings.swift in Sources */,
 				9164C3B028E308E200C4FA97 /* GameView.swift in Sources */,
 				91B92D6F28B3EFD1001FA0B0 /* Enums.swift in Sources */,
 				910ECC7428CB52A1009F204B /* Result.swift in Sources */,
@@ -398,7 +411,9 @@
 				910ECC7828CBBF75009F204B /* TableViewCell.swift in Sources */,
 				918AFD3228A6AAC000FE3B95 /* InfoView.swift in Sources */,
 				918AFD3428A6ABE900FE3B95 /* UIImage+Extensions.swift in Sources */,
+				9191421128E72729009CD503 /* Car.swift in Sources */,
 				91BD027228D20B7C008D7F70 /* PauseView.swift in Sources */,
+				9191421728E72D62009CD503 /* Difficulty.swift in Sources */,
 				91DCCA8528E323C300D10D94 /* UIImageView+Extensions.swift in Sources */,
 				912429B52858A0000007F0B3 /* SceneDelegate.swift in Sources */,
 				9153F875289D7C8500AB7152 /* Fonts.swift in Sources */,
@@ -414,6 +429,7 @@
 				91DCCA8928E3275500D10D94 /* Maps.swift in Sources */,
 				91E6CE452859DF1C00F52DD1 /* HomeViewController.swift in Sources */,
 				9164C3B628E30EB700C4FA97 /* StartTimer.swift in Sources */,
+				9191421528E72809009CD503 /* UserDefaultsManager.swift in Sources */,
 				910D26FA289194A7004E7475 /* UIButton+Extensions.swift in Sources */,
 				9164C3AE28E2FA5700C4FA97 /* Cars.swift in Sources */,
 				91917D3A28D8BA7400688E14 /* Coordinator.swift in Sources */,

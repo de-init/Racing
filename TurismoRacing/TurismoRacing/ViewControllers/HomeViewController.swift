@@ -19,12 +19,14 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         homeView.delegate = self
     }
     
     // MARK: - Layout
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        
         setupLayout()
     }
     private func setupLayout() {
@@ -37,6 +39,7 @@ class HomeViewController: UIViewController {
     // MARK: - Private Methods
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
         setBestScore()
     }
     private func setBestScore() {
