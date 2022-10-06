@@ -29,26 +29,17 @@ class HomeViewController: UIViewController {
         
         setupLayout()
     }
+    
     private func setupLayout() {
         makeLayoutHomeView()
     }
+    
     private func makeLayoutHomeView() {
         homeView.frame = view.bounds
     }
     
     // MARK: - Private Methods
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        setBestScore()
-    }
-    private func setBestScore() {
-        guard let scoreArray = Globals.userDefaults.object(forKey: "score") as? [Int] else { return }
-        maxScore = scoreArray.max()
-        DispatchQueue.main.async {
-            self.homeView.updateScore(score: self.maxScore)
-        }
-    }
+    
     private func showInfoViewControllerSheet() {
         let viewControllerToPresent = InfoButtonSheetViewController()
         if let sheet = viewControllerToPresent.sheetPresentationController {
@@ -63,6 +54,7 @@ class HomeViewController: UIViewController {
 }
 
 // MARK: - Extensions
+
 extension HomeViewController: MenuViewDelegate {
     func didTapLeaderboardButton() {
         coordinator?.displayLeaderboardScreen()

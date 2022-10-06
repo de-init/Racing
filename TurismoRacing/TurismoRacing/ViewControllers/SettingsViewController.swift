@@ -10,6 +10,7 @@ import UIKit
 class SettingsViewController: UIViewController {
     private let settingsView = SettingsView()
     private var navBar = UIView()
+    private var settings = UserDefaultsManager.shared.getSettings()
     var coordinator: Coordinator?
     
     override func loadView() {
@@ -18,6 +19,7 @@ class SettingsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         settingsView.delegate = self
     }
     
@@ -62,20 +64,17 @@ class SettingsViewController: UIViewController {
 // MARK: - Extensions
 extension SettingsViewController: SettingsViewDelegate {
     func didEasyButtonTapped() {
-        Globals.userDefaults.set(true, forKey: "Easy")
-        Globals.userDefaults.set(false, forKey: "Medium")
-        Globals.userDefaults.set(false, forKey: "Hard")
+        settings.difficulty = .normal
+        UserDefaultsManager.shared.saveSettings(settings: settings)
     }
     
     func didMediumButtonTapped() {
-        Globals.userDefaults.set(false, forKey: "Easy")
-        Globals.userDefaults.set(true, forKey: "Medium")
-        Globals.userDefaults.set(false, forKey: "Hard")
+        settings.difficulty = .medium
+        UserDefaultsManager.shared.saveSettings(settings: settings)
     }
 
     func didHardButtonTapped() {
-        Globals.userDefaults.set(false, forKey: "Easy")
-        Globals.userDefaults.set(false, forKey: "Medium")
-        Globals.userDefaults.set(true, forKey: "Hard")
+        settings.difficulty = .hard
+        UserDefaultsManager.shared.saveSettings(settings: settings)
     }
 }

@@ -16,7 +16,6 @@ protocol SettingsViewDelegate: AnyObject {
 }
 
 class SettingsView: UIView {
-    weak var delegate: SettingsViewDelegate?
     private var imageViewScreen: UIImageView!
     private var imageScreen: UIImage!
     private let difficultyLable: UILabel
@@ -24,8 +23,9 @@ class SettingsView: UIView {
     private var mediumModeButton: UIButton!
     private var hardModeButton: UIButton!
     private var stackViewButtons: UIStackView!
-    private let selectedButton: UIImageView
+    private let selectedRectangle: UIImageView
     private let carModelCollectionView = CarModelCollectionView()
+    weak var delegate: SettingsViewDelegate?
     
     override init(frame: CGRect) {
         imageViewScreen = UIImageView()
@@ -35,7 +35,7 @@ class SettingsView: UIView {
         mediumModeButton = UIButton()
         hardModeButton = UIButton()
         stackViewButtons = UIStackView()
-        selectedButton = UIImageView()
+        selectedRectangle = UIImageView()
         
         super.init(frame: frame)
         setupUI()
@@ -44,7 +44,9 @@ class SettingsView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     // MARK: - SetupUI
+    
     private func setupUI() {
         makeImageViewScreen()
         makeDifficultyLable()
@@ -52,8 +54,8 @@ class SettingsView: UIView {
         makeMediumModeButton()
         makeHardModeButton()
         makeStackViewButtons()
-        makeSelectionButton()
         addCarModelCollectionView()
+        makeSelectionRectangle()
     }
     
     private func makeImageViewScreen() {
@@ -63,7 +65,7 @@ class SettingsView: UIView {
         imageViewScreen.image = imageScreen
         addSubview(imageViewScreen)
     }
-
+    
     private func makeDifficultyLable() {
         difficultyLable.text = Strings.difficulty.localized
         difficultyLable.textColor = .white
@@ -72,14 +74,14 @@ class SettingsView: UIView {
         difficultyLable.adjustsFontSizeToFitWidth = true
         addSubview(difficultyLable)
     }
-
+    
     private func makeEasyModeButton() {
         easyModeButton = createButton(color: UIColor.init(hex: 0x56AC49), title: Strings.easy.localized)
         easyModeButton.setBackgroundColor(red: 86, green: 172, blue: 73, alpha: 0.2, forState: .highlighted)
         easyModeButton.addTarget(self, action: #selector(easyButtonTapped), for: .touchUpInside)
         addSubview(easyModeButton)
     }
-
+    
     private func makeMediumModeButton() {
         mediumModeButton = createButton(color: UIColor.init(hex: 0xFB981F) , title: Strings.medium.localized)
         mediumModeButton.setBackgroundColor(red: 251, green: 152, blue: 31, alpha: 0.2, forState: .highlighted)
@@ -102,55 +104,50 @@ class SettingsView: UIView {
         stackViewButtons.spacing = 25
         addSubview(stackViewButtons)
     }
-
-    private func makeSelectionButton() {
-        selectedButton.image = UIImage(named: "selectedButtonImage")
-        addSubview(selectedButton)
+    
+    private func makeSelectionRectangle() {
+        selectedRectangle.image = UIImage(named: "selectedRectangleImage")
+        addSubview(selectedRectangle)
+        animateSelection()
     }
-
+    
     private func addCarModelCollectionView() {
         addSubview(carModelCollectionView)
     }
+    
     // MARK: - Additional Methods
     private func animateSelection() {
-        if UserDefaults.standard.bool(forKey: "Easy") {
-            selectedButton.snp.removeConstraints()
-            UIView.animate(withDuration: 0.5, delay: 0) {
-                self.selectedButton.snp.makeConstraints { make in
-                    make.top.equalTo(self.easyModeButton).offset(5)
-                    make.leading.equalTo(self.easyModeButton).offset(5)
-                    make.bottom.equalTo(self.easyModeButton).offset(-5)
-                    make.trailing.equalTo(self.easyModeButton).offset(-5)
-                }
+        let settings = UserDefaultsManager.shared.getSettings()
+        switch settings.difficulty {
+        case .normal:
+            self.selectedRectangle.snp.remakeConstraints { make in
+                make.top.equalTo(self.easyModeButton).offset(5)
+                make.leading.equalTo(self.easyModeButton).offset(5)
+                make.bottom.equalTo(self.easyModeButton).inset(5)
+                make.trailing.equalTo(self.easyModeButton).inset(5)
             }
-        } else if UserDefaults.standard.bool(forKey: "Medium") {
-            selectedButton.snp.removeConstraints()
-            UIView.animate(withDuration: 0.5, delay: 0) {
-                self.selectedButton.snp.remakeConstraints { make in
-                    make.top.equalTo(self.mediumModeButton).offset(5)
-                    make.leading.equalTo(self.mediumModeButton).offset(5)
-                    make.bottom.equalTo(self.mediumModeButton).offset(-5)
-                    make.trailing.equalTo(self.mediumModeButton).offset(-5)
-                }
+        case .medium:
+            self.selectedRectangle.snp.remakeConstraints { make in
+                make.top.equalTo(self.mediumModeButton).offset(5)
+                make.leading.equalTo(self.mediumModeButton).offset(5)
+                make.bottom.equalTo(self.mediumModeButton).inset(5)
+                make.trailing.equalTo(self.mediumModeButton).inset(5)
             }
-        } else if UserDefaults.standard.bool(forKey: "Hard") {
-            selectedButton.snp.removeConstraints()
-            UIView.animate(withDuration: 0.5, delay: 0) {
-                self.selectedButton.snp.makeConstraints { make in
-                    make.top.equalTo(self.hardModeButton).offset(5)
-                    make.leading.equalTo(self.hardModeButton).offset(5)
-                    make.bottom.equalTo(self.hardModeButton).offset(-5)
-                    make.trailing.equalTo(self.hardModeButton).offset(-5)
-                }
+        case .hard:
+            self.selectedRectangle.snp.remakeConstraints { make in
+                make.top.equalTo(self.hardModeButton).offset(5)
+                make.leading.equalTo(self.hardModeButton).offset(5)
+                make.bottom.equalTo(self.hardModeButton).inset(5)
+                make.trailing.equalTo(self.hardModeButton).inset(5)
             }
         }
     }
-
+    
     private func createButton(color: UIColor, title: String) -> UIButton {
         let attributedString = NSAttributedString(string: title,
                                                   attributes: [
-                                                  NSAttributedString.Key.font : UIFont(name: Fonts.OrelegaOne.regular.fontName, size: 30),
-                                                  NSAttributedString.Key.foregroundColor : UIColor.init(hex: 0xFFFFFF)])
+                                                    NSAttributedString.Key.font : UIFont(name: Fonts.OrelegaOne.regular.fontName, size: 30),
+                                                    NSAttributedString.Key.foregroundColor : UIColor.init(hex: 0xFFFFFF)])
         let button = UIButton()
         button.backgroundColor = color
         button.layer.cornerRadius = 30
@@ -158,25 +155,28 @@ class SettingsView: UIView {
         button.setAttributedTitle(attributedString, for: .normal)
         return button
     }
+    
     // MARK: - Delegate Methods
+    
     @objc private func easyButtonTapped() {
         delegate?.didEasyButtonTapped()
         animateSelection()
     }
-
+    
     @objc private func mediumButtonTapped() {
         delegate?.didMediumButtonTapped()
         animateSelection()
     }
-
+    
     @objc private func hardButtonTapped() {
         delegate?.didHardButtonTapped()
         animateSelection()
     }
+    
     // MARK: - Constraints
+    
     override func layoutSubviews() {
         setupConstraints()
-        animateSelection()
     }
     
     private func setupConstraints() {

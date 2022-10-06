@@ -9,12 +9,23 @@ import Foundation
 import UIKit
 
 struct Cars {
-    static let carsArray: [String] = ["ic_defaultCar",
-                     "ic_carAudi",
-                     "ic_carBMW",
-                     "ic_carFerrari",
-                     "ic_carHonda",
-                     "ic_carPorsche",
-                     "ic_carBuggati",
-                     "ic_carDodge"]
+    enum Model: String {
+        case defaultModel = "defaultCar"
+        case audi = "carAudi"
+        case bmw = "carBMW"
+        case ferrari = "carFerrari"
+        case honda = "carHonda"
+        case porsche = "carPorsche"
+        case buggati = "carBuggati"
+        case dogde = "carDodge"
+    }
+    
+    static let carsArray = [Cars.Model.defaultModel.rawValue,
+                            Cars.Model.audi.rawValue,
+                            Cars.Model.bmw.rawValue,
+                            Cars.Model.ferrari.rawValue,
+                            Cars.Model.honda.rawValue,
+                            Cars.Model.porsche.rawValue,
+                            Cars.Model.buggati.rawValue,
+                            Cars.Model.dogde.rawValue]
 }

@@ -18,7 +18,7 @@ class Car: UIImageView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.contentMode = .scaleAspectFill
+        self.contentMode = .scaleAspectFit
         self.image = UIImage(named: carModel)
         self.layer.cornerRadius = 10
         self.layer.masksToBounds = true
@@ -30,6 +30,7 @@ class Car: UIImageView {
     func movingCar(direction: CGFloat) {
         let step = self.frame.width
         animator = UIViewPropertyAnimator(duration: 0.05, curve: .linear, animations: { self.frame.origin.x += direction * step })
+        animator.startAnimation()
     }
     
     required init?(coder: NSCoder) {

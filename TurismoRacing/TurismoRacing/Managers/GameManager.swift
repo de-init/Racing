@@ -12,9 +12,9 @@ class GameManager: GameViewController {
     static let shared = GameManager()
     
     func loadMap() -> [UIImageView] {
-        let mapArray = [UIImageView.loadImage(image: Maps.Desert.firstImage.name, size: view.bounds.size),
-                        UIImageView.loadImage(image: Maps.Desert.secondImage.name, size: view.bounds.size),
-                        UIImageView.loadImage(image: Maps.Desert.thirdImage.name, size: view.bounds.size)]
+        let mapArray = [UIImageView.loadImage(image: Maps.Desert.firstImage.rawValue, size: view.bounds.size),
+                        UIImageView.loadImage(image: Maps.Desert.secondImage.rawValue, size: view.bounds.size),
+                        UIImageView.loadImage(image: Maps.Desert.thirdImage.rawValue, size: view.bounds.size)]
         return mapArray
     }
 }

@@ -17,6 +17,7 @@ class GameViewController: UIViewController {
     private var backgroundImages: [UIImageView] = []
     private var backgroundAnimator = UIViewPropertyAnimator()
     private var car: Car!
+    private var game = Game()
     var coordinator: Coordinator?
     
     override func loadView() {
@@ -28,7 +29,8 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        animateBackground(duration: 3)
+        animateBackground(duration: game.gameSpeed)
+        movingCarGesture()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -50,6 +52,12 @@ class GameViewController: UIViewController {
         setBackgroundMap()
         setNavigationBar()
         setPauseView()
+        setCar()
+    }
+    
+    private func setCar() {
+        car = Car.init(frame: CGRect(x: view.frame.width / 4 * 2, y: backgroundView.bounds.maxY - view.frame.width / 5 - 70, width: view.frame.width / 5 - 5, height: view.frame.width / 3 - 10))
+        backgroundView.addSubview(car)
     }
     
     private func setGameView() {
@@ -99,10 +107,29 @@ class GameViewController: UIViewController {
     private func changeBackground() {
         self.backgroundImages[0].removeFromSuperview()
         self.backgroundImages.append(backgroundImages.removeFirst())
-        self.backgroundView.addSubview(backgroundImages[1])
+        self.backgroundView.insertSubview(backgroundImages[1], belowSubview: car)
         self.backgroundImages[1].frame.origin = CGPoint(x: 0, y: 0 - self.view.bounds.maxY)
-        animateBackground(duration: 3)
+        animateBackground(duration: game.gameSpeed)
     }
+    
+    //MARK: - Moving Car
+    
+    private func movingCarGesture() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(moveCar))
+        backgroundView.addGestureRecognizer(tap)
+    }
+    
+    @objc private func moveCar(sender: UISwipeGestureRecognizer) {
+        let tapDirection = sender.location(in: backgroundView).x
+        
+        if tapDirection < backgroundView.bounds.midX && car.frame.origin.x > 0 {
+            car.movingCar(direction: -1)
+        }
+        if tapDirection >= backgroundView.bounds.midX && car.frame.maxX <= view.bounds.maxX - car.frame.width {
+            car.movingCar(direction: 1)
+        }
+    }
+
 
     //MARK: - Layout
     

@@ -8,17 +8,10 @@
 import Foundation
 import UIKit
 
-protocol MapName {
-    var name: String { get }
-}
-
 struct Maps {
-    enum Desert: String, MapName {
+    enum Desert: String {
         case firstImage = "desertMap1"
         case secondImage = "desertMap2"
         case thirdImage = "desertMap3"
-        var name: String {
-            return "\(rawValue)"
-        }
     }
 }
