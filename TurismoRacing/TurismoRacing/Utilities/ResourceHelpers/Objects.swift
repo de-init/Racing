@@ -10,15 +10,15 @@ import UIKit
 
 struct Objects {
     enum TypeObject: String {
-        case barrel = "ic_barrel"
-        case barrier = "ic_barrier"
-        case cone = "ic_cone"
-        case coin = "ic_coin"
-        case block = "ic_block"
-        case bomb = "ic_bomb"
-        case pig = "ic_pig"
-        case turn = "ic_turn"
-        case warn = "ic_warn"
+        case barrel = "barrelObject"
+        case barrier = "barrierObject"
+        case cone = "coneObject"
+        case coin = "coinObject"
+        case block = "blockObject"
+        case bomb = "bombObject"
+        case pig = "pigObject"
+        case turn = "turnObject"
+        case warn = "warnObject"
     }
     
     static let objectArray = [Objects.TypeObject.barrel.rawValue,

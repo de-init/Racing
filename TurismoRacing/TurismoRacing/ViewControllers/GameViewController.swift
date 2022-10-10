@@ -10,61 +10,57 @@ import Foundation
 import SnapKit
 
 class GameViewController: UIViewController {
-    private var gameView: GameView!
     private var pauseView: PauseView!
     private var navBar: CustomNavigationBar!
     private var backgroundView: UIView!
     private var backgroundImages: [UIImageView] = []
     private var backgroundAnimator = UIViewPropertyAnimator()
+    private var scoreLableView: UIView!
+    private var scoreLable: UILabel!
     private var car: Car!
+    private var objects: [Object] = []
+    private var objectPoints: [CGPoint] = []
+    private var objectAnimator = UIViewPropertyAnimator()
+    private var timerPutObject = Timer()
+    private var timerCheckIntersection = Timer()
     private var game = Game()
     var coordinator: Coordinator?
     
     override func loadView() {
         let nView = UIView(frame: UIScreen.main.bounds)
         view = nView
-        setUI()
+        setBackgroundMap()
+        setNavigationBar()
+        setPauseView()
+        setScoreLable()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         animateBackground(duration: game.gameSpeed)
+        setCar()
         movingCarGesture()
+        generateObjectPoint(size: car.frame.size)
+        restartTimer()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
     //MARK: - UI
     
-    private func setUI() {
-        setGameView()
-        setBackgroundMap()
-        setNavigationBar()
-        setPauseView()
-        setCar()
-    }
-    
     private func setCar() {
         car = Car.init(frame: CGRect(x: view.frame.width / 4 * 2, y: backgroundView.bounds.maxY - view.frame.width / 5 - 70, width: view.frame.width / 5 - 5, height: view.frame.width / 3 - 10))
         backgroundView.addSubview(car)
     }
-    
-    private func setGameView() {
-        gameView = GameView()
-        view.addSubview(gameView)
-    }
-    
+
     private func setPauseView() {
         pauseView = PauseView()
         view.addSubview(pauseView)
@@ -91,11 +87,30 @@ class GameViewController: UIViewController {
         view.addSubview(navBar)
     }
     
+    private func setScoreLable() {
+        let color = CGColor(red: 0, green: 0, blue: 0, alpha: 0.37)
+        let strokeTextAttributes = [
+            NSAttributedString.Key.strokeColor : UIColor.init(hex: 0xE8E5DA),
+            NSAttributedString.Key.strokeWidth : -2.5,
+            NSAttributedString.Key.font : UIFont(name: Fonts.HammersmithOne.regular.fontName, size: 35) ?? UIFont.systemFont(ofSize: 35)]
+        as [NSAttributedString.Key : Any]
+        scoreLableView = UIView()
+        scoreLableView.backgroundColor = UIColor(red: 0, green: 0, blue: 0).withAlphaComponent(0.37)
+        scoreLableView.layer.cornerRadius = 15
+        scoreLable = UILabel()
+        scoreLable.adjustsFontSizeToFitWidth = true
+        scoreLable.numberOfLines = 0
+        scoreLable.textAlignment = .center
+        scoreLable.attributedText = NSMutableAttributedString(string: "\(Strings.score.localized)", attributes: strokeTextAttributes)
+        view.addSubview(scoreLableView)
+        scoreLableView.addSubview(scoreLable)
+    }
+    
     //MARK: - Animate Background
     
     private func animateBackground(duration: TimeInterval) {
-        backgroundAnimator = UIViewPropertyAnimator(duration: duration, curve: .linear, animations: {
-            self.backgroundImages[0].frame.origin = CGPoint(x: 0, y: self.view.bounds.maxY)
+        backgroundAnimator = UIViewPropertyAnimator(duration: duration - 0.2, curve: .linear, animations: {
+            self.backgroundImages[0].frame.origin = CGPoint(x: 0, y: self.backgroundView.bounds.maxY)
             self.backgroundImages[1].frame.origin = .zero
         })
         backgroundAnimator.startAnimation()
@@ -108,7 +123,7 @@ class GameViewController: UIViewController {
         self.backgroundImages[0].removeFromSuperview()
         self.backgroundImages.append(backgroundImages.removeFirst())
         self.backgroundView.insertSubview(backgroundImages[1], belowSubview: car)
-        self.backgroundImages[1].frame.origin = CGPoint(x: 0, y: 0 - self.view.bounds.maxY)
+        self.backgroundImages[1].frame.origin = CGPoint(x: 0, y: 0 - self.backgroundView.bounds.maxY)
         animateBackground(duration: game.gameSpeed)
     }
     
@@ -122,7 +137,7 @@ class GameViewController: UIViewController {
     @objc private func moveCar(sender: UISwipeGestureRecognizer) {
         let tapDirection = sender.location(in: backgroundView).x
         
-        if tapDirection < backgroundView.bounds.midX && car.frame.origin.x > 0 {
+        if tapDirection < backgroundView.bounds.midX && car.frame.origin.x > 0 + car.frame.width {
             car.movingCar(direction: -1)
         }
         if tapDirection >= backgroundView.bounds.midX && car.frame.maxX <= view.bounds.maxX - car.frame.width {
@@ -130,19 +145,90 @@ class GameViewController: UIViewController {
         }
     }
 
+    //MARK: - Object spawn
+    
+    private func restartTimer() {
+        let randomNum = Double.random(in: self.game.gameSpeed-0.5..<self.game.gameSpeed-0.2)
+        timerPutObject = Timer.scheduledTimer(withTimeInterval: TimeInterval(randomNum), repeats: false, block: { _ in
+            self.moveObject(duration: self.game.gameSpeed)
+            self.checkCollision()
+            self.restartTimer()
+        })
+    }
+    
+    private func generateObjectPoint(size: CGSize) {
+        for i in 1...4 {
+            objectPoints.append(CGPoint(x: 2 + size.width * CGFloat(i), y: 0 - size.width))
+        }
+    }
+    
+    private func moveObject(duration: TimeInterval) {
+        let newObject = Object.generateObject(objectSize: car.frame.size, objectPoints: objectPoints)
+        for object in newObject {
+            backgroundView.insertSubview(object, belowSubview: car)
+        }
+        objects += newObject
+        objectAnimator = UIViewPropertyAnimator(duration: duration, curve: .linear, animations: {
+            for object in newObject {
+                object.transform = CGAffineTransform(translationX: 0, y: self.backgroundView.bounds.maxY + object.frame.height)
+            }
+        })
+        objectAnimator.startAnimation()
+        objectAnimator.addCompletion({ _ in
+            for object in newObject where object.frame.origin.y >= self.backgroundView.bounds.minY {
+                object.removeFromSuperview()
+            }
+            self.game.currentScore += 1
+            self.scoreLable.text = "\(Strings.score.localized): \(self.game.currentScore)"
+        })
+    }
 
+    //MARK: - Check collision
+    
+    private func checkCollision() {
+        self.timerCheckIntersection = Timer.scheduledTimer(withTimeInterval: 0.05, repeats: true, block: { timer in
+            var tempFrameObjects: [CGRect] = []
+            for object in self.objects {
+                tempFrameObjects.append(object.layer.presentation()?.frame ?? CGRect(x: 0, y: 0, width: 0, height: 0))
+            }
+            guard let car = self.car,
+                  let tempFrameCar = car.layer.presentation()?.frame else {
+                      return
+                  }
+            for tempFrameObject in tempFrameObjects {
+                if tempFrameCar.intersects(tempFrameObject) {
+                    self.objectAnimator.stopAnimation(true)
+                    self.backgroundView.isUserInteractionEnabled = false
+                    self.navBar.isUserInteractionEnabled = false
+                    self.car.animator.stopAnimation(true)
+                    self.timerPutObject.invalidate()
+                    self.backgroundAnimator.stopAnimation(true)
+                    timer.invalidate()
+                    self.showCrash()
+                }
+            }
+        })
+    }
+
+    private func showCrash() {
+        self.car.image = UIImage(named: "boomImage")
+        let animate = UIViewPropertyAnimator(duration: 0.5, curve: .linear, animations: {
+            self.car.transform = CGAffineTransform(scaleX: 4, y: 4)
+        })
+        animate.startAnimation()
+        animate.addCompletion { _ in
+            
+        }
+    }
+    
     //MARK: - Layout
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
-        setFrameGameView()
         setConstraintsNavigationBar()
         setConstraintsPauseView()
-    }
-    
-    private func setFrameGameView() {
-        gameView.frame = view.bounds
+        setConstraintsScoreLableView()
+        setConstraintsScoreLable()
     }
     
     private func setConstraintsNavigationBar() {
@@ -159,6 +245,23 @@ class GameViewController: UIViewController {
             make.width.equalTo(300)
             make.centerX.equalTo(view)
             make.centerY.equalTo(view)
+        }
+    }
+    
+    private func setConstraintsScoreLable() {
+        scoreLable.snp.makeConstraints { make in
+            make.centerX.equalTo(scoreLableView)
+        }
+    }
+    
+    private func setConstraintsScoreLableView() {
+        scoreLableView.snp.makeConstraints { make in
+            make.top.equalTo(view).offset(40)
+            make.centerX.equalTo(view)
+            make.top.equalTo(scoreLable).offset(-5)
+            make.leading.equalTo(scoreLable).offset(-10)
+            make.bottom.equalTo(scoreLable).offset(5)
+            make.trailing.equalTo(scoreLable).offset(10)
         }
     }
     

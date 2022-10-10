@@ -29,7 +29,7 @@ class Object: UIImageView {
         let points = objectPoints.shuffled().suffix(Int.random(in: 1...2))
         var objects: [Object] = []
         for point in points {
-            objects.append(Object.init(frame: CGRect(x: point.x, y: point.y, width: objectSize.width - 4, height: objectSize.height)))
+            objects.append(Object.init(frame: CGRect(x: point.x - 15, y: point.y, width: objectSize.width - 20, height: objectSize.height - 20)))
         }
         return objects
     }

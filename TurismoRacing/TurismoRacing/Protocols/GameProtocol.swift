@@ -20,11 +20,11 @@ class Game: GameProtocol {
         var time: TimeInterval!
         switch difficulty {
         case .normal:
-            time = 4.5
+            time = 2.5
         case .medium:
-            time = 4
+            time = 2
         case .hard:
-            time = 3.2
+            time = 1.5
         }
         return time
     }()
