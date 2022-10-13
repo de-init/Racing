@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 class HomeViewController: UIViewController {
-    private let homeView = HomeMenu()
+    private let homeView = HomeView()
     private var maxScore: Int!
     var coordinator: Coordinator?
 
@@ -21,21 +21,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         homeView.delegate = self
-    }
-    
-    // MARK: - Layout
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
-        setupLayout()
-    }
-    
-    private func setupLayout() {
-        makeLayoutHomeView()
-    }
-    
-    private func makeLayoutHomeView() {
-        homeView.frame = view.bounds
+        setBestScore()
     }
     
     // MARK: - Private Methods
@@ -50,6 +36,39 @@ class HomeViewController: UIViewController {
             sheet.widthFollowsPreferredContentSizeWhenEdgeAttached = true
         }
         present(viewControllerToPresent, animated: true, completion: nil)
+    }
+    
+    private func setBestScore() {
+        DispatchQueue.main.async {
+            self.homeView.updateScore(score: self.getMaxNum())
+        }
+    }
+    
+    private func getMaxNum() -> Int {
+        var temp: [Int] = []
+        if let array = ResultsManager.savedResults() {
+            for i in array {
+                temp.append(i.score)
+            }
+        }
+        guard let maxNum = temp.max() else { return 0 }
+        return maxNum
+    }
+    
+    // MARK: - Layout
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        setupLayout()
+    }
+    
+    private func setupLayout() {
+        makeLayoutHomeView()
+    }
+    
+    private func makeLayoutHomeView() {
+        homeView.frame = view.bounds
     }
 }
 
@@ -70,6 +89,7 @@ extension HomeViewController: MenuViewDelegate {
         coordinator?.displayGameScreen()
         dismiss(animated: false)
     }
+    
     func didTapInfoButton() {
         self.showInfoViewControllerSheet()
     }

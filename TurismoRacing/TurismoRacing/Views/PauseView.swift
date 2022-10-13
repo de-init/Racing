@@ -19,7 +19,6 @@ class PauseView: UIView {
     private let playButton: UIButton
     private let exitButton: UIButton
     private var stackButtons: UIStackView
-    private var score = 0
     weak var delegate: PauseViewDelegate?
 
     override init(frame: CGRect) {
@@ -51,12 +50,16 @@ class PauseView: UIView {
     }
     
     private func setupTextLable() {
-        textLable.text = "\(Strings.pauseText.localized) \n \(score)"
+        textLable.text = Strings.pauseText.localized
         textLable.font = UIFont(name: Fonts.OrelegaOne.regular.fontName, size: 38)
         textLable.numberOfLines = 0
         textLable.textAlignment = .center
         textLable.textColor = .white
         addSubview(textLable)
+    }
+    
+    func updateScore(score: Int) {
+        self.textLable.text = Strings.pauseText.localized + "\n \(score)"
     }
 
     private func setupPlayButton() {

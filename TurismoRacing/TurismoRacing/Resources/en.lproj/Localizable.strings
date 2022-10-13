@@ -18,3 +18,5 @@
 "pause_menu_text" = "Current result:";
 "play_text" = "Continue";
 "exit_text" = "Exit";
+"total_score" = "Total score:";
+"record_score" = "Record score:";

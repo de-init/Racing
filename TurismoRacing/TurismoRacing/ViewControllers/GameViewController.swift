@@ -12,6 +12,7 @@ import SnapKit
 class GameViewController: UIViewController {
     private var pauseView: PauseView!
     private var navBar: CustomNavigationBar!
+    private var startTimer: StartTimer!
     private var backgroundView: UIView!
     private var backgroundImages: [UIImageView] = []
     private var backgroundAnimator = UIViewPropertyAnimator()
@@ -33,15 +34,21 @@ class GameViewController: UIViewController {
         setNavigationBar()
         setPauseView()
         setScoreLable()
+        setStartTimer()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        animateBackground(duration: game.gameSpeed)
+        startTimer.animateStart()
+        pauseView.delegate = self
+        delay(delay: 3.5) {
+            self.animateBackground(duration: self.game.gameSpeed)
+            self.movingCarGesture()
+            self.generateObjectPoint(size: self.car.frame.size)
+            self.restartTimer()
+            self.startTimer.removeFromSuperview()
+        }
         setCar()
-        movingCarGesture()
-        generateObjectPoint(size: car.frame.size)
-        restartTimer()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -56,11 +63,11 @@ class GameViewController: UIViewController {
     
     //MARK: - UI
     
-    private func setCar() {
-        car = Car.init(frame: CGRect(x: view.frame.width / 4 * 2, y: backgroundView.bounds.maxY - view.frame.width / 5 - 70, width: view.frame.width / 5 - 5, height: view.frame.width / 3 - 10))
-        backgroundView.addSubview(car)
+    private func setStartTimer() {
+        startTimer = StartTimer()
+        view.addSubview(startTimer)
     }
-
+    
     private func setPauseView() {
         pauseView = PauseView()
         view.addSubview(pauseView)
@@ -77,10 +84,15 @@ class GameViewController: UIViewController {
         backgroundView.addSubview(backgroundImages[1])
     }
     
+    private func setCar() {
+        car = Car.init(frame: CGRect(x: view.frame.width / 4 * 2, y: backgroundView.bounds.maxY - view.frame.width / 5 - 70, width: view.frame.width / 5 - 5, height: view.frame.width / 3 - 10))
+        backgroundView.addSubview(car)
+    }
+    
     private func setNavigationBar() {
         let leftItem = CustomNavigationBarItem(imageName: "backButtonImage", itemAction: { [weak self] in
             self?.coordinator?.stepBack() })
-        let rightItem = CustomNavigationBarItem(imageName: "pauseButtonImage", itemAction: { self.playButtonTap() })
+        let rightItem = CustomNavigationBarItem(imageName: "pauseButtonImage", itemAction: { self.tapOnPause() })
         let bar = CustomNavigationBar(leftItem: leftItem, rightItem: rightItem, titleText: "")
         bar.translatesAutoresizingMaskIntoConstraints = false
         navBar = bar
@@ -88,11 +100,9 @@ class GameViewController: UIViewController {
     }
     
     private func setScoreLable() {
-        let color = CGColor(red: 0, green: 0, blue: 0, alpha: 0.37)
         let strokeTextAttributes = [
-            NSAttributedString.Key.strokeColor : UIColor.init(hex: 0xE8E5DA),
-            NSAttributedString.Key.strokeWidth : -2.5,
-            NSAttributedString.Key.font : UIFont(name: Fonts.HammersmithOne.regular.fontName, size: 35) ?? UIFont.systemFont(ofSize: 35)]
+            NSAttributedString.Key.foregroundColor : UIColor(hex: 0xA3B18A),
+            NSAttributedString.Key.font : UIFont(name: Fonts.Poppins.bold.fontName, size: 35) ?? UIFont.systemFont(ofSize: 35)]
         as [NSAttributedString.Key : Any]
         scoreLableView = UIView()
         scoreLableView.backgroundColor = UIColor(red: 0, green: 0, blue: 0).withAlphaComponent(0.37)
@@ -109,7 +119,7 @@ class GameViewController: UIViewController {
     //MARK: - Animate Background
     
     private func animateBackground(duration: TimeInterval) {
-        backgroundAnimator = UIViewPropertyAnimator(duration: duration - 0.2, curve: .linear, animations: {
+        backgroundAnimator = UIViewPropertyAnimator(duration: duration - 0.1, curve: .linear, animations: {
             self.backgroundImages[0].frame.origin = CGPoint(x: 0, y: self.backgroundView.bounds.maxY)
             self.backgroundImages[1].frame.origin = .zero
         })
@@ -144,7 +154,7 @@ class GameViewController: UIViewController {
             car.movingCar(direction: 1)
         }
     }
-
+    
     //MARK: - Object spawn
     
     private func restartTimer() {
@@ -175,14 +185,14 @@ class GameViewController: UIViewController {
         })
         objectAnimator.startAnimation()
         objectAnimator.addCompletion({ _ in
-            for object in newObject where object.frame.origin.y >= self.backgroundView.bounds.minY {
+            for object in newObject where object.frame.origin.y >= self.backgroundView.frame.minY {
                 object.removeFromSuperview()
             }
             self.game.currentScore += 1
             self.scoreLable.text = "\(Strings.score.localized): \(self.game.currentScore)"
         })
     }
-
+    
     //MARK: - Check collision
     
     private func checkCollision() {
@@ -193,13 +203,12 @@ class GameViewController: UIViewController {
             }
             guard let car = self.car,
                   let tempFrameCar = car.layer.presentation()?.frame else {
-                      return
-                  }
+                return
+            }
             for tempFrameObject in tempFrameObjects {
                 if tempFrameCar.intersects(tempFrameObject) {
                     self.objectAnimator.stopAnimation(true)
                     self.backgroundView.isUserInteractionEnabled = false
-                    self.navBar.isUserInteractionEnabled = false
                     self.car.animator.stopAnimation(true)
                     self.timerPutObject.invalidate()
                     self.backgroundAnimator.stopAnimation(true)
@@ -209,7 +218,7 @@ class GameViewController: UIViewController {
             }
         })
     }
-
+    
     private func showCrash() {
         self.car.image = UIImage(named: "boomImage")
         let animate = UIViewPropertyAnimator(duration: 0.5, curve: .linear, animations: {
@@ -217,7 +226,81 @@ class GameViewController: UIViewController {
         })
         animate.startAnimation()
         animate.addCompletion { _ in
-            
+            Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { timer in
+                self.showResultView()
+                timer.invalidate()
+            }
+        }
+    }
+    
+    private func showResultView() {
+        let resultView = ResultView()
+        view.addSubview(resultView)
+        resultView.delegate = self
+        resultView.totalScore.text = Strings.totalScore.localized + "\n \(game.currentScore)"
+        resultView.recordScore.text = Strings.recordScore.localized + "\n \(getMaxNum())"
+        
+        resultView.snp.makeConstraints { make in
+            make.edges.equalTo(view).inset(UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0))
+        }
+    }
+    
+    private func checkRecord(record: Int) -> Bool {
+        var returnValue = false
+        if let score = ResultsManager.savedResults() {
+            for i in score {
+                if record >= i.score {
+                    returnValue = true
+                }
+            }
+        }
+        return returnValue
+    }
+    
+    // MARK: - Helper Methods
+    
+    private func delay(delay: Double, closure: @escaping () -> ()) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
+            closure()
+        }
+    }
+    
+    private func getMaxNum() -> Int {
+        var temp: [Int] = []
+        if let array = ResultsManager.savedResults() {
+            for i in array {
+                temp.append(i.score)
+            }
+        }
+        guard let maxNum = temp.max() else { return 0 }
+        return maxNum
+    }
+    
+    private func tapOnPause() {
+        let pausedTime: CFTimeInterval = view.layer.convertTime(CACurrentMediaTime(), from: nil)
+        view.layer.speed = 0.0
+        view.layer.timeOffset = pausedTime
+        self.timerPutObject.invalidate()
+        self.timerCheckIntersection.invalidate()
+        self.pauseView.updateScore(score: self.game.currentScore)
+        self.pauseView.isHidden.toggle()
+    }
+    
+    private func tapOnResume() {
+        let pausedTime: CFTimeInterval = view.layer.timeOffset
+        view.layer.speed = 1.0
+        view.layer.timeOffset = 0.0
+        view.layer.beginTime = 0.0
+        let timeSincePause: CFTimeInterval = view.layer.convertTime(CACurrentMediaTime(), from: nil) - pausedTime
+        view.layer.beginTime = timeSincePause
+        self.restartTimer()
+        self.pauseView.isHidden.toggle()
+    }
+    
+    private func saveResult() {
+        let record = Result(score: self.game.currentScore)
+        if checkRecord(record: self.game.currentScore) {
+            ResultsManager.saveResult(result: record)
         }
     }
     
@@ -229,6 +312,7 @@ class GameViewController: UIViewController {
         setConstraintsPauseView()
         setConstraintsScoreLableView()
         setConstraintsScoreLable()
+        setFrameStartTimer()
     }
     
     private func setConstraintsNavigationBar() {
@@ -265,22 +349,29 @@ class GameViewController: UIViewController {
         }
     }
     
-    // MARK: - Helper Methods
-    
-    private func delay(delay: Double, closure: @escaping () -> ()) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
-            closure()
-        }
+    private func setFrameStartTimer() {
+        startTimer.frame = view.bounds
     }
 }
 
 //MARK: - Extension
 
-extension GameViewController: PauseViewDelegate {
+extension GameViewController: PauseViewDelegate, ResultViewDelegate {
+    func continueButtonTapped() {
+        self.coordinator?.stepBack()
+        self.coordinator?.displayGameScreen()
+    }
+    
+    func exitButtonTapped() {
+        self.saveResult()
+        self.coordinator?.stepBack()
+    }
+    
     func playButtonTap() {
-        pauseView.isHidden.toggle()
+        tapOnResume()
     }
     
     func exitButtonTap() {
+        self.coordinator?.stepBack()
     }
 }
