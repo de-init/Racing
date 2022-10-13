@@ -18,3 +18,5 @@
 "pause_menu_text" = "Текущий результат:";
 "play_text" = "Продолжить";
 "exit_text" = "Выйти";
+"total_score" = "Вы набрали:";
+"record_score" = "Рекорд:";

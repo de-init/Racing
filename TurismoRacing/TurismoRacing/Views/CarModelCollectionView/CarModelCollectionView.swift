@@ -8,7 +8,8 @@
 import UIKit
 
 class CarModelCollectionView: UICollectionView, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
-    var carModels: [String] = ["ic_defaultCar", "ic_carAudi", "ic_carBMW", "ic_carFerrari", "ic_carHonda", "ic_carPorsche", "ic_carBuggati", "ic_carDodge"]
+    private var carModels = Cars.carsArray
+    private var settings = UserDefaultsManager.shared.getSettings()
     
     init() {
         let flowLayout = UICollectionViewFlowLayout()
@@ -48,7 +49,8 @@ class CarModelCollectionView: UICollectionView, UICollectionViewDelegateFlowLayo
         let cell = collectionView.cellForItem(at: indexPath)
         if let cell = cell {
             let index = indexPath.row
-            UserDefaults.standard.set(carModels[index], forKey: "CarModel")
+            settings.car = index
+            UserDefaultsManager.shared.saveSettings(settings: settings)
             cell.backgroundColor = .white.withAlphaComponent(0.2)
             cell.layer.cornerRadius = 20
             cell.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)

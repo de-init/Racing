@@ -40,7 +40,7 @@ class LeaderboardViewController: UIViewController {
     private func setupNavigationBar() {
         let leftItem = CustomNavigationBarItem(imageName: "backButtonImage", itemAction: { [weak self] in
             self?.coordinator?.stepBack() })
-        let rightItem = CustomNavigationBarItem(imageName: "", itemAction: { return })
+        let rightItem = CustomNavigationBarItem(imageName: "resetButtonImage", itemAction: { self.tryReset() })
         navBar = CustomNavigationBar(leftItem: leftItem, rightItem: rightItem, titleText: Strings.leaderboard.localized)
         navBar.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(navBar)
@@ -61,6 +61,12 @@ class LeaderboardViewController: UIViewController {
         if let savedResult = ResultsManager.savedResults() {
             results = savedResult.sorted(by: { $0.score > $1.score })
         }
+    }
+    
+    private func tryReset() {
+        ResultsManager.clearResults()
+        results = [Result]()
+        tableView.reloadData()
     }
 
     // MARK: - Constraints

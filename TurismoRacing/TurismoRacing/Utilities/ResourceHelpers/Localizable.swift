@@ -21,6 +21,8 @@ enum Strings: String {
     case pauseText = "pause_menu_text"
     case playText = "play_text"
     case exitText = "exit_text"
+    case totalScore = "total_score"
+    case recordScore = "record_score"
     
     var localized: String {
         return NSLocalizedString(self.rawValue, comment: "")

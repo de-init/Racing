@@ -8,17 +8,20 @@
 import UIKit
 import SnapKit
 
+protocol PauseViewDelegate: AnyObject {
+    func playButtonTap()
+    func exitButtonTap()
+}
+
 class PauseView: UIView {
     
-    private let pauseView: UIView
     private let textLable: UILabel
     private let playButton: UIButton
     private let exitButton: UIButton
     private var stackButtons: UIStackView
-    private var score = 0
+    weak var delegate: PauseViewDelegate?
 
     override init(frame: CGRect) {
-        pauseView = UIView()
         textLable = UILabel()
         playButton = UIButton()
         exitButton = UIButton()
@@ -27,7 +30,8 @@ class PauseView: UIView {
         super.init(frame: frame)
         setupUI()
     }
-    
+    //MARK: - UI
+
     private func setupUI() {
         setupPauseView()
         setupTextLable()
@@ -37,21 +41,25 @@ class PauseView: UIView {
     }
     
     private func setupPauseView() {
-        pauseView.backgroundColor = UIColor(hex: 0xFF9B71)
-        pauseView.layer.borderWidth = 12
-        pauseView.layer.borderColor = CGColor(red: 255, green: 255, blue: 255, alpha: 0.44)
-        pauseView.layer.cornerRadius = 50
-        pauseView.clipsToBounds = true
-        addSubview(pauseView)
+        self.backgroundColor = UIColor(hex: 0xFF9B71)
+        self.layer.borderWidth = 12
+        self.layer.borderColor = CGColor(red: 255, green: 255, blue: 255, alpha: 0.44)
+        self.layer.cornerRadius = 50
+        self.clipsToBounds = true
+        self.isHidden = true
     }
     
     private func setupTextLable() {
-        textLable.text = "\(Strings.pauseText.localized) \n \(score)"
+        textLable.text = Strings.pauseText.localized
         textLable.font = UIFont(name: Fonts.OrelegaOne.regular.fontName, size: 38)
         textLable.numberOfLines = 0
         textLable.textAlignment = .center
         textLable.textColor = .white
         addSubview(textLable)
+    }
+    
+    func updateScore(score: Int) {
+        self.textLable.text = Strings.pauseText.localized + "\n \(score)"
     }
 
     private func setupPlayButton() {
@@ -62,6 +70,7 @@ class PauseView: UIView {
         playButton.layer.borderColor = CGColor(red: 255, green: 255, blue: 255, alpha: 0.7)
         playButton.layer.cornerRadius = 30
         playButton.clipsToBounds = true
+        playButton.addTarget(self, action: #selector(playButtonTapped), for: .touchUpInside)
         addSubview(playButton)
     }
 
@@ -73,6 +82,7 @@ class PauseView: UIView {
         exitButton.layer.borderColor = CGColor(red: 255, green: 255, blue: 255, alpha: 0.7)
         exitButton.layer.cornerRadius = 30
         exitButton.clipsToBounds = true
+        exitButton.addTarget(self, action: #selector(exitButtonTapped), for: .touchUpInside)
         addSubview(exitButton)
     }
     
@@ -85,40 +95,42 @@ class PauseView: UIView {
         addSubview(stackButtons)
     }
     
+    //MARK: - Delegate
+    
+    @objc func playButtonTapped() {
+        delegate?.playButtonTap()
+    }
+    
+    @objc func exitButtonTapped() {
+        delegate?.exitButtonTap()
+    }
+    
+    //MARK: - Layout
+
     override func layoutSubviews() {
         super.layoutSubviews()
         setupConstraints()
     }
     
     private func setupConstraints() {
-        setupConstraintsPauseView()
         setupConstraintsTextLable()
         setupConstraintsStackButtons()
     }
     
-    private func setupConstraintsPauseView() {
-        pauseView.snp.makeConstraints { make in
-            make.width.equalTo(300)
-            make.height.equalTo(350)
-            make.centerX.equalTo(self.center)
-            make.centerY.equalTo(self.center)
-        }
-    }
-    
     private func setupConstraintsTextLable() {
         textLable.snp.makeConstraints { make in
-            make.top.equalTo(pauseView).offset(30)
-            make.leading.equalTo(pauseView).offset(30)
-            make.trailing.equalTo(pauseView).inset(30)
+            make.top.equalTo(self).offset(30)
+            make.leading.equalTo(self).offset(30)
+            make.trailing.equalTo(self).inset(30)
         }
     }
     
     private func setupConstraintsStackButtons() {
         stackButtons.snp.makeConstraints { make in
             make.top.equalTo(textLable).offset(135)
-            make.bottom.equalTo(pauseView).inset(40)
-            make.leading.equalTo(pauseView).offset(40)
-            make.trailing.equalTo(pauseView).inset(40)
+            make.bottom.equalTo(self).inset(40)
+            make.leading.equalTo(self).offset(40)
+            make.trailing.equalTo(self).inset(40)
         }
     }
 

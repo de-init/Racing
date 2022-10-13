@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 class HomeViewController: UIViewController {
-    private let homeView = HomeMenu()
+    private let homeView = HomeView()
     private var maxScore: Int!
     var coordinator: Coordinator?
 
@@ -19,33 +19,13 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         homeView.delegate = self
-    }
-    
-    // MARK: - Layout
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        setupLayout()
-    }
-    private func setupLayout() {
-        makeLayoutHomeView()
-    }
-    private func makeLayoutHomeView() {
-        homeView.frame = view.bounds
+        setBestScore()
     }
     
     // MARK: - Private Methods
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        setBestScore()
-    }
-    private func setBestScore() {
-        guard let scoreArray = Globals.userDefaults.object(forKey: "score") as? [Int] else { return }
-        maxScore = scoreArray.max()
-        DispatchQueue.main.async {
-            self.homeView.updateScore(score: self.maxScore)
-        }
-    }
+    
     private func showInfoViewControllerSheet() {
         let viewControllerToPresent = InfoButtonSheetViewController()
         if let sheet = viewControllerToPresent.sheetPresentationController {
@@ -57,9 +37,43 @@ class HomeViewController: UIViewController {
         }
         present(viewControllerToPresent, animated: true, completion: nil)
     }
+    
+    private func setBestScore() {
+        DispatchQueue.main.async {
+            self.homeView.updateScore(score: self.getMaxNum())
+        }
+    }
+    
+    private func getMaxNum() -> Int {
+        var temp: [Int] = []
+        if let array = ResultsManager.savedResults() {
+            for i in array {
+                temp.append(i.score)
+            }
+        }
+        guard let maxNum = temp.max() else { return 0 }
+        return maxNum
+    }
+    
+    // MARK: - Layout
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        setupLayout()
+    }
+    
+    private func setupLayout() {
+        makeLayoutHomeView()
+    }
+    
+    private func makeLayoutHomeView() {
+        homeView.frame = view.bounds
+    }
 }
 
 // MARK: - Extensions
+
 extension HomeViewController: MenuViewDelegate {
     func didTapLeaderboardButton() {
         coordinator?.displayLeaderboardScreen()
@@ -75,6 +89,7 @@ extension HomeViewController: MenuViewDelegate {
         coordinator?.displayGameScreen()
         dismiss(animated: false)
     }
+    
     func didTapInfoButton() {
         self.showInfoViewControllerSheet()
     }

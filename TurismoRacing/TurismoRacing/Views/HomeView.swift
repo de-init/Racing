@@ -16,7 +16,7 @@ protocol MenuViewDelegate: AnyObject {
     func didTapInfoButton()
 }
 
-class HomeMenu: UIView {
+class HomeView: UIView {
     private var onPlayButton: UIButton!
     private var onSettingsButton: UIButton!
     private var onLeaderboardButton: UIButton!
@@ -52,6 +52,7 @@ class HomeMenu: UIView {
     }
     
     // MARK: - SetupUI
+    
     private func setupUI() {
         makeImageViewMainScreen()
         makePlayButton()
@@ -64,6 +65,7 @@ class HomeMenu: UIView {
         makeStackViewRight()
         makeStackViewLeft()
     }
+    
     private func makeImageViewMainScreen() {
         imageViewMainScreen = UIImageView(frame: UIScreen.main.bounds)
         imageViewMainScreen.contentMode = .scaleAspectFill
@@ -71,6 +73,7 @@ class HomeMenu: UIView {
         imageViewMainScreen.image = imageMainScreen
         addSubview(imageViewMainScreen)
     }
+    
     private func makePlayButton() {
         onPlayButton = createButton(image: "playButtonImage")
         onPlayButton.setTitle(Strings.play.localized, for: .normal)
@@ -80,37 +83,45 @@ class HomeMenu: UIView {
         onPlayButton.addTarget(self, action: #selector(didTapPlayButton), for: .touchUpInside)
         addSubview(onPlayButton)
     }
+    
     private func makeSettingsButton() {
         onSettingsButton = createButton(image: "settingsButtonImage")
         onSettingsButton.addTarget(self, action: #selector(didTapSettingsButton), for: .touchUpInside)
         addSubview(onSettingsButton)
     }
+    
     private func makeLeaderboardButton() {
         onLeaderboardButton = createButton(image: "leaderboardButtonImage")
         onLeaderboardButton.addTarget(self, action: #selector(didTapLeaderboardButton), for: .touchUpInside)
         addSubview(onLeaderboardButton)
     }
+    
     private func makeGarageButton() {
         onGarageButton = createButton(image: "garageButtonImage")
         addSubview(onGarageButton)
     }
+    
     private func makeShopButton() {
         onShopButton = createButton(image: "shopButtonImage")
         addSubview(onShopButton)
     }
+    
     private func makeInfoButton() {
         onInfoButton = createButton(image: "infoButtonImage")
         onInfoButton.addTarget(self, action: #selector(didTapInfoButton), for: .touchUpInside)
         addSubview(onInfoButton)
     }
+    
     private func makeBestScoreLable() {
         bestScoreLable.text = Strings.bestScore.localized
         bestScoreLable.textColor = .white
-        bestScoreLable.font = UIFont(name: Fonts.Poppins.bold.fontName, size: 28)
+        bestScoreLable.font = UIFont(name: Fonts.Poppins.bold.fontName, size: 25)
         bestScoreLable.textAlignment = .center
         bestScoreLable.adjustsFontSizeToFitWidth = true
+        bestScoreLable.numberOfLines = 2
         addSubview(bestScoreLable)
     }
+    
     private func makeStackViewRight() {
         stackViewRight = UIStackView(arrangedSubviews: [onSettingsButton, onLeaderboardButton])
         stackViewRight.axis = .vertical
@@ -119,6 +130,7 @@ class HomeMenu: UIView {
         stackViewRight.spacing = 15
         addSubview(stackViewRight)
     }
+    
     private func makeStackViewLeft() {
         stackViewLeft = UIStackView(arrangedSubviews: [onShopButton, onGarageButton])
         stackViewLeft.axis = .vertical
@@ -127,7 +139,9 @@ class HomeMenu: UIView {
         stackViewLeft.spacing = 15
         addSubview(stackViewLeft)
     }
+    
     // MARK: - Additional Methods
+    
     private func createButton(image: String) -> UIButton {
         let button = UIButton()
         button.setBackgroundImage(UIImage(named: image), for: .normal)
@@ -136,10 +150,13 @@ class HomeMenu: UIView {
         button.subviews.first?.contentMode = .scaleAspectFit
         return button
     }
+    
     func updateScore(score: Int) {
         bestScoreLable.text = "\(Strings.bestScore.localized) \n \(score)"
     }
+    
     // MARK: - Delegate Methods
+    
     @objc private func didTapPlayButton() {
         delegate?.didTapPlayButton()
     }
@@ -152,7 +169,9 @@ class HomeMenu: UIView {
     @objc private func didTapInfoButton() {
         delegate?.didTapInfoButton()
     }
+    
     // MARK: - Layout
+    
     override func layoutSubviews() {
         setupConstraints()
     }

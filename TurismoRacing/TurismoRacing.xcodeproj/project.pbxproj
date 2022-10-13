@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9104939B28F560EE00FF7D22 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9104939A28F560EE00FF7D22 /* ResultView.swift */; };
 		910D26F628918A8C004E7475 /* CarModelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910D26F528918A8C004E7475 /* CarModelCollectionViewCell.swift */; };
 		910D26F828918AAB004E7475 /* CarModelCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910D26F728918AAB004E7475 /* CarModelCollectionView.swift */; };
 		910D26FA289194A7004E7475 /* UIButton+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910D26F9289194A7004E7475 /* UIButton+Extensions.swift */; };
@@ -16,31 +17,40 @@
 		912429B32858A0000007F0B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912429B22858A0000007F0B3 /* AppDelegate.swift */; };
 		912429B52858A0000007F0B3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912429B42858A0000007F0B3 /* SceneDelegate.swift */; };
 		912429B72858A0000007F0B3 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912429B62858A0000007F0B3 /* GameViewController.swift */; };
-		912429BA2858A0000007F0B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 912429B82858A0000007F0B3 /* Main.storyboard */; };
 		912429BC2858A0010007F0B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 912429BB2858A0010007F0B3 /* Assets.xcassets */; };
 		912429BF2858A0010007F0B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 912429BD2858A0010007F0B3 /* LaunchScreen.storyboard */; };
-		9153F872289D794A00AB7152 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9153F871289D794A00AB7152 /* Globals.swift */; };
+		9128D8D328F6C9EF00F9CBDE /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 9128D8D228F6C9EF00F9CBDE /* SnapKit */; };
+		9153AD1628EDB2BE00A48FF2 /* Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9153AD1528EDB2BE00A48FF2 /* Object.swift */; };
+		9153AD1B28EDC8D000A48FF2 /* GameProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9153AD1A28EDC8D000A48FF2 /* GameProtocol.swift */; };
 		9153F875289D7C8500AB7152 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9153F874289D7C8500AB7152 /* Fonts.swift */; };
 		9153F877289D7C9300AB7152 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9153F876289D7C9300AB7152 /* Localizable.swift */; };
 		9157773928A1998C00FDF68F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9157773B28A1998C00FDF68F /* Localizable.strings */; };
-		916CF25E28CA840E00749318 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916CF25D28CA840E00749318 /* Images.swift */; };
+		9164C3AE28E2FA5700C4FA97 /* Cars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9164C3AD28E2FA5700C4FA97 /* Cars.swift */; };
+		9164C3B628E30EB700C4FA97 /* StartTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9164C3B528E30EB700C4FA97 /* StartTimer.swift */; };
+		916CF25E28CA840E00749318 /* Objects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916CF25D28CA840E00749318 /* Objects.swift */; };
 		9188BA72286D0614000ECD09 /* LeaderboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9188BA71286D0614000ECD09 /* LeaderboardViewController.swift */; };
 		9188BA74286D064A000ECD09 /* LeaderboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9188BA73286D064A000ECD09 /* LeaderboardView.swift */; };
 		918AFD3228A6AAC000FE3B95 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918AFD3128A6AAC000FE3B95 /* InfoView.swift */; };
 		918AFD3428A6ABE900FE3B95 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918AFD3328A6ABE900FE3B95 /* UIImage+Extensions.swift */; };
 		918CD7AC28A9218D004C5D9A /* InfoButtonSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918CD7AB28A9218D004C5D9A /* InfoButtonSheetViewController.swift */; };
+		9191420F28E72714009CD503 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9191420E28E72714009CD503 /* Settings.swift */; };
+		9191421128E72729009CD503 /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9191421028E72729009CD503 /* Car.swift */; };
+		9191421528E72809009CD503 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9191421428E72809009CD503 /* UserDefaultsManager.swift */; };
+		9191421728E72D62009CD503 /* Difficulty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9191421628E72D62009CD503 /* Difficulty.swift */; };
 		91917D3A28D8BA7400688E14 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91917D3928D8BA7400688E14 /* Coordinator.swift */; };
 		91917D3C28D8C06C00688E14 /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91917D3B28D8C06C00688E14 /* CustomNavigationBar.swift */; };
 		91917D3E28D8C08C00688E14 /* CustomNavigationBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91917D3D28D8C08C00688E14 /* CustomNavigationBarItem.swift */; };
 		91AE1D022865F679000FAEF4 /* Poppins-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 91AE1CFF2865F678000FAEF4 /* Poppins-ExtraLight.ttf */; };
 		91AE1D032865F679000FAEF4 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 91AE1D002865F678000FAEF4 /* Poppins-Bold.ttf */; };
 		91AE1D042865F679000FAEF4 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 91AE1D012865F679000FAEF4 /* Poppins-SemiBold.ttf */; };
-		91AE8F25289A6BC200C1FAAA /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 91AE8F24289A6BC200C1FAAA /* SnapKit */; };
-		91B92D6F28B3EFD1001FA0B0 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B92D6E28B3EFD1001FA0B0 /* Enums.swift */; };
+		91B92D6F28B3EFD1001FA0B0 /* Links.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B92D6E28B3EFD1001FA0B0 /* Links.swift */; };
 		91BD027228D20B7C008D7F70 /* PauseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BD027128D20B7C008D7F70 /* PauseView.swift */; };
 		91CCF9F228AE4A0B007902A2 /* Montserrat-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 91CCF9F128AE4A0B007902A2 /* Montserrat-VariableFont_wght.ttf */; };
 		91DACB9E2864965500F68E16 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DACB9D2864965500F68E16 /* SettingsView.swift */; };
 		91DACBA02864998400F68E16 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DACB9F2864998400F68E16 /* SettingsViewController.swift */; };
+		91DCCA8528E323C300D10D94 /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DCCA8428E323C300D10D94 /* UIImageView+Extensions.swift */; };
+		91DCCA8728E3266F00D10D94 /* GameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DCCA8628E3266F00D10D94 /* GameManager.swift */; };
+		91DCCA8928E3275500D10D94 /* Maps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DCCA8828E3275500D10D94 /* Maps.swift */; };
 		91E6CE452859DF1C00F52DD1 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E6CE442859DF1B00F52DD1 /* HomeViewController.swift */; };
 		91E6CE4F2859E15700F52DD1 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E6CE4E2859E15700F52DD1 /* HomeView.swift */; };
 		91E6CE572859EC3300F52DD1 /* OrelegaOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 91E6CE562859EC3300F52DD1 /* OrelegaOne-Regular.ttf */; };
@@ -49,6 +59,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9104939A28F560EE00FF7D22 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
 		910D26F528918A8C004E7475 /* CarModelCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarModelCollectionViewCell.swift; sourceTree = "<group>"; };
 		910D26F728918AAB004E7475 /* CarModelCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarModelCollectionView.swift; sourceTree = "<group>"; };
 		910D26F9289194A7004E7475 /* UIButton+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extensions.swift"; sourceTree = "<group>"; };
@@ -59,36 +70,45 @@
 		912429B22858A0000007F0B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		912429B42858A0000007F0B3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		912429B62858A0000007F0B3 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
-		912429B92858A0000007F0B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		912429BB2858A0010007F0B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		912429BE2858A0010007F0B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		912429C02858A0010007F0B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9153F871289D794A00AB7152 /* Globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
+		9153AD1528EDB2BE00A48FF2 /* Object.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Object.swift; sourceTree = "<group>"; };
+		9153AD1A28EDC8D000A48FF2 /* GameProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameProtocol.swift; sourceTree = "<group>"; };
 		9153F874289D7C8500AB7152 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		9153F876289D7C9300AB7152 /* Localizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizable.swift; sourceTree = "<group>"; };
 		9157773A28A1998C00FDF68F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9157773C28A19A2E00FDF68F /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9164C3AD28E2FA5700C4FA97 /* Cars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cars.swift; sourceTree = "<group>"; };
+		9164C3B528E30EB700C4FA97 /* StartTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartTimer.swift; sourceTree = "<group>"; };
 		9166995D28A5333500457387 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9166995E28A5333F00457387 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9166995F28A5335000457387 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9166996028A5336400457387 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
-		916CF25D28CA840E00749318 /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
+		916CF25D28CA840E00749318 /* Objects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Objects.swift; sourceTree = "<group>"; };
 		9188BA71286D0614000ECD09 /* LeaderboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardViewController.swift; sourceTree = "<group>"; };
 		9188BA73286D064A000ECD09 /* LeaderboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardView.swift; sourceTree = "<group>"; };
 		918AFD3128A6AAC000FE3B95 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		918AFD3328A6ABE900FE3B95 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		918CD7AB28A9218D004C5D9A /* InfoButtonSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoButtonSheetViewController.swift; sourceTree = "<group>"; };
+		9191420E28E72714009CD503 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		9191421028E72729009CD503 /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
+		9191421428E72809009CD503 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
+		9191421628E72D62009CD503 /* Difficulty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Difficulty.swift; sourceTree = "<group>"; };
 		91917D3928D8BA7400688E14 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		91917D3B28D8C06C00688E14 /* CustomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
 		91917D3D28D8C08C00688E14 /* CustomNavigationBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBarItem.swift; sourceTree = "<group>"; };
 		91AE1CFF2865F678000FAEF4 /* Poppins-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraLight.ttf"; sourceTree = "<group>"; };
 		91AE1D002865F678000FAEF4 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
 		91AE1D012865F679000FAEF4 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
-		91B92D6E28B3EFD1001FA0B0 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		91B92D6E28B3EFD1001FA0B0 /* Links.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Links.swift; sourceTree = "<group>"; };
 		91BD027128D20B7C008D7F70 /* PauseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseView.swift; sourceTree = "<group>"; };
 		91CCF9F128AE4A0B007902A2 /* Montserrat-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-VariableFont_wght.ttf"; sourceTree = "<group>"; };
 		91DACB9D2864965500F68E16 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		91DACB9F2864998400F68E16 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		91DCCA8428E323C300D10D94 /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
+		91DCCA8628E3266F00D10D94 /* GameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameManager.swift; sourceTree = "<group>"; };
+		91DCCA8828E3275500D10D94 /* Maps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Maps.swift; sourceTree = "<group>"; };
 		91E6CE442859DF1B00F52DD1 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		91E6CE4E2859E15700F52DD1 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		91E6CE562859EC3300F52DD1 /* OrelegaOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OrelegaOne-Regular.ttf"; sourceTree = "<group>"; };
@@ -101,7 +121,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				91AE8F25289A6BC200C1FAAA /* SnapKit in Frameworks */,
+				9128D8D328F6C9EF00F9CBDE /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -129,6 +149,8 @@
 			isa = PBXGroup;
 			children = (
 				910ECC7528CB5933009F204B /* ResultManager.swift */,
+				91DCCA8628E3266F00D10D94 /* GameManager.swift */,
+				9191421428E72809009CD503 /* UserDefaultsManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -137,7 +159,6 @@
 			isa = PBXGroup;
 			children = (
 				912429B12858A0000007F0B3 /* TurismoRacing */,
-				912429B82858A0000007F0B3 /* Main.storyboard */,
 				912429B02858A0000007F0B3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -154,15 +175,24 @@
 			isa = PBXGroup;
 			children = (
 				91917D3728D8B73F00688E14 /* Application */,
-				91E6CE472859DFFF00F52DD1 /* Resources */,
 				91917D3828D8B9A600688E14 /* Coordinator */,
-				910ECC7028CB51C7009F204B /* Managers */,
 				916CF25A28CA46AA00749318 /* Model */,
+				910ECC7028CB51C7009F204B /* Managers */,
+				9153AD1928EDC8B800A48FF2 /* Protocols */,
 				91E6CE432859DF0700F52DD1 /* ViewControllers */,
 				91E6CE462859DF3A00F52DD1 /* Views */,
 				91E6CE482859E02500F52DD1 /* Utilities */,
+				91E6CE472859DFFF00F52DD1 /* Resources */,
 			);
 			path = TurismoRacing;
+			sourceTree = "<group>";
+		};
+		9153AD1928EDC8B800A48FF2 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				9153AD1A28EDC8D000A48FF2 /* GameProtocol.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		9153F873289D7C3800AB7152 /* ResourceHelpers */ = {
@@ -170,9 +200,11 @@
 			children = (
 				9153F874289D7C8500AB7152 /* Fonts.swift */,
 				9153F876289D7C9300AB7152 /* Localizable.swift */,
-				91B92D6E28B3EFD1001FA0B0 /* Enums.swift */,
-				916CF25D28CA840E00749318 /* Images.swift */,
-				9153F871289D794A00AB7152 /* Globals.swift */,
+				91B92D6E28B3EFD1001FA0B0 /* Links.swift */,
+				916CF25D28CA840E00749318 /* Objects.swift */,
+				9164C3AD28E2FA5700C4FA97 /* Cars.swift */,
+				91DCCA8828E3275500D10D94 /* Maps.swift */,
+				9191421628E72D62009CD503 /* Difficulty.swift */,
 			);
 			path = ResourceHelpers;
 			sourceTree = "<group>";
@@ -182,6 +214,9 @@
 			children = (
 				910ECC7328CB52A1009F204B /* Result.swift */,
 				91917D3D28D8C08C00688E14 /* CustomNavigationBarItem.swift */,
+				9191420E28E72714009CD503 /* Settings.swift */,
+				9191421028E72729009CD503 /* Car.swift */,
+				9153AD1528EDB2BE00A48FF2 /* Object.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -222,8 +257,10 @@
 				91E6CE4E2859E15700F52DD1 /* HomeView.swift */,
 				91DACB9D2864965500F68E16 /* SettingsView.swift */,
 				9188BA73286D064A000ECD09 /* LeaderboardView.swift */,
-				918AFD3128A6AAC000FE3B95 /* InfoView.swift */,
 				91BD027128D20B7C008D7F70 /* PauseView.swift */,
+				918AFD3128A6AAC000FE3B95 /* InfoView.swift */,
+				9104939A28F560EE00FF7D22 /* ResultView.swift */,
+				9164C3B528E30EB700C4FA97 /* StartTimer.swift */,
 				910D26F428918A37004E7475 /* CarModelCollectionView */,
 				910D26F328918A29004E7475 /* TableViewCell */,
 			);
@@ -270,6 +307,7 @@
 				91E6CE5A285A008C00F52DD1 /* UIColor+Extensions.swift */,
 				910D26F9289194A7004E7475 /* UIButton+Extensions.swift */,
 				918AFD3328A6ABE900FE3B95 /* UIImage+Extensions.swift */,
+				91DCCA8428E323C300D10D94 /* UIImageView+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -291,7 +329,7 @@
 			);
 			name = TurismoRacing;
 			packageProductDependencies = (
-				91AE8F24289A6BC200C1FAAA /* SnapKit */,
+				9128D8D228F6C9EF00F9CBDE /* SnapKit */,
 			);
 			productName = TurismoRacing;
 			productReference = 912429AF2858A0000007F0B3 /* TurismoRacing.app */;
@@ -327,7 +365,7 @@
 			);
 			mainGroup = 912429A62858A0000007F0B3;
 			packageReferences = (
-				91AE8F23289A6BC200C1FAAA /* XCRemoteSwiftPackageReference "SnapKit" */,
+				9128D8D128F6C9EF00F9CBDE /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = 912429B02858A0000007F0B3 /* Products */;
 			projectDirPath = "";
@@ -352,7 +390,6 @@
 				91E6CE592859EC4600F52DD1 /* HammersmithOne-Regular.ttf in Resources */,
 				91AE1D042865F679000FAEF4 /* Poppins-SemiBold.ttf in Resources */,
 				91E6CE572859EC3300F52DD1 /* OrelegaOne-Regular.ttf in Resources */,
-				912429BA2858A0000007F0B3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,18 +401,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				910D26F628918A8C004E7475 /* CarModelCollectionViewCell.swift in Sources */,
+				9104939B28F560EE00FF7D22 /* ResultView.swift in Sources */,
 				912429B72858A0000007F0B3 /* GameViewController.swift in Sources */,
-				916CF25E28CA840E00749318 /* Images.swift in Sources */,
+				916CF25E28CA840E00749318 /* Objects.swift in Sources */,
 				91DACB9E2864965500F68E16 /* SettingsView.swift in Sources */,
-				91B92D6F28B3EFD1001FA0B0 /* Enums.swift in Sources */,
+				9191420F28E72714009CD503 /* Settings.swift in Sources */,
+				91B92D6F28B3EFD1001FA0B0 /* Links.swift in Sources */,
 				910ECC7428CB52A1009F204B /* Result.swift in Sources */,
-				9153F872289D794A00AB7152 /* Globals.swift in Sources */,
 				910ECC7628CB5933009F204B /* ResultManager.swift in Sources */,
+				9153AD1628EDB2BE00A48FF2 /* Object.swift in Sources */,
 				912429B32858A0000007F0B3 /* AppDelegate.swift in Sources */,
 				910ECC7828CBBF75009F204B /* TableViewCell.swift in Sources */,
 				918AFD3228A6AAC000FE3B95 /* InfoView.swift in Sources */,
 				918AFD3428A6ABE900FE3B95 /* UIImage+Extensions.swift in Sources */,
+				9191421128E72729009CD503 /* Car.swift in Sources */,
 				91BD027228D20B7C008D7F70 /* PauseView.swift in Sources */,
+				9191421728E72D62009CD503 /* Difficulty.swift in Sources */,
+				91DCCA8528E323C300D10D94 /* UIImageView+Extensions.swift in Sources */,
 				912429B52858A0000007F0B3 /* SceneDelegate.swift in Sources */,
 				9153F875289D7C8500AB7152 /* Fonts.swift in Sources */,
 				918CD7AC28A9218D004C5D9A /* InfoButtonSheetViewController.swift in Sources */,
@@ -386,8 +428,14 @@
 				91917D3C28D8C06C00688E14 /* CustomNavigationBar.swift in Sources */,
 				9188BA74286D064A000ECD09 /* LeaderboardView.swift in Sources */,
 				91E6CE4F2859E15700F52DD1 /* HomeView.swift in Sources */,
+				91DCCA8728E3266F00D10D94 /* GameManager.swift in Sources */,
+				9153AD1B28EDC8D000A48FF2 /* GameProtocol.swift in Sources */,
+				91DCCA8928E3275500D10D94 /* Maps.swift in Sources */,
 				91E6CE452859DF1C00F52DD1 /* HomeViewController.swift in Sources */,
+				9164C3B628E30EB700C4FA97 /* StartTimer.swift in Sources */,
+				9191421528E72809009CD503 /* UserDefaultsManager.swift in Sources */,
 				910D26FA289194A7004E7475 /* UIButton+Extensions.swift in Sources */,
+				9164C3AE28E2FA5700C4FA97 /* Cars.swift in Sources */,
 				91917D3A28D8BA7400688E14 /* Coordinator.swift in Sources */,
 				9153F877289D7C9300AB7152 /* Localizable.swift in Sources */,
 				91DACBA02864998400F68E16 /* SettingsViewController.swift in Sources */,
@@ -397,14 +445,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		912429B82858A0000007F0B3 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				912429B92858A0000007F0B3 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		912429BD2858A0010007F0B3 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -557,7 +597,6 @@
 				INFOPLIST_FILE = TurismoRacing/Application/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
@@ -590,7 +629,6 @@
 				INFOPLIST_FILE = TurismoRacing/Application/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
@@ -635,20 +673,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		91AE8F23289A6BC200C1FAAA /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+		9128D8D128F6C9EF00F9CBDE /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
 			requirement = {
-				kind = upToNextMinorVersion;
-				minimumVersion = 5.6.0;
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		91AE8F24289A6BC200C1FAAA /* SnapKit */ = {
+		9128D8D228F6C9EF00F9CBDE /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 91AE8F23289A6BC200C1FAAA /* XCRemoteSwiftPackageReference "SnapKit" */;
+			package = 9128D8D128F6C9EF00F9CBDE /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
