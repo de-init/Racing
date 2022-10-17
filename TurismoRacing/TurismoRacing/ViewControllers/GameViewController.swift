@@ -249,7 +249,7 @@ class GameViewController: UIViewController {
         var returnValue = false
         if let score = ResultsManager.savedResults() {
             for i in score {
-                if record >= i.score {
+                if record > i.score {
                     returnValue = true
                 }
             }
@@ -300,6 +300,8 @@ class GameViewController: UIViewController {
     private func saveResult() {
         let record = Result(score: self.game.currentScore)
         if checkRecord(record: self.game.currentScore) {
+            ResultsManager.saveResult(result: record)
+        } else {
             ResultsManager.saveResult(result: record)
         }
     }
